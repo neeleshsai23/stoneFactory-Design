@@ -1,0 +1,165 @@
+<div class="NewHeader">
+  <h1 mat-dialog-title>
+  
+    <span class="title-left">Update</span> Payment
+  </h1>
+</div>
+<div mat-dialog-content>
+  <div class="page-content-wrapper">
+    <div class="page-content clearfix ">
+      <div class="row nopadding">
+  
+        <div class="container">
+          <div class="col-sm-12 nopadding margin-top-10">
+            <div class="col-sm-12 nopadding">
+              <div class="col-sm-12" style="background:#fff;padding:10px;">
+                <div class="col-sm-12 nopadding" style="border: 1px solid #eee;box-shadow: 1px 0px 2px 1px #eee;padding:10px;">
+                  <form [formGroup]="manageSubForm" novalidate>
+                    <div class="col-sm-12 nopadding">
+                      <div class="form-group">
+                        <div class="col-sm-12 nopadding margin-top-10">
+                          <div class="col-sm-4">
+                            <label class="control-label add-member-label">Date Time&nbsp;:</label>
+                          </div>
+                          <div class="col-sm-4">
+                            <div class="input-group">
+                              <input class="form-control"  formControlName='managesubpackagestartdate'
+                                [owlDateTimeTrigger]="managesubpackagestartdate" [owlDateTime]="managesubpackagestartdate"
+                                name="managesubpackagestartdate" placeholder="MM/DD/YYYY" [min]="cur_date" />
+                              <owl-date-time (afterPickerClosed)="onStartDateChange()" #managesubpackagestartdate
+                                [pickerType]="'calendar'"></owl-date-time>
+                              <span class="input-group-addon">
+                                <i class="fa fa-calendar" style="height: 10px;"></i>
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <div class="col-sm-12 nopadding margin-top-10">
+                          <div class="col-sm-4">
+                            <label class="control-label add-member-label">Member Name&nbsp;:</label>
+                          </div>
+                          <div class="col-sm-4">
+                            <div class="input-group col-sm-12">
+                              <input type="text" class="form-control" style="width: auto;" placeholder="Enter Member Name">
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <div class="col-sm-12 nopadding margin-top-10">
+                          <div class="col-sm-4">
+                            <label class="control-label add-member-label">Package&nbsp;:</label>
+                          </div>
+                          <div class="col-sm-8">
+                            <div class="input-group">
+                              <input type="text" style="width: auto;" class="form-control" name="packVal" placeholder="Enter Package" formControlName='managesubpackageprice'
+                                />
+                              
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <div class="col-sm-12 nopadding margin-top-10">
+                          <div class="col-sm-4">
+                            <label class="control-label add-member-label">Amount:</label>
+                          </div>
+                          <div class="col-sm-8">
+                            <div class="input-group">
+                              <input type="text"  style="width: auto;"class="form-control" name="maxven" placeholder="Enter Amount" formControlName='managesubpackagenumven'
+                                />
+                             
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <div class="col-sm-12 nopadding margin-top-10">
+                          <div class="col-sm-4">
+                            <label class="control-label add-member-label">Reference:</label>
+                          </div>
+                          <div class="col-sm-8">
+                            <div class="input-group">
+                              <input class="form-control" style="width: auto;" placeholder="Enter Reference"
+                                />
+                              
+                             
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                     
+                      
+                    </div>
+                    <div class="col-sm-4">
+                      <!-- <div class="form-group">
+                        <div class="col-sm-12 nopadding margin-top-10">
+                          <div class="col-sm-4">
+                            <label class="control-label add-member-label">Payment Mode&nbsp;:</label>
+                          </div>
+                          <div class="col-sm-8">
+                            <div class="input-group col-sm-12">
+                              <div class="col-sm-6 padding-0">
+                                <input type="radio" name="optradio" (click)="paymentMode(false)" class="radio radioclcik" id="yesradiobtn" style="float:left;min-height:22px;"
+                                />&nbsp;
+                                <label style="margin-top:5px">Online</label>
+                              </div>
+                              <div class="col-sm-6 padding-0">
+                                <input checked type="radio" name="optradio" (click)="paymentMode(true)" class="radio radioclcik" id="noradiobtn" style="float:left;min-height:22px;"
+                                />&nbsp;
+                                <label style="margin-top:5px">Offline</label>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div> -->
+                      
+  
+                     
+                      <!--
+                      <div *ngIf="showOfflineDivs" class="form-group">
+                        <div class="col-sm-12 nopadding margin-top-10">
+                          <div class="col-sm-4">
+                            <label class="control-label">Attach File&nbsp;:</label>
+                          </div>
+                          <div class="col-sm-8">
+                            <div class="input-group">
+                              <input #addfileTag type="file" (change)="fileChangeEvent($event,0)" accept="image/*" placeholder="Upload file..." />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+  -->
+                    </div>
+                  </form>
+                </div>
+                <!-- <div class="col-md-12" style="margin-top:10px;text-align:center">
+  
+                  <div class="form-group">
+                    <div class="col-sm-6 margin-top-20">
+                      <button *ngIf='show_paytm_toggle'  type="button" 
+                        class="btn btn-success" mat-raised-button>Update Payment</button>
+                        <button mat-raised-button class="CancelClass" (click)="close()" style="margin-left: 30px;">
+                          Close
+                        </button>
+                    </div>
+                  </div>
+  
+                </div> -->
+  
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<mat-dialog-actions align="end" style="margin-left: 68%;">
+  <button mat-raised-button class="btn-success" >Update Payment</button>
+  <button mat-raised-button class="CancelClass" (click)="close()">Close</button>
+</mat-dialog-actions>

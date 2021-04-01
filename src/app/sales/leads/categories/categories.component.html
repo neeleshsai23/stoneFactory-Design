@@ -1,0 +1,87 @@
+<app-leads></app-leads>
+
+ <!--<div class="row-wrap">
+      <div class="w-100">
+       <div class="row">
+      <div class="col-xs-6" style="margin: 20px;">
+        <div class="pills">
+          <ul class="nav nav-pills">
+            <li routerLinkActive="active">
+              <a mat-raised-button class="navtabWidth" >
+                 Internal Solutions
+              </a>
+            </li>
+            <li routerLinkActive="active">
+              <a mat-raised-button class="navtabWidth" >
+                 External Solutions
+              </a>
+            </li>
+            <li routerLinkActive="active" style="width: 160px;">
+              <a mat-raised-button class="navtabWidth" >
+                 Walling
+              </a>
+            </li>
+            <li routerLinkActive="active" style="width: 160px;">
+              <a mat-raised-button class="navtabWidth" >
+                Paving
+              </a>
+            </li>
+            
+          </ul>
+        </div>
+       
+
+
+
+
+
+
+      </div>
+
+      <div class="col-sm-4" style="margin-top: 30px;position: relative;left: 15%;">
+       
+        <div class="col-sm-8">
+      
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
+<div>
+  <div fxLayout="row wrap" >
+    <div class="table-responsive topmargin" style="width:100% !important;margin-top: 50px;">
+        <table id="example2" class="table table-bordered table-hover">
+            <thead class="tbl-head">
+                <tr class="tr-grid-header">
+                    <th >Category Name</th>
+                    <th class="text-center" >Status</th>
+                    <th  class="text-center" style="min-width: 100px !important;">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+         
+                <tr *ngFor="let item of items">
+                    <td >{{item.category_name}}</td>
+                  
+                    <td class="text-center">
+                      <a style="color: blue;">
+                         Active
+                             </a>
+                      <!-- <a style="cursor: pointer;" (click)="changeStatus(cat)"[style.color]="(cat.is_active) == '0' ? 'green' : 'red'">{{(cat.is_active) == 0 ? 'Active' : 'Inactive'}}</a> -->
+                  </td>
+                    <td  class="text-center">
+                        <a  title="Edit" style="cursor: pointer; margin-right: 10px !important">
+                            <i class="fa fa-edit" style="color: cornflowerblue"></i>
+                        </a>
+                        <a >
+                            <i style="cursor: pointer;" title="Delete" class="fa fa-trash red"></i>
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <mat-paginator  [pageSizeOptions]="[5, 10, 25, 50, 100]"  showFirstLastButtons></mat-paginator>
+    </div>
+</div>
+   
+</div> 

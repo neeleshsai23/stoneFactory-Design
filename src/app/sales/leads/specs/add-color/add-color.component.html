@@ -1,0 +1,41 @@
+<!--<div class="form-group row" style="margin-top: 20px;">
+  <label class="control-label col-lg-3 col-md-3 col-sm-3 col-xs-3 add-member-label" for="pwd">Enter New Color:&nbsp;</label>
+  
+      <input  type="text" class="form-control col-lg-6"  maxlength="30"  placeholder="Enter New Color " required>
+      <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>
+        <button  mat-raised-button class="btn-primary col-lg-2"  >Add</button>
+      
+ 
+</div>-->
+
+
+<div class="form-group row"style="margin-top: 20px;">
+  <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label" for="pwd">Enter New Color:&nbsp;</label>
+  <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
+      <input type="text"class="form-control"  maxlength="30"  placeholder="Enter New Color " required>
+    
+  </div>
+  <mat-dialog-actions  style="margin-left: 80%;">
+    <button mat-raised-button class="btn-primary" >Add</button>
+  </mat-dialog-actions>
+  </div>
+
+
+
+<div class="form-group row"  style="margin-top: 40px;">
+  <label class="control-label col-sm-4 add-member-label" for="pwd">Select Color:&nbsp; </label>
+  <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+  
+    <mat-checkbox  class="col-sm-4" [checked]="true" >Sand</mat-checkbox>
+    <mat-checkbox  class="col-sm-4">Neutral</mat-checkbox>
+    <mat-checkbox  class="col-sm-4" [checked]="true">Turf</mat-checkbox>
+    <mat-checkbox  class="col-sm-4">Basalt</mat-checkbox>
+    <!-- <mat-checkbox class="col-sm-4" formControlName="BD">BD</mat-checkbox> -->
+    <mat-checkbox  class="col-sm-4" [checked]="true" >Ivory</mat-checkbox>
+    
+  </div>
+  <mat-dialog-actions align="end" style="margin-left: 68%;">
+    <button mat-raised-button class="btn-primary" >Save</button>
+    <button mat-raised-button class="CancelClass" (click)="close()">Cancel</button>
+  </mat-dialog-actions>
+  </div>

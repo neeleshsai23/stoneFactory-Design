@@ -1,0 +1,43 @@
+<div class="row" style="position: relative;left: 90%;">
+  <button mat-raised-button color="primary" class="pull-right filters-hover margin-right-10" style="margin-top: 20px;" (click)=" openIncidentDialog()"
+>
+ <mat-icon>filter_list</mat-icon> Add Spec
+</button>
+</div>
+
+<div fxLayout="row wrap" >
+  <div class="table-responsive topmargin" style="width:100% !important;margin-top: 50px;">
+      <table id="example2" class="table table-bordered table-hover">
+          <thead class="tbl-head">
+              <tr class="tr-grid-header">
+                  <th class="text-center">Raw Images</th>
+                
+                  <th class="text-center">Pattern</th>
+                  <th class="text-center">Angle</th>
+                 
+                  <th class="text-center" >Size</th>
+                  <th class="text-center" >Joint color</th>
+                  <th class="text-center" >Grout width</th>
+                
+              </tr>
+          </thead>
+          <tbody>
+           
+              <tr *ngFor="let item of items">
+                  <td class="text-center">
+                  {{item.raw_image}}
+                 
+                  </td>
+                  <td class="text-center" style="max-width: 300px !important; word-wrap: break-word !important;">     {{item.pattern}}</td>
+                  <td class="text-center">     {{item.angle}}</td>
+                  <td class="text-center">     {{item.size}}</td>
+                  <td class="text-center">     {{item.joint_color}}</td>
+                  <td class="text-center">     {{item.grout_width}}</td>
+                 
+               
+              </tr>
+          </tbody>
+      </table>
+      <mat-paginator  [pageSizeOptions]="[5, 10, 25, 50, 100]"  showFirstLastButtons></mat-paginator>
+  </div>
+</div>

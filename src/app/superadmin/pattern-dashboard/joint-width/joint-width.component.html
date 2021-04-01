@@ -1,0 +1,13 @@
+<div fxLayout="row wrap" >
+  <div style="position: relative;left: 87%;margin-top: 15px;">
+      <button mat-raised-button class="add-hover pull-right" (click)=" openjointwidthDialog()" style="background:#229494;color: white;" ><mat-icon>add</mat-icon>&nbsp;Add
+      Joint Width</button>
+      </div>
+
+      
+</div>
+<div class="w-100" fxLayout="row wrap" fxLayoutAlign="start start" style="margin-top: 20px;">
+  <div class="tabs" fxLayout="row" fxLayoutAlign="center center"  *ngFor="let value of widths" (click)="openViewImageDialog()">
+    <h3 style="font-weight: bold;">{{value}}</h3>
+  </div>
+</div>

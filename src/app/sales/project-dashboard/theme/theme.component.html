@@ -1,0 +1,41 @@
+<div class="col-xs-12">
+<div id="grid-table-container" class="table-responsive" style="margin-top: 20px;">
+  <table id="example2" class="table table-bordered table-hover table-striped">
+    <thead class="tbl-head">
+      <tr class="tr-grid-header">
+        <th>Color</th>
+        <!-- <th style="min-width: 120px;">Color Code Name</th> -->
+        <!-- <th class='text-center' style="min-width: 60px;">Default</th> -->
+        <th>Description</th>
+        <!-- <th>Status</th> -->
+        <th class='text-center'>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of colorCodes">
+        <td [style.background-color]="item.color_code">{{item.color}}</td>
+        <!-- <td>{{item.color_code_name}}</td> -->
+        <!-- <td class='text-center'>
+          <mat-radio-group (change)="updateColorCode(item)">
+            <mat-radio-button [checked]="item.is_default==1 ? true : false"  value="true"></mat-radio-button>
+          </mat-radio-group>
+          
+        </td> -->
+        <td>{{item.color_description}}</td>
+        
+        <td class='text-center'>
+          <a style="margin-right: 10px; cursor: pointer;color: blue;" (click)="openColorDialog()">
+            <!-- <i title="Edit Color Code" class="fa fa-edit"></i> -->
+            Change Color
+          </a>
+          <!-- <a>
+            <i style="cursor: pointer;" title="Delete Color Code" class="fa fa-trash red"></i>
+          </a> -->
+        </td>
+        
+      </tr>
+    </tbody>
+  </table>
+  <!-- <mat-paginator [length]="totalSize" [pageIndex]="currentPage" [pageSize]="pageSize" [pageSizeOptions]="[5, 10, 25, 50, 100]" (page)="handlePage($event)" showFirstLastButtons></mat-paginator> -->
+</div>
+</div>

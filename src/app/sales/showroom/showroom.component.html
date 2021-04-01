@@ -1,0 +1,157 @@
+<div class="body" >
+  <div *ngIf="!showroom" class="sticky" id="myHeader">
+    <div id="country-dialog" style="background: rgb(68,68,68);height:60px">
+      <!-- <div style="margin-top: 7px;margin-right: 20px;">
+        <p style="color: rgba(230,230,230,1);">Choose another country or region to see content specify to you location</p>
+      </div> -->
+      <div style="margin-left:10px">
+        <select style="width:200px;border-radius:5px;padding:5px 8px;background:rgb(88, 87, 87);color: white;cursor: pointer;">
+          <option>English</option>
+          <option>French</option>
+          <option>Dutch</option>
+          <option>Spanish</option>
+          <option>German</option>
+        </select>
+      </div>
+      <div>
+        <button style="padding:5px 10px;border:none;border-radius:5px;margin-left:30px;background:linear-gradient(#42a1ec, #0070c9);color: white;">Continue</button>
+      </div>
+      <!-- <div style="margin-top: 7px;">
+        <button style="background: rgb(68,68,68);border: none;outline: none;margin-left:10px" (click)="closeDialog()"><mat-icon style="color: white;">close</mat-icon></button>
+      </div> -->
+    </div>
+    <div id="HeaderContainer">
+      <div class="header flex-wrap">
+
+        <div id="LogoContainer"><a href="http://outhaus.ie"><img src="../../../assets/bricklogo.png" width="293"
+              height="77"></a></div>
+
+        <div class="controls flex1">
+          <div id="CategoryRadioButtons" class="flex-row flex-wrap">
+
+            <div class="radio-button accent">
+              <input [attr.checked]="true" id="EXTERNAL SOLUTIONSRadioButton" type="radio" name="Category">
+              <label for="EXTERNAL SOLUTIONSRadioButton">EXTERNAL SOLUTIONS</label>
+            </div>
+            <div class="radio-button accent">
+              <input id="INTERNAL SOLUTIONSRadioButton" type="radio" name="Category">
+              <label for="INTERNAL SOLUTIONSRadioButton">INTERNAL SOLUTIONS</label>
+            </div>
+          </div>
+          <div id="SubCategoryRadioButtons" class="flex-row flex-wrap mt12">
+            <div class="radio-button accent-border">
+              <input [attr.checked]="true" id="BRICKSRadioButton" type="radio" name="SubCategory">
+              <label for="BRICKSRadioButton">BRICKS</label>
+            </div>
+            <div class="radio-button accent-border">
+              <input id="ROMAN BRICKSRadioButton" type="radio" name="SubCategory">
+              <label for="ROMAN BRICKSRadioButton">ROMAN BRICKS</label>
+            </div>
+            <div class="radio-button accent-border">
+              <input id="CLADDINGRadioButton" type="radio" name="SubCategory">
+              <label for="CLADDINGRadioButton">CLADDING</label>
+            </div>
+            <div class="radio-button accent-border">
+              <input id="PAVINGRadioButton" type="radio" name="SubCategory">
+              <label for="PAVINGRadioButton">PAVING</label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="Filters" style="justify-content:flex-start;height: 40px !important;"
+      class="flex-row SystemControlBackgroundChromeLowBrush-background-color">
+
+      <div id="FiltersTitle" class="group-by-title mr12">Filter By:</div>
+
+      <div class="flex-row flex-wrap">
+        <button id="FilterButton" class="win-command accent-self rect noRound" style="border-radius: 0px !important;">
+          <div id="FilterButtonWrapper">
+            <div class="flex-row">
+              <div id="FilterButtonTitle" class="win-type-base">COLOUR</div>
+              <div class="win-commandimage ml12">
+                <span class="material-icons">
+                  expand_more
+                </span>
+              </div>
+            </div>
+          </div>
+        </button>
+
+        <!-- <div id="FilteringRadioButtons" class="flex-row flex-wrap">
+        <div class="radio-button accentNoRounding">
+          <input [attr.checked]="true" id="EngelsRadioButton" type="radio" name="Filtering" class=" labelNoColour">
+          <label for="EngelsRadioButton">Engels</label>
+        </div>
+        <div class="radio-button accentNoRounding">
+          <input id="ForterraRadioButton" type="radio" name="Filtering" class=" labelNoColour">
+          <label for="ForterraRadioButton">Forterra</label>
+        </div>
+        <div class="radio-button accentNoRounding">
+          <input id="Freshfield LaneRadioButton" type="radio" name="Filtering" class=" labelNoColour">
+          <label for="Freshfield LaneRadioButton">Freshfield Lane</label>
+        </div>
+        <div class="radio-button accentNoRounding">
+          <input id="KingscourtRadioButton" type="radio" name="Filtering" class=" labelNoColour">
+          <label for="KingscourtRadioButton">Kingscourt</label>
+        </div>
+        <div class="radio-button accentNoRounding">
+          <input id="NorthcotRadioButton" type="radio" name="Filtering" class=" labelNoColour">
+          <label for="NorthcotRadioButton">Northcot</label>
+        </div>
+        <div class="radio-button accentNoRounding">
+          <input id="Vande MoortelRadioButton" type="radio" name="Filtering" class=" labelNoColour">
+          <label for="Vande MoortelRadioButton">Vande Moortel</label>
+        </div>
+        <div class="radio-button accentNoRounding">
+          <input id="VandersandenRadioButton" type="radio" name="Filtering" class=" labelNoColour">
+          <label for="VandersandenRadioButton">Vandersanden</label>
+        </div>
+        <div class="radio-button accentNoRounding">
+          <input id="WienerbergerRadioButton" type="radio" name="Filtering" class=" labelNoColour">
+          <label for="WienerbergerRadioButton">Wienerberger</label>
+        </div>
+      </div> -->
+        <div id="FilteringRadioButtons" class="flex-row flex-wrap">
+          <div class="radio-button accentNoRounding">
+            <input [attr.checked]="true" id="Dark Grey / BlackRadioButton" type="radio" name="Filtering"
+              class=" labelNoColour">
+            <label for="Dark Grey / BlackRadioButton">Dark Grey / Black</label>
+          </div>
+          <div class="radio-button accentNoRounding">
+            <input id="Light Grey / WhiteRadioButton" type="radio" name="Filtering" class=" labelNoColour">
+            <label for="Light Grey / WhiteRadioButton">Light Grey / White</label>
+          </div>
+          <div class="radio-button accentNoRounding">
+            <input id="Golden / CremeRadioButton" type="radio" name="Filtering" class=" labelNoColour">
+            <label for="Golden / CremeRadioButton">Golden / Creme</label>
+          </div>
+          <div class="radio-button accentNoRounding">
+            <input id="Red / OrangeRadioButton" type="radio" name="Filtering" class=" labelNoColour">
+            <label for="Red / OrangeRadioButton">Red / Orange</label>
+          </div>
+          <div class="radio-button accentNoRounding">
+            <input id="Brown / GreenRadioButton" type="radio" name="Filtering" class=" labelNoColour">
+            <label for="Brown / GreenRadioButton">Brown / Green</label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="content" style="overflow:hidden !important;">
+    <div *ngIf="!showroom" class="row col-sm-11 ">
+      <div *ngFor="let item of brickList" class="cardview col-sm-3" style=" height: 235px !important;">
+        <div class=" win-type-body ml24 mt12" style="margin-left: 25px;margin-top: 5px;">{{item.head}}</div>
+        <div class="win-type-caption ml24" style="margin-left: 25px;margin-bottom: 10px;font-size: 12px;">{{item.subhead}}</div>
+        <div class="text-center">
+          <img id="scream" src="{{item.link}}" [width]="this.width / 5.9" [height]="this.height / 5" (click)="selectBrick(item.id)"
+            style="margin: auto;filter: drop-shadow(5px 5px 5px #222) !important;">
+        </div>
+      </div>
+    </div>
+    <app-canvas *ngIf="showroom" [layout]="layout" [background]="background" [colour]="colour"
+      (newItemEvent)="selectColour($event)" style="overflow: hidden;">
+    </app-canvas>
+  </div>
+</div>

@@ -1,0 +1,36 @@
+<div style="padding:15px">
+  <h4>Select any 2 Sizes from the list below:</h4>
+  <div fxLayout="column">
+    <div fxLayout="row">
+      <mat-checkbox> 215 X 85</mat-checkbox>
+    </div>
+    <div fxLayout="row">
+      <mat-checkbox> 180 X 60</mat-checkbox>
+    </div>
+    <div fxLayout="row">
+      <mat-checkbox> 150 X 60</mat-checkbox>
+    </div>
+    <div fxLayout="row">
+      <mat-checkbox> 120 X 60</mat-checkbox>
+    </div>
+    <div fxLayout="row">
+      <mat-checkbox> 90 X 60</mat-checkbox>
+    </div>
+    <div fxLayout="row">
+      <mat-checkbox> 60 X 60</mat-checkbox>
+    </div>
+    
+  </div>
+  <mat-dialog-actions class="col-sm-12" align="end" >
+    <button mat-raised-button class="btn-primary">
+      Save
+    </button>
+    <!-- <button mat-raised-button class="btn-default" (click)="showSizes = !showSizes">
+      Back
+    </button> -->
+    <button mat-raised-button class="CancelClass" (click)="close()">
+      <!-- <mat-icon>cancel</mat-icon>&nbsp; -->
+      Close
+    </button>
+  </mat-dialog-actions>
+</div>

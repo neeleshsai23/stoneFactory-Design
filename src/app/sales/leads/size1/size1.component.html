@@ -1,0 +1,60 @@
+
+
+
+<div fxLayout="column" fxLayout.gt-sm="row wrap" class="col-sm-12"
+style="margin-top:25px !important;">
+<div  class="col-sm-3 "
+style="margin-bottom: 18px !important;cursor: pointer;" (click)=" openAddSizeDialog()">
+<mat-card  class="custom-card addBtn" style="padding-bottom:0px !important;">
+<div class="angular-with-newlines" fxLayoutAlign="center center"
+style="height: 195px;word-wrap: break-word;margin-bottom: 10px;font-size: 17px;overflow-x: auto;font-family: 'Roboto', sans-serif;font-weight: 400;">
+<img src="assets/plusbtn.png"  style="height: 60px;width: 100px;color: gray;">
+</div>
+</mat-card>
+</div>
+
+<div *ngFor="let item of items; let i=index " class="col-sm-3"
+style="margin-bottom: 18px !important;">
+<mat-card class="custom-card" style="padding-bottom:0px !important;">
+<!--<mat-card-header class="bg-primary p-1"
+style="background-color: #286ba5 !important;color: #fff !important; height: 50px !important;"
+fxLayoutAlign="space-between center">
+
+<mat-card-title class="m-0">
+<h4
+style="cursor: pointer;font-family: 'Roboto', sans-serif;font-weight: 400;font-size: 2.2rem;line-height: 1;padding-left: 1.5rem!important;font-size: 125%;">
+
+</h4>
+</mat-card-title>
+<button mat-icon-button
+[matMenuTriggerFor]="menu" #menuTrigger="matMenuTrigger">
+<mat-icon>more_vert</mat-icon>
+</button>
+</mat-card-header>-->
+<mat-menu #menu="matMenu" style="height: 20px;" xPosition="before" overlapTrigger="true">
+<span (mouseleave)="menuTrigger.closeMenu()">
+<button mat-menu-item
+>
+<mat-icon>mode_edit</mat-icon>
+
+</button>
+
+</span>
+</mat-menu>
+<img [src]="item.color" alt="" style="height:150px;width: 100%;">
+<div class="angular-with-newlines" fxLayoutAlign="center center"
+style="height: 65px;word-wrap: break-word;font-size: 17px;overflow-x: auto;font-family: 'Roboto', sans-serif;font-weight: 400;" >
+
+<h3>{{item.size}}</h3>
+</div>
+
+</mat-card>
+</div>
+<!-- <div class="row" style="align-items: center; margin :auto;">
+<a *ngIf="artefactList.length > loadCount" (click)="getRecords()"
+style="color: black;font-weight: 500;cursor: pointer; background-color: #cccccc;padding: 8px;border-radius: 5px;">
+Load more</a>
+</div> -->
+</div>
+
+

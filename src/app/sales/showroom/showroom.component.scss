@@ -1,0 +1,465 @@
+#country-dialog {
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgb(68, 68, 68);
+}
+
+body {
+  overflow: hidden;
+}
+body::-webkit-scrollbar {
+  width: 0 !important;
+}
+body {
+  overflow: -moz-scrollbars-none !important;
+}
+body {
+  -ms-overflow-style: none !important;
+}
+body ::-webkit-scrollbar {
+  display: none !important;
+}
+.sticky {
+  position: -webkit-sticky;
+  position: sticky;
+  background-color: white;
+  margin-bottom: 20px;
+  top: 0;
+  z-index: 1;
+}
+.selected {
+  background-color: #b3b3b3 !important;
+}
+.abs-tl {
+  position: absolute;
+  left: 0px;
+  top: 150px;
+}
+.flex-column {
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+.win-type-body,
+.win-h6 {
+  font-size: 15px !important;
+  font-weight: 400 !important;
+  line-height: 1.333 !important;
+}
+.flex-row {
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+.abs-tl button.win-command.accent-self {
+  margin: 12px 0 0 12px;
+}
+button.win-command.accent-self,
+button.win-command.accent-self:enabled:hover,
+button.win-command.accent-self:active:hover,
+html.win-hoverable button.win-command.accent-self:active,
+html.win-hoverable button.win-command.accent-self:enabled:hover {
+  background-color: rgba(88, 88, 90, 1);
+}
+button.win-command.accent-self {
+  min-width: 80px;
+  height: 80px;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.6);
+}
+button.win-command {
+  outline: none;
+}
+button.win-command {
+  touch-action: manipulation;
+  background: none;
+  background-clip: border-box;
+  height: auto;
+  padding: 0;
+  margin: 0;
+  border: 1px dotted;
+  min-width: 40px;
+  min-height: 48px;
+  text-align: center;
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: normal;
+  overflow: visible;
+  writing-mode: lr-tb;
+  position: relative;
+  z-index: 0;
+}
+button {
+  color: rgba(0, 0, 0, 1);
+}
+button.win-command.accent-self .win-commandimage {
+  color: white !important;
+  font-size: 28px !important;
+  min-width: 28px !important;
+  height: 28px !important;
+  line-height: 28px !important;
+}
+button.win-command * {
+  pointer-events: none;
+}
+.win-commandimage {
+  font-family: 'Segoe UI Command', 'Symbols';
+  letter-spacing: 0;
+  vertical-align: middle;
+  font-size: 20px;
+  margin: 0;
+  line-height: 24px;
+  background-position: 0 0;
+  background-origin: border-box;
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  background-size: 96px 48px;
+  outline: none;
+}
+#ProductInfoContainer {
+  margin: 12px 0 0 12px;
+  padding: 6px 12px 10px 12px;
+  background-color: rgba(0, 0, 0, 0.4);
+  color: white;
+  border-radius: 8px;
+}
+.win-type-header,
+.win-type-subheader,
+.win-type-title,
+.win-type-subtitle,
+.win-type-base,
+.win-type-body,
+.win-type-caption,
+.win-h1,
+.win-h2,
+.win-h3,
+.win-h4,
+.win-h5,
+.win-h6,
+.win-button,
+.win-dropdown,
+.win-textbox,
+.win-link,
+.win-textarea {
+  font-family: 'Segoe UI', sans-serif, 'Segoe MDL2 Assets', 'Symbols' !important;
+}
+.win-type-title,
+.win-h3 {
+  font-size: 24px;
+  font-weight: 300;
+  line-height: 1.167;
+}
+.win-type-subtitle,
+.win-h4 {
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.2;
+}
+.win-type-body,
+.win-h6 {
+  font-size: 15px !important;
+  font-weight: 400 !important;
+  line-height: 1.333 !important;
+}
+.white-t {
+  color: white !important;
+}
+
+.cardview {
+  background-color: transparent;
+}
+
+.cardview:hover {
+  background-color: #e6e6e6;
+}
+
+@media (max-width: 640px), (max-height: 640px) {
+  .header {
+    display: block !important;
+  }
+}
+.header {
+  display: -ms-flexbox !important;
+  display: -webkit-flex !important;
+  display: flex !important;
+  -webkit-flex-direction: row-reverse !important;
+  -ms-flex-direction: row-reverse !important;
+  flex-direction: row-reverse !important;
+  -webkit-justify-content: center !important;
+  -ms-flex-pack: center !important;
+  justify-content: center !important;
+  -webkit-align-items: center !important;
+  -ms-flex-align: center !important;
+  align-items: center !important;
+  padding: 12px !important;
+}
+.flex-wrap {
+  -webkit-flex-wrap: wrap !important;
+  -ms-flex-wrap: wrap !important;
+  flex-wrap: wrap !important;
+}
+.win-type-header,
+.win-type-subheader,
+.win-type-title,
+.win-type-subtitle,
+.win-type-base,
+.win-type-body,
+.win-type-caption,
+.win-h1,
+.win-h2,
+.win-h3,
+.win-h4,
+.win-h5,
+.win-h6,
+.win-button,
+.win-dropdown,
+.win-textbox,
+.win-link,
+.win-textarea {
+  font-family: 'Segoe UI', sans-serif, 'Segoe MDL2 Assets', 'Symbols' !important;
+}
+.win-type-body,
+.win-h6 {
+  font-size: 15px !important;
+  font-weight: 400 !important;
+  line-height: 1.333 !important;
+}
+
+@media (max-width: 640px), (max-height: 640px) {
+  #LogoContainer {
+    margin-bottom: 12px !important;
+  }
+}
+.flex1 {
+  -webkit-flex: 1 1 auto !important;
+  -ms-flex: 1 !important;
+  flex: 1 !important;
+}
+.flex-wrap {
+  -webkit-flex-wrap: wrap !important;
+  -ms-flex-wrap: wrap !important;
+  flex-wrap: wrap !important;
+}
+.flex-row {
+  display: -ms-flexbox !important;
+  display: -webkit-flex !important;
+  display: flex !important;
+  -webkit-flex-direction: row !important;
+  -ms-flex-direction: row !important;
+  flex-direction: row !important;
+}
+.radio-button input[type='radio'] {
+  position: absolute !important;
+  visibility: hidden !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+.radio-button.accent input[type='radio']:checked ~ label {
+  background-color: rgba(88, 88, 90, 1) !important;
+  color: white !important;
+}
+.radio-button input[type='radio']:checked ~ label {
+  font-weight: 600 !important;
+  /* opacity: 1; */
+}
+.radio-button.accent label {
+  border-radius: 8px !important;
+}
+.radio-button label {
+  display: block !important;
+  font-size: 20px !important;
+  font-weight: 400 !important;
+  line-height: 1.2 !important;
+  padding: 8px 12px !important;
+  opacity: 0.9 !important;
+}
+.mt12 {
+  margin-top: 12px !important;
+}
+
+.radio-button.accent-border input[type='radio']:checked ~ label {
+  border-color: rgba(88, 88, 90, 1) !important;
+}
+
+.radio-button.accent-border label {
+  border-radius: 8px !important;
+}
+
+.radio-button.accent-border label,
+.radio-button.accentNoRounding label {
+  border-width: 2px !important;
+  border-style: solid !important;
+  border-color: transparent !important;
+  font-size: 15px !important;
+  font-weight: 400 !important;
+  line-height: 1.333 !important;
+}
+
+.SystemControlBackgroundChromeLowBrush-background-color {
+  background-color: rgba(242, 242, 242, 1) !important;
+}
+.group-by-title {
+  align-self: center !important;
+  margin: 0 8px 2px 16px !important;
+  opacity: 0.6 !important;
+}
+
+.mr12 {
+  margin-right: 12px !important;
+}
+
+#FilterButton {
+  width: 128px !important;
+  min-width: 128px !important;
+  background-color: rgba(0, 0, 0, 0.4) !important;
+}
+button.win-command.accent-self.rect {
+  min-width: 80px !important;
+  min-height: 40px !important;
+  height: 40px !important;
+  box-shadow: none !important;
+}
+button.win-command.accent-self,
+button.win-command.accent-self:enabled:hover,
+button.win-command.accent-self:active:hover,
+html.win-hoverable button.win-command.accent-self:active,
+html.win-hoverable button.win-command.accent-self:enabled:hover {
+  background-color: rgba(88, 88, 90, 1) !important;
+}
+button.win-command.noRound {
+  border-radius: 0px !important;
+}
+button.win-command.accent-self {
+  min-width: 80px !important;
+  height: 80px !important;
+  border: none !important;
+  border-radius: 8px !important;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.6) !important;
+}
+div.win-command,
+button.win-command {
+  border-color: transparent !important;
+  background-color: transparent !important;
+}
+button.win-command {
+  outline: none !important;
+}
+button.win-command {
+  touch-action: manipulation !important;
+  background: none !important;
+  background-clip: border-box !important;
+  height: auto !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border: 1px dotted !important;
+  min-width: 40px !important;
+  min-height: 48px !important;
+  text-align: center !important;
+  font-size: 12px !important;
+  line-height: 16px !important;
+  font-weight: normal !important;
+  overflow: visible !important;
+  writing-mode: lr-tb !important;
+  position: relative !important;
+  z-index: 0 !important;
+}
+button {
+  color: rgba(0, 0, 0, 1) !important;
+}
+#FilterButtonWrapper {
+  padding: 8px !important;
+}
+button.win-command.noRound > div {
+  border-radius: 0px !important;
+}
+.noRound {
+  border-radius: 0px !important;
+}
+button.win-command.accent-self > div {
+  height: 100% !important;
+  display: -ms-flexbox !important;
+  display: -webkit-flex !important;
+  display: flex !important;
+  -webkit-flex-direction: column !important;
+  -ms-flex-direction: column !important;
+  flex-direction: column !important;
+  -webkit-justify-content: center !important;
+  -ms-flex-pack: center !important;
+  justify-content: center !important;
+  -webkit-align-items: center !important;
+  -ms-flex-align: center !important;
+  align-items: center !important;
+  padding: 12px !important;
+  border-radius: 8px !important;
+  box-sizing: border-box !important;
+}
+button.win-command * {
+  pointer-events: none !important;
+}
+#FilterButtonTitle {
+  /* margin-top: 0; */
+  padding: 2px 0 0 4px !important;
+  color: white !important;
+}
+button.win-command * {
+  pointer-events: none !important;
+}
+.win-type-base,
+.win-h5 {
+  font-size: 15px !important;
+  font-weight: 500 !important;
+  line-height: 1.333 !important;
+}
+button.win-command.accent-self .win-commandimage {
+  color: white !important;
+  font-size: 20px !important;
+  min-width: 28px !important;
+  height: 25px !important;
+  line-height: 0px !important;
+}
+button.win-command * {
+  pointer-events: none !important;
+}
+.ml12 {
+  margin-left: 12px !important;
+}
+.win-commandimage {
+  font-family: 'Segoe UI Command', 'Symbols' !important;
+  letter-spacing: 0 !important;
+  vertical-align: middle !important;
+  font-size: 20px !important;
+  margin: 0 !important;
+  line-height: 24px !important;
+  background-position: 0 0 !important;
+  background-origin: border-box !important;
+  display: inline-block !important;
+  width: 24px !important;
+  height: 24px !important;
+  background-size: 96px 48px !important;
+  outline: none !important;
+}
+.radio-button.accentNoRounding input[type='radio']:checked ~ label {
+  background-color: rgba(88, 88, 90, 1) !important;
+  color: white !important;
+}
+
+.radio-button.accent-border label,
+.radio-button.accentNoRounding label {
+  border-width: 2px !important;
+  border-style: solid !important;
+  border-color: transparent !important;
+  font-size: 15px !important;
+  font-weight: 400 !important;
+  line-height: 1.333 !important;
+}

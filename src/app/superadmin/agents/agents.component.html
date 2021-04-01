@@ -1,0 +1,166 @@
+<div fxLayout="row wrap" #resizedDiv>
+    <div class="flex-p w-100">
+        
+        <div class="row" style="margin-bottom:14px;">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                <div class="w-100 flex-p">
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                <div class="w-100 flex-p">
+                    <button mat-raised-button class="pull-right  btn-primary" (click)="openUserDialog(null)">
+                        <mat-icon>add</mat-icon> Add
+                        Agent 
+                    </button>
+                    <!-- <button mat-raised-button class="pull-right add-hover btn-success margin-right-10" (click)="openGridColumnsDialog(null)">
+                        <mat-icon>grid_on</mat-icon>
+                        Grid Columns
+                    </button> -->
+                    <button mat-raised-button color="primary" class="pull-right filter-hover margin-right-10">
+                        <mat-icon>filter_list</mat-icon> Filter
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <div fxLayout="row wrap" *ngIf="filterToggle">
+            <div fxFlex="100" fxFlex.gt-sm fxFlex.sm class="flex-p">
+                <mat-card class="filter">
+                    <!-- <mat-card-header>
+                        <mat-card-subtitle></mat-card-subtitle>
+                    </mat-card-header> -->
+                    <mat-card-content>
+                        <div class="row col-sm-12">
+                            <div class="col-sm-5">
+                                <div class="col-sm-5 newMarginClass">
+                                    Search by Campaign Name:
+                                </div>
+                                <div class="col-sm-7">
+                                    <input type="text" onCopy="return false"
+                                    onPaste="return false" class="form-control"
+                                    placeholder="Search by Campaign Name">
+                                </div>
+                            </div>
+                            <div class="col-sm-5">
+                                <div class="col-sm-5 newMarginClass">
+                                    Select Industry:
+                                </div>
+                                <div class="col-sm-7">
+                                    <select class="form-control">
+                                        <option disabled selected value> -- Select Industry -- </option>
+                                        <option value="1">Construction</option>
+                                        <option value="2">Manufacturing</option>
+                                        <option value="3">Hospitality</option>
+                                        <option value="4">Immigration Consultants</option>
+                                        <option value="5">Logistics</option>
+                                        <!-- <option value="0">Manufacturing</option> -->
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
+                                <button class="add-hover btn btn-success">Search</button>
+                            </div>
+                            <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1" style="margin-left: -18px;">
+                                <button class="btn filter-hover" style="background-color:#37474f; color:#fff !important">Clear</button>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"></div>
+                        </div>
+                        <!-- <div class="row">
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                                <input type="text" class="form-control" placeholder="Search by Name">
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                                <select class="form-control">
+                                    <option disabled selected value> -- Select Status -- </option>
+                                    <option>Active</option>
+                                    <option>Inactive</option>
+                                </select>
+                            </div>
+                            <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
+                                <button class="add-hover btn btn-success">Search</button>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4"></div>
+                            
+                        </div> -->
+                    </mat-card-content>
+                </mat-card>
+            </div>
+        </div>
+        
+        <div fxLayout="row wrap">
+            <div class="table-responsive" id="grid-table-container">
+                <table id="example2" class="table table-bordered table-hover" >
+                    <thead class="tbl-head">
+                        <tr class="tr-grid-header">
+                            <th>Agent Name</th>
+                            <!-- <th>Type</th>
+                            <th>Rank</th> -->
+                            <th>Project</th>
+                            <th>Contact Number</th>
+                            <th>E-Mail</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let applicant of tableList">
+                            <td>{{applicant.campaignName}}</td>
+                            <!-- <td>{{applicant.industry}}</td>
+                            <td>{{applicant.segment}}</td> -->
+                            <td class="inner-screen">{{applicant.solution}}</td>
+                            <td>{{applicant.campaignType}}</td>
+                            <td>{{applicant.solution}}</td>
+                            <td>
+                                <a 
+                                class="status"
+                                mwlConfirmationPopover
+                                [popoverTitle]="popoverStatusTitle"
+                                [popoverMessage]="popoverStatusMessage"
+                                placement="left"
+                                (confirm)="saveStatus();applicant.vcStatus=!applicant.vcStatus"
+                                (cancel)="cancelClicked = true">
+                                {{applicant.vcStatus?'Active':'Inactive'}}
+                            </a>
+                        </td>
+                        <td>
+                            <a title="Edit User" style="margin-right: 10px; cursor: pointer;" (click)="openUserDialog(applicant)">
+                                <i class="fa fa-edit"></i>
+                            </a>
+                            <a mwlConfirmationPopover
+                            [popoverTitle]="popoverTitle"
+                            [popoverMessage]="popoverMessage"
+                            placement="left"
+                            (confirm)="deleteUser()"
+                            (cancel)="cancelClicked = true">
+                            <i style="cursor: pointer;" title="Delete User" class="fa fa-trash red"></i>
+                        </a>
+                        
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <button class="mine" mat-fab (click)="scrollGrid('right');">
+            <mat-icon style="color:#37474f">fast_forward</mat-icon>
+          </button>
+          <button class="mine" mat-fab style="margin-right: 78px !important;" (click)="scrollGrid('left');">
+            <mat-icon style="color:#37474f">fast_rewind</mat-icon>
+          </button>
+    </div>
+</div>
+</div>
+</div>
+<!-- 
+    <div *ngIf="users" fxLayout="row wrap">
+        <div fxFlex="100" class="flex-p">
+            <mat-card class="p-0 text-center">
+                <pagination-controls class="gradus-pagination" autoHide="true" maxSize="3" (pageChange)="onPageChanged($event)"></pagination-controls>
+            </mat-card>
+        </div>
+    </div> -->
+    
+    
+    
+    
+    
+    
+   

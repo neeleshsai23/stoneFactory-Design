@@ -1,0 +1,46 @@
+<div>
+    <h3 style="margin-left: 33%;">Lists of Products in the enquiry</h3>
+    <div fxLayout="row wrap" >
+      <div class="table-responsive topmargin" style="width:100% !important;margin-top: 20px;">
+          <table id="example2" class="table table-bordered table-hover">
+              <thead class="tbl-head">
+                  <tr class="tr-grid-header">
+                      <th  style="width: 160px;">Product</th>
+                      
+                      <th class="text-center" >Category</th>
+                      <th class="text-center" >Type</th>
+                      <th class="text-center" >Filter</th>
+                      <th class="text-center" >Spec</th>
+                      <th class="text-center" >Pattern</th>
+                      <th class="text-center" >Angle</th>
+                      <th class="text-center" >Size</th>
+                      <th class="text-center" >Color</th>
+                      <th class="text-center" >Width</th>
+                      <th  class="text-center" style="min-width: 100px !important;">View</th>
+                  </tr>
+              </thead>
+              <tbody>
+                 
+                  <tr *ngFor="let item of items">
+                      <td  style="width: 160px;">{{item.Product}}</td>
+                      <td class="text-center" style="max-width: 300px !important; word-wrap: break-word !important;">{{item.Category}}</td>
+                      <td class="text-center">{{item.Type}}</td>
+                      <td class="text-center">{{item.Filter}}</td>
+                      <td class="text-center">{{item.Spec}}</td>
+                      <td class="text-center">{{item.Pattern}}</td>
+                      <td class="text-center">{{item.Angle}}</td>
+                      <td class="text-center">{{item.Size}}</td>
+                      <td class="text-center">{{item.Color}}</td>
+                      <td class="text-center">{{item.Width}}</td>
+                      <td class="text-center">{{item.View}}</td>
+                     
+                    
+                      
+                  </tr>
+              </tbody>
+          </table>
+      </div>
+  </div>
+     
+  </div> 
+  

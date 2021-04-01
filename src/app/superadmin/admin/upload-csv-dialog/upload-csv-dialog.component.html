@@ -1,0 +1,52 @@
+
+<!-- <div class="w-100" fxLayout="row" fxLayoutAlign="center center" style="height:60px;border-bottom:1px solid rgba(150,150,150,1)">
+  <h3>Import CSV File</h3>
+</div> -->
+<div  fxLayout="column" fxLayoutAlign="center center">
+  <div fxLayout="column" style="padding:20px;box-shadow:0 0 2px 0 rgba(120,120,120,1);border-radius: 5px;">
+    <h4 style="font-weight:bold">Upload a file to add Language variations</h4>
+    <div class="w-100" fxLayout="column" fxLayoutAlign="flex-start flex-start" style="margin-top: 15px;">
+      <p>Download a <span style="cursor: pointer;">sample CSV template</span> to see an example of the format required.</p>
+
+      <div class="col-sm-12" style="margin-top: 20px;">
+        <div class="col-sm-4" style="margin-top: 7px;">
+          Enter Language:
+        </div>
+        <div class="col-sm-8">
+          	<input type="text" class="form-control" placeholder="Enter Language Name"/>
+        </div>
+      </div>
+      <div class="col-sm-12" style="margin-top: 20px;">
+        <div class="col-sm-4" style="margin-top: 7px;">
+          Upload Files:
+        </div>
+        <div class="col-sm-8">
+          <input type="file" style="display: none" #fileInput accept="image/*" (change)="onChangeFileInput()" />
+
+          <button mat-raised-button  class="btn-primary margin-right-10"  (click)="onClickFileInputButton()" >
+            Upload CSV File
+          </button>
+        </div>
+      </div>
+      
+      <!-- <div fxLayout="row" style="margin-top: 20px;padding:20px 0">
+        
+          <input type="checkbox" />
+        
+        
+          <label style="margin-left: 10px;">Overwrite any current products that have the same handle. Existing values will be used for any missing columns.<span> Learn more</span></label>
+        
+    
+      </div> -->
+    
+    </div>
+  </div>
+  
+  
+</div>
+
+<mat-dialog-actions align="end" style="margin-left: 68%;">
+  <button mat-raised-button class="btn-primary" >Save</button>
+  <button mat-raised-button class="CancelClass" (click)="close()">Close</button>
+</mat-dialog-actions>
+

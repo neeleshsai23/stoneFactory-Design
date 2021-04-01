@@ -1,0 +1,166 @@
+
+<!--<h1  class="custom-header"mat-dialog-title> Add Raw Image</h1>
+<div mat-dialog-content>
+    <form novalidate >
+      
+
+      <div class="form-group row">
+        <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label" for="pwd">Select Raw Image:&nbsp;</label>
+        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+          <input type="file"  style="width: 130px;"
+          id="file"
+         >
+            <div  class="error-text">
+                    <div >
+                    </div> 
+                </div>
+        </div>
+    </div>
+
+      
+      <div class="form-group row">
+        <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label" for="pwd">Image Name:&nbsp;</label>
+        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+            <input type="text"class="form-control"  maxlength="30"  placeholder="Enter Iamge Name" required>
+            <div  class="error-text">
+                    <div >
+                    </div> 
+                </div>
+        </div>
+    </div>
+
+
+     
+    <div class="form-group row">
+      <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label" for="pwd">Image Description:&nbsp;</label>
+      <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+          <input type="text"class="form-control"  maxlength="30"  placeholder="Enter Image Description" required>
+          <div  class="error-text">
+                  <div >
+                         
+                  </div>
+              </div>
+      </div>
+  </div>
+
+
+
+
+
+           
+    </form>
+</div>
+<mat-dialog-actions align="end" class="width" style="padding-right: 15px !important;">
+    <button mat-raised-button>Save</button>
+    <button mat-raised-button class="add-dark-hover btn-default" (click)="close()">Close</button>
+</mat-dialog-actions>-->
+
+<h1 class="custom-header"mat-dialog-title> Add Raw Image</h1>
+<div class="form-group row">
+  <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label" for="pwd">Enter Raw Image Name :&nbsp;</label>
+  <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+  <input type="text"class="form-control" maxlength="30" placeholder="Enter Raw Image Name" required>
+  
+  </div>
+  </div>
+
+
+<div class="form-group row">
+  <label class="control-label col-sm-4 add-member-label" for="pwd">Select Category:&nbsp; </label>
+  <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+    
+    <select class="select-option form-control"   placeholder="Select Category" required>
+      <option value="" disabled selected hidden>Select Category</option>
+      <option >EXternal Solutions</option>
+      <option >Internal Solutions </option>
+      <option >Paving</option>
+      <option >Walling</option>
+    </select>
+   
+  
+  </div>
+</div>
+
+<div class="form-group row">
+  <label class="control-label col-sm-4 add-member-label" for="pwd">Select Subcategory :&nbsp; </label>
+  <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+    
+    <select class="select-option form-control"   placeholder="Select Subcategory" required>
+      <option value="" disabled selected hidden>Select Subcategory</option>
+      <option >Blocks</option>
+      <option >Cobbles</option>
+      <option >Bricks</option>
+      <option >Flags</option>
+    </select>
+   
+  
+  </div>
+</div>
+
+<div class="form-group row">
+  <label class="control-label col-sm-4 add-member-label" for="pwd">Select Product Type :&nbsp; </label>
+  <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+    
+    <select class="select-option form-control"   placeholder="Select Product Type" required>
+      <option value="" disabled selected hidden>Select Product Type</option>
+      <option >Castlestone</option>
+      <option >Granite</option>
+      <option >Sable</option>
+      <option >Sandstone</option>
+    </select>
+   
+  
+  </div>
+</div>
+
+<div class="form-group row">
+  <label class="control-label col-sm-4 add-member-label" for="pwd">Select Color :&nbsp; </label>
+  <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+    
+    <select class="select-option form-control"   placeholder="Select Color" required>
+      <option value="" disabled selected hidden>Select Color</option>
+      <option >Dark Grey/Black</option>
+      <option >Light Gery/Blue</option>
+      <option >Red/Orange</option>
+      <option >Brown/Green</option>
+    </select>
+   
+  
+  </div>
+</div>
+
+<div class="form-group row">
+  <label class="control-label col-sm-4 add-member-label" for="pwd">Select Finish :&nbsp; </label>
+  <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+    
+    <select class="select-option form-control"   placeholder="Select Finish" required>
+      <option value="" disabled selected hidden>Select Finish</option>
+      <option >Textured</option>
+      <option >Tumbled</option>
+      <option >Smooth</option>
+      <option >Textured Surface</option>
+    </select>
+   
+  
+  </div>
+</div>
+
+<div class="form-group row">
+  <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label" for="pwd" style="margin-top: 10px;">Upload Image :&nbsp;</label>
+<div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+  <input type="file" style="display: none" #fileInput accept="image/*"  />
+  <button mat-raised-button  class="file-select-button" >
+    
+    choose file
+  </button>
+
+  <p class="file-name" ></p>
+  <ng-template #fileName>
+    <p class="file-name"></p>
+  </ng-template>
+  </div>
+</div>
+<mat-dialog-actions  class="width" style="float: right !important;margin-top: -10px;">
+  <button mat-raised-button >Save</button>
+  <button mat-raised-button (click)="Cancel()" class="add-dark-hover btn-default" >Close</button>
+  </mat-dialog-actions>

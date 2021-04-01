@@ -1,0 +1,11 @@
+<div class="NewHeader">
+  <h1 mat-dialog-title>
+    <span class="title-left">Layout</span>
+  </h1>
+</div>
+<div class="text-center" *ngFor="let item of imgList" style="margin-top: 10px;">
+  <div style="cursor: pointer;">
+    <img src="{{item.url}}" width="50" height="50" (click)="selectLayout(item.id)">
+    <div class="text-center" style="font-size: 18px;">{{item.value}}</div>
+  </div>
+</div>

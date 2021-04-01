@@ -1,0 +1,365 @@
+<div class="flex-p">
+    <div class="row wrap">
+      <div class="col-sm-12">
+        <div class="col-sm-6 no-padding" style="margin-bottom: 10px;">
+          <button [ngClass]="{'tabActive': isInception === true}" mat-raised-button (click)="fnInception()"
+          class="mat-raised-button tab">  <mat-icon>grid_on</mat-icon> Grid view
+        </button>
+        <button [ngClass]="{'tabActive': isControl === true}" mat-raised-button (click)="fnControl()"
+        class="mat-raised-button tab">  <mat-icon>crop_square</mat-icon> Kanban view
+      </button>
+      <button [ngClass]="{'tabActive': isTests === true}" mat-raised-button (click)="fnTest()"
+      class="mat-raised-button tab"> <mat-icon>place </mat-icon> Map view
+    </button>
+    
+  </div>
+  
+  <div class="col-sm-6 pull-right no-padding">
+    
+    <button  mat-raised-button class="pull-right btn-primary" (click)="openAddDialog(null)">
+      <mat-icon>add</mat-icon> Add Prospect
+    </button>
+    <button  style="margin-bottom:10px;margin-right: 10px;" mat-raised-button class="pull-right btn-primary" (click)="openGridColumnsDialog(null)">
+      <mat-icon>grid_on</mat-icon>Grid Columns
+    </button>
+    <button mat-raised-button color="primary" class="pull-right filter-hover margin-right-10" (click)="filterToggle = !filterToggle">
+      <mat-icon>filter_list</mat-icon> Filter
+    </button>
+  </div>
+  </div>
+  </div>
+  </div>
+  
+  <div fxLayout="row wrap" *ngIf="filterToggle">
+    <div fxFlex="100" fxFlex.gt-sm fxFlex.sm class="flex-p">
+      <mat-card class="filter">
+        <!-- <mat-card-header>
+          <mat-card-subtitle></mat-card-subtitle>
+        </mat-card-header> -->
+        <mat-card-content>
+          <div class="row col-sm-12">
+            <div class="col-sm-4">
+              <div class="col-sm-5 newMarginClass">
+                Search by Prospect Name:
+              </div>
+              <div class="col-sm-7">
+                <input type="text" onCopy="return false"
+                onPaste="return false" class="form-control"
+                placeholder="Search by Prospect Name">
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <div class="col-sm-5 newMarginClass">
+                Select Campaign:
+              </div>
+              <div class="col-sm-7">
+                <select class="form-control">
+                  <option disabled selected value> -- Select Campaign -- </option>
+                  <option value="1">Construction</option>
+                  <option value="2">Manufacturing</option>
+                  <option value="3">Hospitality</option>
+                  <option value="4">Immigration Consultants</option>
+                  <option value="5">Logistics</option>
+                  <!-- <option value="0">Manufacturing</option> -->
+                </select>
+              </div>
+            </div>
+            <div class="col-sm-4" style="margin-top:6px;">
+              <div class="col-sm-5 newMarginClass">
+                
+              </div>
+              <div class="col-sm-7">
+                <mat-checkbox>
+                </mat-checkbox>
+                &nbsp;<span style="color: black">Show only Repeat</span>
+              </div>
+            </div>
+            
+          </div>
+          <div class="row col-sm-12" style="margin-top:10px;">
+            <div class="col-sm-4" style="margin-top:6px;">
+              <div class="col-sm-5 newMarginClass">
+                
+              </div>
+              <div class="col-sm-7">
+                <mat-checkbox>
+                </mat-checkbox>
+                &nbsp;<span style="color: black">Show only Referral</span>
+              </div>
+            </div>
+            <div class="col-sm-4" style="margin-top:6px;">
+              <div class="col-sm-5 newMarginClass">
+                
+              </div>
+              <div class="col-sm-7">
+                <mat-checkbox>
+                </mat-checkbox>
+                &nbsp;<span style="color: black">Show only Awarded</span>
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <div class="col-sm-4 newMarginClass">
+              </div>
+              <div class="col-sm-8">
+                <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"  style="margin-left: 94px !important;">
+                  <button class="add-hover btn btn-primary pull-right">Search</button>
+                </div>
+                <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1" >
+                  <button class="btn filter-hover" style="background-color:#37474f; color:#fff !important">Clear</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- <div class="row">
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+              <input type="text" class="form-control" placeholder="Search by Name">
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+              <select class="form-control">
+                <option disabled selected value> -- Select Status -- </option>
+                <option>Active</option>
+                <option>Inactive</option>
+              </select>
+            </div>
+            <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
+              <button class="add-hover btn btn-success">Search</button>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4"></div>
+            
+          </div> -->
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+  
+  <div *ngIf="isControl === true" class="flex-p w-100">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="row" style="margin-bottom:7px;">
+          <div class="col-xs-6 ">
+            <div class="flex-p">
+              
+            </div>
+          </div>
+          <div class="col-xs-6" style="margin-top: 10px;">
+            <button mat-raised-button color="btn-default" style="background-color: #dddddd;"
+            class="pull-right add-dark-hover margin-right-10" (click)="scrollKanban('left');">
+            <mat-icon>fast_forward</mat-icon> Next
+          </button>
+          
+          <button mat-raised-button color="btn-default" style="background-color: #dddddd;"
+          class="pull-right add-dark-hover margin-right-10" (click)="scrollKanban('right');">
+          <mat-icon>fast_rewind</mat-icon> Prev
+        </button>
+      </div>
+    </div>
+    <div class="w-100 flex-p kanban-table-container" id="kanban-table-container">
+      <div *ngFor="let step of localData; let index = index" [ngStyle]="step.style">
+        <div [ngClass]="step.collapsed==true ? collapse :kanban-table" id="{{step.id}}">
+          <div (click)='changestatus(index)' style="cursor: pointer;" *ngIf="step.collapsed==true" class="outer">
+            <div class="inner">{{step.header | slice:0:30}}</div>
+          </div>
+          <table>
+            <thead *ngIf="step.collapsed==false">
+              <tr>
+                <th class="kanban-header">
+                  <div>
+                    <a class="info-card">{{step.header | slice:0:30}}</a>
+                    <a style="float:right;margin-left: 6px;margin-top: 2px;cursor: pointer;"
+                    (click)='changestatus(index)'><span class="material-icons">
+                      keyboard_arrow_left
+                    </span></a>
+                  </div>
+                </th>
+              </tr>
+            </thead>
+            <tbody *ngIf="step.collapsed==false" [dndDraggable]="step.data" dndDropzone dndEffectAllowed="all"
+            (dndDrop)="drop($event)" class="dndList">
+            <div class="kanban-item-container">
+              <tr>
+                <div dndPlaceholderRef class="dndPlaceholder kanban-item"></div>
+              </tr>
+              <tr *ngFor="let item of step.data;let i = index" id="{{item.id}}" [dndDraggable]="step.data"
+              dndEffectAllowed="all" (dndMoved)="drag(item)" (dndStart)="dragStart($event,item, step.id)"
+              (dndEnd)="dragEnd($event,item)">
+              <div class="kanban-item" [style.background-color]="item.hex">
+                <span>
+                  <a class="res-name"  id="resname" > {{item.project_name}} </a>&nbsp;&nbsp;
+                </span><br>  
+                <span class="cap-name"> {{ item.project_number }} </span><br>
+                <span class="cap-name"> {{ item.stage }} </span><br>
+                <span class="cap-name"> {{ item.physicalfeed }} </span><br>
+                <span [style.color]="item.colorcode1"  class="cap-name">{{ item.endOfProject }} </span><br>
+                
+                <span class="cap-name">{{ item.updateddate }} </span>
+              </div>
+            </tr>
+          </div>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  
+  <div *ngIf="isInception === true" fxLayout="row wrap" style="margin-top:-3px;">
+    <div class="table-responsive w-100 flex-p" id="grid-table-container">
+      <table id="example2" class="table table-bordered table-hover">
+        <thead class="tbl-head">
+          <tr class="tr-grid-header">
+            <!-- <th>Tag</th> -->
+            <th style="min-width:85px">Tag Name</th>
+            <th style="min-width:120px">Prospect Name</th>
+            <th style="min-width:110px">Prospect URL</th>
+            <th style="min-width:129px">Contact Name(s)</th>
+            <th style="min-width:127px">Campaign Name</th>
+            <th style="min-width:118px">Campaign type</th>
+            <th style="min-width:104px">Lead Sample</th>
+            <th style="min-width:104px">Visit Reports</th>
+            <th>Segment</th>
+            <th>Country</th>
+            <th>City</th>
+            <th>Solution</th>
+            <th>Industry</th>
+            <th style="min-width:80px">BD Name</th>
+            <th style="min-width:114px">Followup Date</th>
+            <th style="min-width:100px;">Head Count</th>
+            <th>Repeat</th>
+            <th>Referral</th>
+            <th>Awarded</th>
+            <th>Status</th>
+            <th style="text-align:center;min-width:107px;">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let lead of leads">
+            <!-- <td>{{lead.tag}}</td> -->
+            <td>{{lead.tag_name}}</td>
+            <td>{{lead.lead_name}}</td>
+            <td><a target="_blank" href="https://www.google.com">View</a></td>
+            <td>{{lead.contact_name}}</td>
+            <td>{{lead.campaign_name}}</td>
+            <td>{{lead.campaign_type}}</td>
+            <td>{{lead.lead_sample}}</td>
+            <td (click)="addVisit('null')" class="inner-screen text-center">{{lead.reports}}</td>
+            <td>{{lead.segment}}</td> 
+            <td>{{lead.country}}</td>
+            <td>{{lead.city}}</td>
+            <td>{{lead.solution}}</td>
+            <td>{{lead.industry}}</td>
+            <td>{{lead.bdName}}</td>
+            <td>{{lead.followupDate}}</td>
+            <td>{{lead.headCount}}</td>
+            <td><mat-checkbox [checked]="lead.email"></mat-checkbox></td>
+            <td><mat-checkbox [checked]="lead.whatsapp"></mat-checkbox></td>
+            <td><mat-checkbox [checked]="lead.call"></mat-checkbox></td>
+            <td>
+              <a 
+              class="status"
+              mwlConfirmationPopover
+              [popoverTitle]="popoverStatusTitle"
+              [popoverMessage]="popoverStatusMessage"
+              placement="left"
+              (confirm)="lead.status=!lead.status"
+              (cancel)="cancelClicked = true">
+              {{lead.status?'Active':'Inactive'}}
+            </a>
+          </td>
+          <td>
+            <a title="Convert lead to prospect" style="margin-right: 10px; cursor: pointer;" (click)="openConfirmDialog('convert', lead, 'lead')">
+              <i class="fa fa-refresh"></i>
+            </a>
+            <a title="Edit Lead" style="margin-right: 10px; cursor: pointer;" (click)="openAddDialog(lead)">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a mwlConfirmationPopover
+            [popoverTitle]="popoverTitle"
+            [popoverMessage]="popoverMessage"
+            placement="left"
+            (confirm)="deletelead(lead)"
+            (cancel)="cancelClicked = true">
+            <i style="cursor: pointer;" title="Delete Lead" class="fa fa-trash red"></i>
+          </a>
+          
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <button class="mine" mat-fab (click)="scrollGrid('right');">
+    <mat-icon style="color:#37474f">fast_forward</mat-icon>
+  </button>
+  <button class="mine" mat-fab style="margin-right: 78px !important;" (click)="scrollGrid('left');">
+    <mat-icon style="color:#37474f">fast_rewind</mat-icon>
+  </button>
+  <!-- <button class="mine" mat-fab (click)="scrollGrid('right');">
+    <mat-icon style="color:#37474f">fast_forward</mat-icon>
+  </button>
+  <button class="mine" mat-fab style="margin-right: 78px !important;" (click)="scrollGrid('left');">
+    <mat-icon style="color:#37474f">fast_rewind</mat-icon>
+  </button> -->
+  </div>
+  </div>
+  
+  <div *ngIf="isTests === true" class="row-wrap">
+    <div class="flex-p w-100">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="row" style="margin-bottom:7px;">
+            <div class="col-xs-6 ">
+              <div class="flex-p">
+                
+              </div>
+            </div>
+            <div class="col-xs-6">
+              <div class="flex-p">
+                
+                <!-- <button mat-raised-button style="background-color: #FFBB33;" class="pull-right btn-warning" >
+                  <mat-icon>help</mat-icon> Help
+                </button> -->
+              </div>
+            </div>
+          </div>
+          <div fxLayout="column">
+            <!-- <div class="flex-p">  -->
+              <mat-card>
+                
+                <div class="w-100 h-500p">
+                  <!-- <agm-map #AgmMap [minZoom]="2" [maxZoom]="16" [zoom]="7" [streetViewControl]="false" [latitude]="lat" [longitude]="lng" [zoomControlOptions]="zoomControlOptions" [fullscreenControl]="true">
+                    <agm-marker-cluster>
+                      <agm-marker [iconUrl]="'../../../../assets/img/google-marker-regular.png'" *ngFor="let pointer of markingPoints" [latitude]="pointer.lat" [longitude]="pointer.lng" (mouseOver)="onMouseOver(infoWindow,AgmMap)" (mouseOut)="onMouseOut(infoWindow,AgmMap)">
+                        <agm-info-window [disableAutoPan]="true" #infoWindow>
+                          <strong>{{pointer.label}}</strong>
+                        </agm-info-window>
+                      </agm-marker>
+                    </agm-marker-cluster>
+                  </agm-map> -->
+                  <div style="width: 100%"><iframe scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=india+(My%20Business%20Name)&amp;t=&amp;z=13&amp;ie=UTF8&amp;iwloc=B&amp;output=embed" width="100%" height="600" frameborder="0"></iframe></div>
+                </div>
+              </mat-card>
+              <!--  </div>   -->
+            </div>
+            <!-- <div class="row-wrap">
+              <div class="w-100 flex-p">
+                <div fxLayout="column">
+                  <mat-card>
+                    <div class="w-100 h-500p">
+                      <agm-map #AgmMap [minZoom]="2" [maxZoom]="16" [zoom]="7" [streetViewControl]="false" [latitude]="lat" [longitude]="lng" [zoomControlOptions]="zoomControlOptions" [fullscreenControl]="true">
+                        <agm-marker-cluster>
+                          <agm-marker [iconUrl]="'../../assets/img/google-marker-regular.png'" *ngFor="let pointer of markingPoints" [latitude]="pointer.lat" [longitude]="pointer.lng" (mouseOver)="onMouseOver(infoWindow,AgmMap)" (mouseOut)="onMouseOut(infoWindow,AgmMap)">
+                            <agm-info-window [disableAutoPan]="true" #infoWindow>
+                              <strong>{{pointer.label}}</strong>
+                            </agm-info-window>
+                          </agm-marker>
+                        </agm-marker-cluster>
+                      </agm-map>
+                    </div>
+                  </mat-card>
+                </div>
+              </div>
+            </div> -->
+          </div>
+        </div>    
+      </div>
+    </div>

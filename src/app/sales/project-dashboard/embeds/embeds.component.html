@@ -1,0 +1,87 @@
+<div fxLayout="row wrap" #resizedDiv>
+  <div class="flex-p w-100">
+
+<div class="row" style="margin-top: 40px;">
+  <div class="col-3" style="border: 1px solid black; min-height:420px;max-height: auto;margin-left: 85px;margin-right: 15px;">
+    <h4 style="text-align: center;">Variant Configuration</h4><hr style="height: 1px;color: black;">
+    <mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
+      <!-- This is the tree node template for leaf nodes -->
+      <mat-tree-node *matTreeNodeDef="let node" matTreeNodePadding>
+        <!-- use a disabled button to provide padding for tree leaf -->
+        <button mat-icon-button disabled></button>
+        <input type="checkbox" style="margin-right: 8px;margin-bottom: 3px;"/>
+        {{node.name}}
+      </mat-tree-node>
+      <mat-tree-node *matTreeNodeDef="let node;when: hasChild" matTreeNodePadding>
+        <button mat-icon-button matTreeNodeToggle
+                [attr.aria-label]="'Toggle ' + node.name">
+                <input type="checkbox" style="margin-bottom: 5px;"/>
+          <!-- <mat-icon class="mat-icon-rtl-mirror">
+            {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
+          </mat-icon> -->
+        </button>
+
+        {{node.name}}
+      </mat-tree-node>
+    </mat-tree>
+  </div>
+  <div class="col-3"  style="border: 1px solid black;margin-left: 15px;margin-right: 15px;">
+    <h4 style="text-align: center;">Product Selection</h4><hr>
+    <div>
+      <h5><input type="checkbox" checked> Engels</h5>
+      <h5><input type="checkbox" checked> Forterra</h5>
+      <h5><input type="checkbox" > Freshfield Lane</h5>
+      <h5><input type="checkbox" > Kingscourt</h5>
+      <h5><input type="checkbox" checked>  Northcourt</h5>
+    </div>
+
+
+
+  </div>
+  <div class="col-4"  style="border: 1px solid black;margin-left: 15px;margin-right: 15px;">
+    <h4 style="text-align: center;">Embed</h4><hr>
+    <div class="form-group">
+      <div class="col-sm-12 nopadding margin-top-10">
+        <div class="col-sm-4">
+          <label class="control-label add-member-label">Enter Width&nbsp;:</label>
+        </div>
+        <div class="col-sm-4">
+          <div class="input-group col-sm-12">
+            <input type="text" class="form-control" style="width: auto;" placeholder="Enter Width">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group" >
+      <div class="col-sm-12 nopadding margin-top-10">
+        <div class="col-sm-4">
+          <label class="control-label add-member-label">Enter Height&nbsp;:</label>
+        </div>
+        <div class="col-sm-4">
+          <div class="input-group col-sm-12">
+            <input type="text" class="form-control" style="width: auto;margin-bottom:20px ;" placeholder="Enter Height">
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+     <h4  >{{embed}}</h4>
+ 
+    <div>
+      <button mat-raised-button color="primary" class="pull-right filters-hover margin-right-10" style="margin-top: 20px;"
+     >
+     Copy to Clipboard
+     </button>
+    </div>
+    
+  </div>
+</div>
+
+
+
+
+
+  </div>
+</div>

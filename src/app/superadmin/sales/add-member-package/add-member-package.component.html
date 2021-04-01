@@ -1,0 +1,77 @@
+
+
+<h1  class="custom-header"mat-dialog-title> Add Package</h1>
+<div mat-dialog-content>
+    <form novalidate >
+
+      
+      <div class="form-group row">
+        <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label" for="pwd">package Name:&nbsp;</label>
+        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+            <input type="text"class="form-control"  maxlength="30"  placeholder="Enter Package Name" required>
+            
+        </div>
+    </div>
+
+      
+    <div class="form-group row">
+      <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label" for="pwd">Max Patterns:&nbsp;</label>
+      <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+          <input type="text"class="form-control"  maxlength="30"  placeholder="Enter Max products" required>
+          
+      </div>
+  </div>
+
+
+    
+  <div class="form-group row">
+    <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label" for="pwd">Max SKU:&nbsp;</label>
+    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+        <input type="text"class="form-control"  maxlength="30"  placeholder="Enter Max Users" required>
+        
+    </div>
+</div>
+
+  
+<div class="form-group row">
+  <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label" for="pwd">Custom URL:&nbsp;</label>
+  <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+      <input type="checkbox" checked style="height: 15px;width: 15px;"  maxlength="30"  placeholder="Enter Custom URL" required>
+      
+  </div>
+</div>
+
+  
+<div class="form-group row">
+  <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label" for="pwd">Embed:&nbsp;</label>
+  <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+      <input type="checkbox" checked style="height: 15px;width: 15px;"  maxlength="30"  placeholder="Enter Embed " required>
+      
+  </div>
+</div>
+
+<div class="form-group row">
+    <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label" for="pwd">Variant Config:&nbsp;</label>
+    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+        <input type="checkbox" checked style="height: 15px;width: 15px;"  maxlength="30"  placeholder="Enter Variant Config" required>
+        
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label" for="pwd">Demo:&nbsp;</label>
+    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+        <input type="checkbox" checked style="height: 15px;width: 15px;"  maxlength="30"  placeholder="Enter Demo" required>
+        
+    </div>
+  </div>
+
+
+        
+           
+    </form>
+</div>
+<mat-dialog-actions align="end" class="width" style="padding-right: 15px !important;">
+    <button mat-raised-button>Save</button>
+    <button mat-raised-button class="add-dark-hover btn-default" (click)="close()">Close</button>
+</mat-dialog-actions>

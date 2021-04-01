@@ -1,0 +1,116 @@
+<div class="w-100">
+ 
+  <div fxLayout="row" fxLayoutAlign="flex-start center" style="margin-top: 20px;padding:20px">
+    <p><span style="font-weight: bold;font-size:18px;margin-right:10px">SKU#:</span><span style="font-size: 18px;">SF-2345</span></p>
+
+  </div>
+
+  <!-- <div class="row" style="margin-bottom:20px;">
+    <div class="col-xs-2 ">
+    </div>
+    <div class="col-xs-10 ">
+        <div class="flex-p">
+            <button mat-raised-button color="primary" class="pull-right filters-hover margin-right-10"
+              (click)="filterToggle = !filterToggle">
+              <mat-icon>filter_list</mat-icon> Filter
+            </button>
+        </div>
+    </div>
+  </div> -->
+
+  <div fxLayout="row wrap">
+    <div fxFlex="100" fxFlex.gt-sm fxFlex.sm class="flex-p w-100">
+        <mat-card class="filter">
+            <mat-card-content>
+                <div class="row col-sm-12">
+                  <div class="col-sm-2">
+                    <mat-select [(value)]="selected" class='form-control' placeholder="Select Product">
+                        <mat-option [value]=1 >Engels</mat-option>
+                        <mat-option [value]=2 >Forterra</mat-option>
+                        <mat-option [value]=3 >Freshfield Lane</mat-option>
+                        <mat-option [value]=4 >Kingscourt</mat-option>
+                        <mat-option [value]=5 >Northcourt</mat-option>
+                    </mat-select>
+                </div>
+                <div class="col-sm-2">
+                    <mat-select [(value)]="selected" class='form-control' placeholder="Select Angle">
+                        <mat-option [value]=1 >0 deg</mat-option>
+                        <mat-option [value]=2 >45 deg</mat-option>
+                        <mat-option [value]=3 >-45 deg</mat-option>
+                        <mat-option [value]=4 >90 deg</mat-option>
+                    </mat-select>
+                </div>
+                <div class="col-sm-2">
+                    <mat-select [(value)]="selected" class='form-control' placeholder="Select Size">
+                        <mat-option [value]=1 >102X65</mat-option>
+                        <mat-option [value]=2 >215X65</mat-option>
+                    </mat-select>
+                </div>
+                <div class="col-sm-2">
+                    <mat-select [(value)]="selected" class='form-control' placeholder="Select Joint Color">
+                        <mat-option [value]=1 >Dark Grey</mat-option>
+                        <mat-option [value]=2 >Natural</mat-option>
+                        <mat-option [value]=3 >Mid Grey</mat-option>
+                        <mat-option [value]=4 >Buff</mat-option>
+                        <mat-option [value]=5 >Ivory</mat-option>
+                        <mat-option [value]=6 >White</mat-option>
+                        <mat-option [value]=7 >Brown Red</mat-option>
+                    </mat-select>
+                </div>
+                <div class="col-sm-2">
+                    <mat-select [(value)]="selected" class='form-control' placeholder="Select Joint Width">
+                        <mat-option [value]=1 >0</mat-option>
+                        <mat-option [value]=2 >2</mat-option>
+                        <mat-option [value]=3 >4</mat-option>
+                        <mat-option [value]=4 >6</mat-option>
+                        <mat-option [value]=5 >8</mat-option>
+                        <mat-option [value]=6 >10</mat-option>
+                    </mat-select>
+                </div>
+                <div class="col-sm-2">
+                  <div class="col-sm-6" style="margin-top: -5px;">
+                    <button mat-raised-button  class="pull-right btn-primary"><mat-icon>youtube_searched_for</mat-icon> Generate</button>
+                    
+                </div>
+                <div class="col-sm-6">
+                    <button mat-raised-button style="background-color:#37474f; color:#fff !important;margin-top: -5px" ><mat-icon>settings_backup_restore</mat-icon> Clear</button>
+                    
+                </div>
+                </div>
+                </div>
+            </mat-card-content>
+        </mat-card>
+        
+    </div>
+  </div>
+
+  <div class="w-100" style="display: flex;align-items:center;justify-content:center;margin: 20px 0;">
+    <div style="display:flex;flex-direction:column;justify-content:center;width:20%;height:600px;padding:20px;background: rgba(224,224,224,1);border-radius: 5px;">
+      <div style="display: flex;flex-direction:column;align-items: center;justify-content: center;border-radius: 10px;background: white;margin:10px 0;padding:15px 0;cursor: pointer;" (click)="openImage(0)">
+        <h4 style="font-weight: bold;">Broken Bond</h4>
+        <img src="../../../../../assets/brokenbond.PNG" />
+      </div>
+      <div style="display: flex;flex-direction:column;align-items: center;justify-content: center;border-radius: 10px;background: white;margin:10px 0;padding:15px 0;cursor: pointer;" (click)="openImage(1)">
+        <h4 style="font-weight: bold;">Stack</h4>
+        <img src="../../../../../assets/stack.PNG" />
+      </div>
+      <div style="display: flex;flex-direction:column;align-items: center;justify-content: center;border-radius: 10px;background: white;margin:10px 0;padding:15px 0;cursor: pointer;" (click)="openImage(2)">
+        <h4 style="font-weight: bold;">Flemish</h4>
+        <img src="../../../../../assets/flemish.PNG" />
+      </div>
+      <div style="display: flex;flex-direction:column;align-items: center;justify-content: center;border-radius: 10px;background: white;margin:10px 0;padding:15px 0;cursor: pointer;" (click)="openImage(3)">
+        <h4 style="font-weight: bold;">English</h4>
+        <img src="../../../../../assets/english.PNG" />
+      </div>
+    </div>
+    <div style="width:65%;height:600px;margin-left:20px;border-radius: 5px;overflow: hidden;">
+      <img style="width: 100%;height: 100%;" [src]="image_selected" />
+
+    </div>
+
+  </div>
+
+
+
+</div>
+

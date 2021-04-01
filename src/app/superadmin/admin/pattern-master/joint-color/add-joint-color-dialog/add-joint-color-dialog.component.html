@@ -1,0 +1,29 @@
+<h1 class="custom-header"mat-dialog-title> Add Joint Color</h1>
+<div class="form-group row">
+  <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label" for="pwd">Enter Joint Color:&nbsp;</label>
+  <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+  <input type="text"class="form-control" maxlength="30" placeholder="Enter Joint Color" required>
+  
+  </div>
+  </div>
+
+
+<div class="form-group row">
+  <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label" for="pwd" style="margin-top: 10px;">Upload Image :&nbsp;</label>
+<div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+  <input type="file" style="display: none" #fileInput accept="image/*" (change)="onChangeFileInput()" />
+  <button mat-raised-button  class="file-select-button" (click)="onClickFileInputButton()">
+    
+    choose file
+  </button>
+
+  <p class="file-name" *ngIf="!file; else fileName"></p>
+  <ng-template #fileName>
+    <p class="file-name">{{ file?.name }}</p>
+  </ng-template>
+  </div>
+</div>
+<mat-dialog-actions  class="width" style="float: right !important;margin-top: -10px;">
+  <button mat-raised-button >Save</button>
+  <button mat-raised-button (click)="Cancel()" class="add-dark-hover btn-default CancelClass" >Close</button>
+  </mat-dialog-actions>

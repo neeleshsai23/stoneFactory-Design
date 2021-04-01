@@ -1,0 +1,290 @@
+<!-- <div style="min-width: 100vw;height: auto;overflow: scroll;" fxLayout="column">
+  <div fxLayout="row" class="w-100" fxLayoutAlign="space-around center" style="padding:20px;">
+    <div>
+      <img src="../../assets/img1.png" style="width:200px;height:150px" matTooltip="600 X 300"/>
+      <img src="../../assets/img2.png" style="width:200px;height:150px" matTooltip="400 X 300"/>
+      <img src="../../assets/img3.png" style="width:200px;height:150px" matTooltip="300 X 300"/>
+    </div>
+    <form [formGroup]="properties" (ngSubmit)="onSubmit()">
+    <div fxLayout="row" fxLayoutAlign="space-between center">
+      <div fxLayout="column">
+        <mat-checkbox style="font-size: 16px;">Hand Cut</mat-checkbox>
+        <mat-checkbox style="font-size: 16px;">Tumbled</mat-checkbox>
+      </div> 
+      <div style="margin-left: 20px;">
+        <div fxLayout="column">
+          <div fxLayout="row">
+            <label>Joint Width</label>
+            <mat-select placeholder="Select Joint Width" style="width:150px;margin-left: 20px;" formControlName="jointWidth">
+              <mat-option *ngFor="let value of jointWidths" [value]="value.id">{{value.width}}</mat-option>
+            </mat-select>
+          </div>
+          <div fxLayout="row">
+            <label>Joint Color</label>
+            <mat-select placeholder="Select Joint Color" style="width:150px;margin-left: 20px;" formControlName="jointColor">
+              <mat-option *ngFor="let value of jointColors" [value]="value.id">{{value.color}}</mat-option>
+            </mat-select>
+          </div>
+        </div>
+      </div>
+      <div style="margin-left: 40px;" >
+        <input type="submit" value="Go" class="btn-success" style="padding: 8px 12px;border: none;outline: none;cursor: pointer;border-radius: 4px;"/>
+      </div>
+    </div>
+    
+    </form>
+  </div>
+  <div fxLayout="row" fxLayoutAlign="space-around center" style="margin-top: 20px;">
+    <div>
+      <form [formGroup]="setPositionForm" >
+      <div id="grid-table-container" class="table-responsive">
+        <table matSort class="table table-bordered table-hover" style="width:420px">
+            <thead class="tbl-head">
+              <tr>
+                <th style="width: 140px !important;"></th>
+                <th class="text-center" style="width: 100px !important">Left</th>
+                <th class="text-center" style="width: 100px !important">Top</th>
+                <th class="text-center" style="width: 80px !important">Action</th>
+              </tr>
+            </thead>
+            <tbody >
+              
+              <tr formGroupName="row1">
+                <td>
+                  <mat-select class="form-control" placeholder="Select Stone" formControlName="stoneName" >
+                    <mat-option *ngFor="let value of stoneImages" [value]="value.id">{{value.name}}</mat-option>
+                  </mat-select>
+                </td>
+                <td>
+                  <input type="number" class="form-control" formControlName="leftPosition"/>
+                </td>
+                <td>
+                  <input type="number" class="form-control" formControlName="topPosition"/>
+                </td>
+                <td class="text-center" (click)="row1Inputs()" style="cursor: pointer;">
+                  <mat-icon>done_outline</mat-icon>
+                </td>
+              </tr>
+              <tr formGroupName="row2">
+                <td>
+                  <mat-select class="form-control" placeholder="Select Stone">
+                    <mat-select class="form-control" placeholder="Select Stone" formControlName="stoneName" >
+                    <mat-option *ngFor="let value of stoneImages" [value]="value.id">{{value.name}}</mat-option>
+                  </mat-select>
+                  </mat-select>
+                </td>
+                <td>
+                  <input type="number" class="form-control" formControlName="leftPosition"/>
+                </td>
+                <td>
+                  <input type="number" class="form-control" formControlName="topPosition"/>
+                </td>
+                <td class="text-center" (click)="row2Inputs()" style="cursor: pointer;">
+                  <mat-icon>done_outline</mat-icon>
+                </td>
+              </tr>
+              <tr formGroupName="row3">
+                <td>
+                  <mat-select class="form-control" placeholder="Select Stone">
+                    <mat-select class="form-control" placeholder="Select Stone" formControlName="stoneName" >
+                    <mat-option *ngFor="let value of stoneImages" [value]="value.id">{{value.name}}</mat-option>
+                  </mat-select>
+                  </mat-select>
+                </td>
+                <td>
+                  <input type="number" class="form-control" formControlName="leftPosition"/>
+                </td>
+                <td>
+                  <input type="number" class="form-control" formControlName="topPosition"/>
+                </td>
+                <td class="text-center" (click)="row3Inputs()" style="cursor: pointer;">
+                  <mat-icon>done_outline</mat-icon>
+                </td>
+              </tr>
+              <tr formGroupName="row4">
+                <td>
+                  <mat-select class="form-control" placeholder="Select Stone">
+                    <mat-select class="form-control" placeholder="Select Stone" formControlName="stoneName" >
+                    <mat-option *ngFor="let value of stoneImages" [value]="value.id">{{value.name}}</mat-option>
+                  </mat-select>
+                  </mat-select>
+                </td>
+                <td>
+                  <input type="number" class="form-control" formControlName="leftPosition"/>
+                </td>
+                <td>
+                  <input type="number" class="form-control" formControlName="topPosition"/>
+                </td>
+                <td class="text-center" (click)="row4Inputs()" style="cursor: pointer;">
+                  <mat-icon>done_outline</mat-icon>
+                </td>
+              </tr>
+              <tr formGroupName="row5">
+                <td>
+                  <mat-select class="form-control" placeholder="Select Stone">
+                    <mat-select class="form-control" placeholder="Select Stone" formControlName="stoneName" >
+                    <mat-option *ngFor="let value of stoneImages" [value]="value.id">{{value.name}}</mat-option>
+                  </mat-select>
+                  </mat-select>
+                </td>
+                <td>
+                  <input type="number" class="form-control" formControlName="leftPosition"/>
+                </td>
+                <td>
+                  <input type="number" class="form-control" formControlName="topPosition"/>
+                </td>
+                <td class="text-center" (click)="row5Inputs()" style="cursor: pointer;">
+                  <mat-icon>done_outline</mat-icon>
+                </td>
+              </tr>
+              <tr formGroupName="row6">
+                <td>
+                  <mat-select class="form-control" placeholder="Select Stone">
+                    <mat-select class="form-control" placeholder="Select Stone" formControlName="stoneName" >
+                    <mat-option *ngFor="let value of stoneImages" [value]="value.id">{{value.name}}</mat-option>
+                  </mat-select>
+                  </mat-select>
+                </td>
+                <td>
+                  <input type="number" class="form-control" formControlName="leftPosition"/>
+                </td>
+                <td>
+                  <input type="number" class="form-control" formControlName="topPosition"/>
+                </td>
+                <td class="text-center" (click)="row6Inputs()" style="cursor: pointer;">
+                  <mat-icon>done_outline</mat-icon>
+                </td>
+              </tr>
+              <tr formGroupName="row7">
+                <td>
+                  <mat-select class="form-control" placeholder="Select Stone">
+                    <mat-select class="form-control" placeholder="Select Stone" formControlName="stoneName" >
+                    <mat-option *ngFor="let value of stoneImages" [value]="value.id">{{value.name}}</mat-option>
+                  </mat-select>
+                  </mat-select>
+                </td>
+                <td>
+                  <input type="number" class="form-control" formControlName="leftPosition"/>
+                </td>
+                <td>
+                  <input type="number" class="form-control" formControlName="topPosition"/>
+                </td>
+                <td class="text-center" (click)="row7Inputs()" style="cursor: pointer;">
+                  <mat-icon>done_outline</mat-icon>
+                </td>
+              </tr>
+              <tr formGroupName="row8">
+                <td>
+                  <mat-select class="form-control" placeholder="Select Stone">
+                    <mat-select class="form-control" placeholder="Select Stone" formControlName="stoneName" >
+                    <mat-option *ngFor="let value of stoneImages" [value]="value.id">{{value.name}}</mat-option>
+                  </mat-select>
+                  </mat-select>
+                </td>
+                <td>
+                  <input type="number" class="form-control" formControlName="leftPosition"/>
+                </td>
+                <td>
+                  <input type="number" class="form-control" formControlName="topPosition"/>
+                </td>
+                <td class="text-center" (click)="row8Inputs()" style="cursor: pointer;">
+                  <mat-icon>done_outline</mat-icon>
+                </td>
+              </tr>
+              <tr formGroupName="row9">
+                <td>
+                  <mat-select class="form-control" placeholder="Select Stone">
+                    <mat-select class="form-control" placeholder="Select Stone" formControlName="stoneName" >
+                    <mat-option *ngFor="let value of stoneImages" [value]="value.id">{{value.name}}</mat-option>
+                  </mat-select>
+                  </mat-select>
+                </td>
+                <td>
+                  <input type="number" class="form-control" formControlName="leftPosition"/>
+                </td>
+                <td>
+                  <input type="number" class="form-control" formControlName="topPosition"/>
+                </td>
+                <td class="text-center" (click)="row9Inputs()" style="cursor: pointer;">
+                  <mat-icon>done_outline</mat-icon>
+                </td>
+              </tr>
+              <tr formGroupName="row10">
+                <td>
+                  <mat-select class="form-control" placeholder="Select Stone">
+                    <mat-select class="form-control" placeholder="Select Stone" formControlName="stoneName" >
+                    <mat-option *ngFor="let value of stoneImages" [value]="value.id">{{value.name}}</mat-option>
+                  </mat-select>
+                  </mat-select>
+                </td>
+                <td>
+                  <input type="number" class="form-control" formControlName="leftPosition"/>
+                </td>
+                <td>
+                  <input type="number" class="form-control" formControlName="topPosition"/>
+                </td>
+                <td class="text-center" (click)="row10Inputs()" style="cursor: pointer;">
+                  <mat-icon>done_outline</mat-icon>
+                </td>
+              </tr>
+              <tr formGroupName="row11">
+                <td>
+                  <mat-select class="form-control" placeholder="Select Stone">
+                    <mat-select class="form-control" placeholder="Select Stone" formControlName="stoneName" >
+                    <mat-option *ngFor="let value of stoneImages" [value]="value.id">{{value.name}}</mat-option>
+                  </mat-select>
+                  </mat-select>
+                </td>
+                <td>
+                  <input type="number" class="form-control" formControlName="leftPosition"/>
+                </td>
+                <td>
+                  <input type="number" class="form-control" formControlName="topPosition"/>
+                </td>
+                <td class="text-center" (click)="row11Inputs()" style="cursor: pointer;">
+                  <mat-icon>done_outline</mat-icon>
+                </td>
+              </tr>
+              <tr formGroupName="row12">
+                <td>
+                  <mat-select class="form-control" placeholder="Select Stone">
+                    <mat-select class="form-control" placeholder="Select Stone" formControlName="stoneName" >
+                    <mat-option *ngFor="let value of stoneImages" [value]="value.id">{{value.name}}</mat-option>
+                  </mat-select>
+                  </mat-select>
+                </td>
+                <td>
+                  <input type="number" class="form-control" formControlName="leftPosition"/>
+                </td>
+                <td>
+                  <input type="number" class="form-control" formControlName="topPosition"/>
+                </td>
+                <td class="text-center" (click)="row12Inputs()" style="cursor: pointer;">
+                  <mat-icon>done_outline</mat-icon>
+                </td>
+              </tr>
+            </tbody>
+        </table>
+      </div>
+      </form>
+    </div>
+    <div fxLayout="column">
+      <div style="width: 800px;height: 450px;overflow: scroll;border:1px solid black" >
+        <canvas #patternCanvas id="patternCanvas" width="1500" height="1500" >
+
+        </canvas>
+      </div>
+      <div fxLayout="row" fxLayoutAlign="center center" style="margin-top: 20px;">
+        <div>
+          <button class="btn-success" (click)="generateImage()" mat-raised-button>Generate</button>
+        </div>
+        <div style="margin-left: 20px;">
+          <a style="color:blue;text-decoration:underline;cursor:pointer" [href]="srcData" id="download" download="image.png">Test Image</a>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+

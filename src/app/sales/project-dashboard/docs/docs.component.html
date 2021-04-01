@@ -1,0 +1,85 @@
+<!--This page is used to customize Sales/Marketing steps as per the requirement-->
+<div fxLayout="row wrap" #resizedDiv>
+  <div class="flex-p w-100">
+      <div class="row wrap" style="margin-bottom:7px;">
+          <div class="col-sm-12">
+            <div class="w-100" fxLayout="row" style="margin-bottom:7px;">
+                <div class="col-xs-6 ">
+                </div>
+                <div class="col-xs-6 ">
+                    
+                    <div class="flex-p">
+                        <button mat-raised-button class="add-hover pull-right" style="background:#229494;color: white;" (click)=" openSubCategoryDialog()" ><mat-icon>add</mat-icon>&nbsp;Add
+                            Sub Category</button>
+                            <mat-select class="pull-right" placeholder="Select Category" style="width: 170px !important;margin-top: 3px;margin-right: 25px;padding:8px ;border: 1px solid black;border-radius: 4px;" 
+                     name = "Client">
+                     <mat-option >External Solutions</mat-option>
+                     <mat-option >Internal Solutions</mat-option>
+                     <mat-option >Paving</mat-option>
+                     <mat-option >Walling</mat-option>
+                   
+
+                  </mat-select>
+
+                    
+                </div>
+                
+            </div>
+            </div>
+          </div>
+         
+      </div>
+
+      <div class="table-responsive">
+          <table class="table table-bordered table-hover table-striped">
+              <thead class="tbl-head">
+                  <tr class="tr-grid-header">
+                      <th>Sub Category</th>
+                      <th class="text-center">Category</th>
+                      <th class="text-center">Size</th>
+                      <th class="text-center">Patterns</th>
+                      <th class="text-center">Views</th>
+
+                      <th class="text-center">Angle</th>
+                      <th class="text-center">Joint Color</th>
+                      <th class="text-center">Joint Width</th>
+                      <th class="text-center">Status</th>
+                      <th class="text-center" >Actions</th>
+                  </tr>
+              </thead>
+              <tbody>
+               
+                  <tr *ngFor="let item of items">
+                   
+                    <td >{{item.product_name}}</td>
+                    <td class="text-center">{{item.category}}</td>
+                    <td class="text-center" style="color: blue;cursor: pointer;" ><a [routerLink]="['/superadmin/members/size']">{{item.size}}</a></td>
+                    <td class="text-center" style="color: blue;cursor: pointer;" (click)="openPatternDialog()">{{item.pattern}}</td>
+                    <td class="text-center" style="color: blue;cursor: pointer;" (click)="openViewDialog()">{{item.view}}</td>
+
+                    <td class="text-center" style="color: blue;cursor: pointer;" (click)="openAngleDialog()">{{item.angle}}</td>
+                    <td class="text-center" style="color: blue;cursor: pointer;" ><a [routerLink]="['/superadmin/members/jointcolor']" target="_blank">{{item.color}}</a></td>
+                    <td class="text-center" style="color: blue;cursor: pointer;" (click)="openWidthDialog()">{{item.width}}</td>
+
+
+
+                    <td class="text-center"><a style="color: blue;">Active</a></td>
+                  
+                  <td class="text-center">
+                      <a style="margin-right: 10px; cursor: pointer;">
+                          <i title="Edit Step" class="fa fa-edit"></i>
+                      </a>
+                     
+                      <a style="cursor: pointer;">
+                          <i style="cursor: pointer;" title="Delete Step" class="fa fa-trash red"></i>
+                      </a>
+                  </td>
+              </tr>
+              
+                     
+              </tbody>
+          </table>
+          <mat-paginator [pageSizeOptions]="[15, 20, 25, 50, 100]"  showFirstLastButtons></mat-paginator>
+      </div>
+  </div>
+</div>

@@ -1,0 +1,32 @@
+
+ <div class="row-wrap">
+  <div class="w-100">
+    <div class="row">
+      <div class="col-xs-12" style="margin: 20px;">
+        <div class="pills">
+          <ul class="nav nav-pills">
+            <li routerLinkActive="active">
+              <a mat-raised-button class="navtabWidth" [routerLink]="['/superadmin/members/gridview']" routerLinkActive="router-link-active" >
+                <mat-icon>grid_on</mat-icon> Grid view
+              </a>
+            </li>
+            <!--<li routerLinkActive="active">
+              <a mat-raised-button class="navtabWidth" [routerLink]="['/superadmin/members/kanbanview']" routerLinkActive="router-link-active"  >
+                <mat-icon>crop_square</mat-icon> Kanban view
+              </a>
+            </li>-->
+            <li routerLinkActive="active">
+              <a mat-raised-button class="navtabWidth" [routerLink]="['/superadmin/members/mapview']" routerLinkActive="router-link-active" >
+                <mat-icon>place </mat-icon> Map view
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> 
+<div>
+  <router-outlet></router-outlet>
+   
+</div> 

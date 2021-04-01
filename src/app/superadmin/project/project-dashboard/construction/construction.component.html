@@ -1,0 +1,190 @@
+<div class="flex-p" style="margin-top: -10px; margin-bottom: 10px;">
+    <div class="row wrap">
+       <div class="col-sm-12">
+  <div class="col-sm-6 no-padding" style="margin-bottom: 10px;">
+    <button [ngClass]="{'tabActive': isInception === true}" mat-raised-button (click)="fnInception()"
+      class="mat-raised-button tab"> Structure
+    </button>
+    <button [ngClass]="{'tabActive': isControl === true}" mat-raised-button (click)="fnControl()"
+      class="mat-raised-button tab"> Architecture
+    </button>
+    <button [ngClass]="{'tabActive': isTests === true}" mat-raised-button (click)="fnTest()"
+      class="mat-raised-button tab"> Plumbing
+    </button>
+    <button [ngClass]="{'tabActive': isElectrical === true}" mat-raised-button (click)="fnElectrical()"
+      class="mat-raised-button tab"> Electrical
+    </button>
+    <button [ngClass]="{'tabActive': isFire === true}" mat-raised-button (click)="fnFire()"
+      class="mat-raised-button tab"> Fire Fighting
+    </button>
+  </div>
+  <div class="col-sm-6 pull-right no-padding">
+    
+    <button  mat-raised-button class="pull-right  btn-primary">
+        <mat-icon>add</mat-icon> Add Site
+    </button>
+  
+    <button  style="margin-bottom:10px;margin-right: 10px;" mat-raised-button class="pull-right btn-primary">
+        <mat-icon>add</mat-icon> Add Module
+    </button>
+    <button  style="margin-bottom:10px;margin-right: 10px;" mat-raised-button class="pull-right  btn-primary">
+      <mat-icon>add</mat-icon> Add Task
+  </button>
+  </div>
+        </div>
+    </div>
+  </div>
+  
+  <div fxLayout="row wrap">
+    <div class="col-sm-12 w-100">
+        <mat-drawer-container class="custom-sidenav" hasBackdrop="false" class="margin-top-10">
+            <mat-drawer #drawer mode="side" opened="true">
+                <div class="col-sm-12" style="padding-left:0px;">
+                    <mat-card class="col-sm-12" style="background: #3b7bb882 !important">
+                        <p-tree [value]="files" class="ptreecustom" selectionMode="single" [(selection)]="selectedFile"></p-tree>
+                    </mat-card>
+                </div>
+            </mat-drawer>
+            <mat-drawer-content>
+                <div class="col-sm-12 no-padding">
+                    <mat-card class="col-sm-12" style="background: #dbe8f3 !important;">
+                        <div class="col-sm-3">
+                            <label>Site :</label>
+                            <span>&nbsp;&nbsp;Sujana Mall</span>
+                        </div>
+                        <div class="col-sm-3">
+                            <label>Level Name :</label>
+                            <span>&nbsp;&nbsp;Refrence Plan</span>
+                        </div>
+                        <div class="col-sm-3">
+                            <label>Budget Hours :</label>
+                            <span>&nbsp;&nbsp;10 hrs</span>
+                        </div>
+                        <div class="col-sm-3 no-padding">
+                            <label class="col-sm-6">Quoted:</label>
+                            <input type="text" style="margin-top: -5px;" class="form-control col-sm-6" placeholder="Quoted Total">
+                        </div>
+                    </mat-card>
+                    <mat-card class="col-sm-12 margin-top-10">
+                        <div class="w-100">
+                            <div class="">
+  
+                                <div class="col-sm-12" style="padding: 0px !important; margin-top: 10px;">
+                                    <p-accordion (onClose)="onTabClose($event)" (onOpen)="onTabClose($event)" class="customAccordian">
+                                        <p-accordionTab *ngFor="let item of taskData" [selected]="item.selected">
+                                            <p-header class="col-sm-11 pull-right" style="padding-left: 0px;">
+                                                <div class="col-sm-3">
+                                                    <label>Task:</label>
+                                                    <span>&nbsp;
+                                               {{item.name}}
+                                              </span>
+                                                </div>
+                                                <div class="col-sm-3">
+  
+                                                    <label>Budget Hours:</label>
+                                                    <span>&nbsp;
+                                                            12Hrs($0.00)
+                                              </span>
+                                                </div>
+                                                <div class="col-sm-3">
+  
+                                                    <label>Budget Amount:</label>
+                                                    <span>&nbsp; {{'800' | currency}}</span>
+                                                </div>
+  
+                                            </p-header>
+                                            <div class="table-responsive" id="{{item.id}}">
+                                                <table id="example2" class="table table-bordered table-striped table-hover no-padding" style="margin-bottom: 10px !important">
+                                                    <thead>
+                                                        <tr class="thead-color">
+                                                            <th style="min-width: 120px;">Job Code (Title)</th>
+                                                            <th style="min-width: 100px;" class="text-center">Rate</th>
+                                                            <th style="min-width: 80px;" class="text-center">Planned</th>
+                                                            <th style="min-width: 100px;" class="text-center">Budget</th>
+                                                            <th style="min-width: 100px;" class="text-center">Hours</th>
+                                                            <th style="min-width: 100px;" class="text-center">Cost</th>
+                                                            <th style="min-width: 120px;" class="text-center">Notes</th>
+                                                            <!-- <th style="min-width: 100px;" class="text-center">Manage</th> -->
+                                                           
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr *ngIf="item.Data?.length == 0">
+  
+                                                            <td style="text-align: center;" colspan="7">
+                                                                No records Found
+                                                            </td>
+                                                        </tr>
+                                                        <tr *ngFor="let tData of item.Data; let i = index">
+                                                            <td>
+                                                                <mat-select class="form-control" placeholder="Job Code" (selectionChange)="jobCodeChange($event.value, item.id, tData.id)">
+                                                                    <mat-option *ngFor="let item of jobcode" [value]="item.jobcode">{{item.jobcode}}</mat-option>
+                                                                </mat-select>
+                                                            </td>
+                                                            <td class="text-center" style="vertical-align: middle"> {{tData.rate | currency}} </td>
+                                                            <td> <input type="number" [(ngModel)]="tData.quantity" (ngModelChange)="getQuantityValue(tData.quantity, item.id, tData.id)" class="form-control" placeholder="Enter Planned Hours"> </td>
+                                                            <td style="vertical-align: middle" class="text-center">{{tData.totals | currency}} </td>
+                                                            <td class="text-center" style="vertical-align: middle" [attr.rowspan]="item.Data.length" *ngIf="i == 0">{{item.budgetHours}}</td>
+                                                            <td class="text-center" style="vertical-align: middle" [attr.rowspan]="item.Data.length" *ngIf="i == 0">{{item.budgetFee | currency}}</td>
+                                                            <td> <input type="number" [(ngModel)]="tData.quantity" (ngModelChange)="getQuantityValue(tData.quantity, item.id, tData.id)" class="form-control" placeholder="Enter Notes"> </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </p-accordionTab>
+                                        <p-accordionTab>
+                                            <p-header>
+                                                <label class="margin-left-7">Expenses</label>
+                                            </p-header>
+                                            <table id="example2" class="table table-bordered table-striped table-hover">
+                                                <thead>
+                                                    <tr style="background: #586958 !important; color:#fff !important;">
+                                                        <th>
+                                                            Item
+                                                        </th>
+                                                        <th class="text-center">
+                                                            Rate
+                                                        </th>
+                                                        <th style="width: 150px !important">
+                                                            Quantity
+                                                        </th>
+                                                        <th class="text-center">
+                                                            Totals
+                                                        </th>
+                                                        <th class="text-center">
+                                                            Budget Fee
+                                                        </th>
+  
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                  
+                                                    <tr *ngFor="let item of expenses; let i = index">
+                                                        <td *ngIf="item.name != ''">{{item.name}}</td>
+                                                        <td *ngIf="item.name == ''"> <input type="text" [(ngModel)]="item.name" class="form-control" placeholder="Enter Name">
+                                                        </td>
+                                                        <td class="text-center" *ngIf="item.rate != null">{{item.rate | currency}}</td>
+                                                        <td *ngIf="item.rate == null"> <input type="number" [(ngModel)]="item.rate" class="form-control" placeholder="Enter Rate"> </td>
+                                                        <td> <input type="number" [(ngModel)]="item.quantity" class="form-control" placeholder="Enter Quantity"> </td>
+                                                        <td class="text-center">{{item.totals | currency}}</td>
+                                                        <td *ngIf="i == 0" [attr.rowspan]="expenses.length" style="vertical-align: middle; text-align: center">{{totalBudget | currency}}</td>
+  
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </p-accordionTab>
+  
+                                    </p-accordion>
+                                </div>
+                            </div>
+                            <div class="flex-p">
+                            </div>
+                        </div>
+                    </mat-card>
+                </div>
+            </mat-drawer-content>
+        </mat-drawer-container>
+  
+    </div>
+  </div>
+  

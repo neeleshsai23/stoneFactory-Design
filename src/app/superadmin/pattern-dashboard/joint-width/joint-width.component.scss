@@ -1,0 +1,14 @@
+.tabs {
+  padding: 15px 0;
+  width: 200px;
+  border-radius: 5px;
+  background: rgba(240, 240, 240, 1);
+  margin: 25px;
+  box-shadow: 0 0 5px 0 rgba(150, 150, 150, 1);
+}
+
+.tabs:hover {
+  cursor: pointer;
+  background: rgba(180, 180, 180, 1);
+  box-shadow: 0 0 5px 0 rgba(240, 240, 240, 1);
+}

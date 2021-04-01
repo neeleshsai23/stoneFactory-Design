@@ -1,0 +1,65 @@
+<div class="NewHeader">
+    <h1 mat-dialog-title>
+      Add Reports
+    </h1>
+  </div>
+<div mat-dialog-content>
+    <form novalidate >
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group row" style="margin-top: 25px;">
+                    <label class="control-label col-lg-6 col-md-6 col-sm-6 col-xs-6 add-member-label">
+                        Visit Type:&nbsp;</label>
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                        <input type="text" class="form-control"
+                            maxlength="40" placeholder="Enter Visit Type"
+                            >
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="control-label col-lg-6 col-md-6 col-sm-6 col-xs-6 add-member-label">Visit Date:
+                        &nbsp;</label>
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                        <input class="form-control" placeholder="MM/DD/YYYY"
+                        class="form-control" id="db" [owlDateTimeTrigger]="dt1" [owlDateTime]="dt1" name="dt1">
+                      <owl-date-time [pickerType]="'calendar'" #dt1></owl-date-time>
+                      
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="control-label col-lg-6 col-md-6 col-sm-6 col-xs-6 add-member-label">Person Visited:&nbsp;</label>
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                        <input type="text" class="form-control" 
+                           placeholder="Enter Person Visited">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="control-label col-lg-6 col-md-6 col-sm-6 col-xs-6 add-member-label">Attachments:&nbsp;</label>
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                       <input type="file">
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label class="control-label  add-member-label">
+                        Description:&nbsp;</label>
+                    <div>
+                        <textarea rows="8" type="text"  class="form-control txtarea"
+                            id="addScreenDesc" maxlength="330" name="addScreenDesc" placeholder="Write Description"
+                            ></textarea>
+                       
+                    </div>
+                </div>
+            </div>
+
+        </div>`
+    </form>
+</div>
+
+<mat-dialog-actions align="end" class="width">
+    <button mat-raised-button 
+        [ngClass]="'btn-primary'"
+        (click)="close()">{{ data ? "Update": "Save"}}</button>
+    <button mat-raised-button class="add-dark-hover btn-default" (click)="close()">Close</button>
+</mat-dialog-actions>

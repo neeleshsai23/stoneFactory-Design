@@ -1,0 +1,31 @@
+.width {
+    width: 101.2%;
+    padding-bottom: 19px;
+}
+.mrg-btm-4 {
+    margin-bottom: 4px;
+}
+.error-text {
+    color: red;
+}
+.img_wrp {
+    display: inline-block;
+    position: relative;
+}
+.close {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    cursor: pointer;
+    opacity: 1;
+}
+.cust-red {
+    background: #4dadad;
+    color: white;
+    text-align: center;
+    margin-left: -24px;
+    margin-top: -24px;
+    margin-right: -24px;
+    padding: 6px;
+    margin-bottom: 17px;
+}

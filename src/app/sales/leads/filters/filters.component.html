@@ -1,0 +1,118 @@
+<app-leads></app-leads>
+<!--<div class="row" style="position: relative;left: 90%;">
+  <button mat-raised-button color="primary" class="pull-right filters-hover margin-right-10" style="margin-top: 20px;" (click)="openIncidentDialog()"
+>
+ <mat-icon>filter_list</mat-icon> Add Filter
+</button>
+</div>
+
+<div fxLayout="row wrap" >
+  <div class="table-responsive topmargin" style="width:100% !important;margin-top: 50px;">
+      <table id="example2" class="table table-bordered table-hover">
+          <thead class="tbl-head">
+              <tr class="tr-grid-header">
+                  <th class="text-center">Filter Name</th>
+                
+                  <th class="text-center">Filter Description</th>
+                  <th class="text-center">Filter Remarks</th>
+                  <th class="text-center" >Status</th>
+                  <th  class="text-center" style="min-width: 100px !important;">Actions</th>
+              </tr>
+          </thead>
+          <tbody>
+         
+              <tr *ngFor="let item of items" >
+                  <td class="text-center">{{item.Filter_Name}}</td>
+                  <td class="text-center" style="max-width: 300px !important; word-wrap: break-word !important;">{{item.Filter_Description}}</td>
+                  <td class="text-center">{{item.Filter_Remarks}}</td>
+                  <td  class="text-center">
+                      <a style="color: blue;" >
+                          Active 
+                             </a>
+                     
+                  </td>
+                 
+                  <td  class="text-center">
+                      <a  title="Edit" style="cursor: pointer; margin-right: 10px !important">
+                          <i class="fa fa-edit" style="color: cornflowerblue"></i>
+                      </a>
+                      <a >
+                          <i style="cursor: pointer;" title="Delete" class="fa fa-trash red"></i>
+                      </a>
+                  </td>
+              </tr>
+          </tbody>
+      </table>
+      <mat-paginator [pageSizeOptions]="[5, 10, 25, 50, 100]"  showFirstLastButtons></mat-paginator>
+  </div>
+</div>-->
+
+<!--This page is used to customize Sales/Marketing steps as per the requirement-->
+<div fxLayout="row wrap" #resizedDiv>
+    <div class="flex-p w-100">
+    <div class="row wrap" style="margin-bottom:7px;">
+    <div class="col-sm-12">
+    <div class="pills w-100 flex-p">
+    <mat-form-field style="position: relative;left: 85%;" >
+    <mat-select placeholder = "Select Category" class="placeholder "
+    name = "Client">
+    <mat-option >External Solutions</mat-option>
+    <mat-option >Internal Solutions</mat-option>
+    <mat-option >Paving</mat-option>
+    <mat-option >Walling</mat-option>
+    
+    </mat-select>
+    
+    </mat-form-field>
+    </div>
+    </div>
+    
+    </div>
+    
+    <div class="table-responsive">
+    <table class="table table-bordered table-hover table-striped">
+    <thead class="tbl-head">
+    <tr class="tr-grid-header">
+        <th>Sub Category</th>
+        <th class="text-center">Category</th>
+        <th class="text-center">Size</th>
+        <th class="text-center">Pattern</th>
+        <th class="text-center">Angle</th>
+        <th class="text-center">Joint Color</th>
+        <th class="text-center">Joint Width</th>
+        <th class="text-center">Status</th>
+        <th class="text-center" >Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    
+    <tr *ngFor="let item of items">
+    
+        <td >{{item.product_name}}</td>
+        <td class="text-center">{{item.category}}</td>
+        <td class="text-center" style="color: blue;cursor: pointer;" [routerLink]="['/member/setup/sizes']" routerLinkActive="router-link-active" >{{item.size}}</td>
+        <td class="text-center" style="color: blue;cursor: pointer;" (click)="openPatternDialog()">{{item.pattern}}</td>
+        <td class="text-center" style="color: blue;cursor: pointer;" (click)="openAngleDialog()">{{item.angle}}</td>
+        <td class="text-center" style="color: blue;cursor: pointer;" [routerLink]="['/member/setup/joint-color']" routerLinkActive="router-link-active" >{{item.color}}</td>
+        <td class="text-center" style="color: blue;cursor: pointer;" (click)="openWidthDialog()">{{item.width}}</td>
+
+    <td class="text-center"><a style="color: blue;">Active</a></td>
+    
+    <td class="text-center">
+    <a style="margin-right: 10px; cursor: pointer;">
+    <i title="Edit Step" class="fa fa-edit"></i>
+    </a>
+    
+    <a style="cursor: pointer;">
+    <i style="cursor: pointer;" title="Delete Step" class="fa fa-trash red"></i>
+    </a>
+    </td>
+    </tr>
+    
+    
+    </tbody>
+    </table>
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 50, 100]" showFirstLastButtons></mat-paginator>
+    </div>
+    </div>
+    </div>

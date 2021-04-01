@@ -1,0 +1,19 @@
+p,
+label {
+  span {
+    color: blue;
+    :hover {
+      cursor: pointer;
+      text-decoration: underline;
+    }
+  }
+}
+
+span:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.newMarginClass {
+  margin-top: 7px;
+}

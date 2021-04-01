@@ -1,0 +1,206 @@
+<!-- <div class="row d-flex" style="overflow:hidden !important ;">
+  <div class="w-100">
+    <div class="mx-auto middle">
+      <canvas #canvas style="display:block;"  [width]="width" [height]="height" (click)="viewAction(false)"></canvas>
+    </div>
+  </div>
+</div> -->
+<div class="w-100 h-100" style="overflow:hidden;position: absolute;top:0;left:0" >
+  <canvas #canvas4 [width]="width" [height]="height" style="position:fixed;z-index:2; transform: perspective(2000px) rotateZ(-45deg) scaleX(1) scaleY(2)">
+    <!-- For 45deg  -->
+  </canvas>
+  <canvas #canvas5 [width]="width" [height]="height" style="position:fixed;z-index:2; transform: perspective(2000px) rotateZ(45deg) scaleX(1) scaleY(2)">
+    <!-- For -45deg -->
+  </canvas>
+  <canvas #canvas6 class="bg-3 45" [width]="width" [height]="height" style="position:fixed;z-index:2;transform: perspective(2000px) rotateZ(-50deg) scaleY(4) scaleX(2) rotateY(60deg) rotateX(60deg)">
+    <!-- For background-3 45deg -->
+  </canvas>
+  <canvas #canvas7 class="bg-3 -45" [width]="width" [height]="height" style="position:fixed;z-index:2;transform: perspective(2024px) rotateZ(40deg) scaleX(1) scaleY(3) rotateX(55deg) rotateY(-20deg)">
+    <!-- For background-3 -45deg -->
+  </canvas>
+  <canvas #canvas8 class="bg-4 45" [width]="width" [height]="height" style="position:fixed;z-index:2; transform: perspective(2000px) rotateZ(-45deg) rotateX(0deg) rotateY(30deg) scaleX(0.8) scaleY(2) skewX(30deg) skewY(5deg)">
+    <!-- For backgorund-4 45deg -->
+  </canvas>
+  <canvas #canvas9 class="bg-4 -45" [width]="width" [height]="height" style="position:fixed;z-index:2; transform: perspective(2000px) rotateZ(45deg) rotateX(50deg) rotateY(-30deg) scaleX(1) scaleY(2)">
+    <!-- For backgorund-4 -45deg -->
+  </canvas>
+  <canvas #canvas10 class="bg5 45" [width]="width" [height]="height" style="position:fixed;z-index:2; transform: perspective(2000px) rotateX(85deg) rotateZ(-45deg) scaleX(3) scaleY(4)">
+    <!-- For background-5 45deg -->
+  </canvas>
+  <canvas #canvas11 class="bg5 -45" [width]="width" [height]="height" style="position:fixed;z-index:2; transform: perspective(2000px) rotateX(85deg) rotateZ(45deg) scaleX(3) scaleY(4)">
+    <!-- For background-5 -45deg -->
+  </canvas>
+  
+  <canvas #canvas3 [width]="width" [height]="height" style="position:fixed;z-index:2; transform: perspective(2000px) rotateX(85deg) scaleY(4)">
+
+  </canvas>
+  <canvas #canvas2 ng-show="perspective2" [width]="width" [height]="height" style="position:fixed;z-index:2; transform: perspective(2000px) rotateZ(-15deg) rotateX(0deg) rotateY(30deg) scaleX(0.8) scaleY(1.8) skewX(30deg) skewY(5deg)">
+
+  </canvas>
+  <canvas #canvas1 ng-show="perspective1" [width]="width" [height]="height" style="position:fixed;z-index:2;transform: perspective(2000px) rotateZ(17deg) rotateX(60deg) skewX(-30deg) scaleX(1.5) scaleY(2.1)">
+
+  </canvas>
+  <canvas #canvas style="position: fixed;top:0;left:0;z-index:3" [width]="width" [height]="height" >
+
+  </canvas>
+  <!-- For Dynamic Stack Pattern -->
+  <canvas #canvas12 [width]="canvasWidth" [height]="canvasHeight" style="position: fixed;top:0;left:0;z-index:2"></canvas>
+</div>
+<div class="abs-tl flex-column">
+  <div class="flex-column">
+    <!-- (click)="selectColour(false)" -->
+    <a id="ProductButton" class="win-command accent-self" target="_blank" routerLink="/showroom" >
+      <div>
+        <!-- <div class="win-commandimage"></div> -->
+        <div class="win-type-body white-t" style="margin-top:30px">Products</div>
+      </div>
+    </a>
+    <button id="ViewButton" class="win-command accent-self" (click)="viewAction(!view)">
+      <div>
+        <!-- <div class="win-commandimage"></div> -->
+        <div class="win-type-body white-t">View</div>
+      </div>
+    </button>
+    <button id="PatternButton" class="win-command accent-self" (click)="patternAction(!Pattern)">
+      <div>
+        <!-- <div class="win-commandimage"></div> -->
+        <div class="win-type-body white-t">Pattern</div>
+      </div>
+    </button>
+    <button id="AngleButton" class="win-command accent-self" (click)="angleAction(!angle)">
+      <div>
+        <!-- <div class="win-commandimage"></div> -->
+        <div class="win-type-body white-t">Angle</div>
+      </div>
+    </button>
+    <button id="SizeButton" class="win-command accent-self" (click)="sizeAction(!size)">
+      <div>
+        <!-- <div class="win-commandimage"></div> -->
+        <div class="win-type-body white-t">Size</div>
+      </div>
+    </button>
+    <button id="JointColourButton" class="win-command accent-self" (click)="colorAction(!color)">
+      <div>
+        <!-- <div class="win-commandimage"></div> -->
+        <div class="win-type-body white-t">Joint</div>
+        <div class="win-type-body white-t">Colour</div>
+      </div>
+    </button>
+    <button id="JointWidthButton" class="win-command accent-self" (click)="widthAction(!jointwidth)">
+      <div>
+        <!-- <div class="win-commandimage"></div> -->
+        <div class="win-type-body white-t">Joint</div>
+        <div class="win-type-body white-t">Width</div>
+      </div>
+    </button>
+  </div>
+  <!-- <div class="flex-column" id="ProductInfoContainer">
+    <div class="win-type-title" id="ProductInfoProduct">Engels</div>
+    <div class="win-type-subtitle" id="ProductInfoColor">Baltic Amber</div>
+    <div class="win-type-body" id="ProductInfoFinish">Handmade</div>
+  </div> -->
+</div>
+<div style="z-index: 4;position: fixed;top:28px;right:40px;">
+  <div *ngIf="cart_quantity>0" style="min-width:20px;min-height:20px;max-height:auto;max-width:auto;border-radius:50px;background-color: white;color:black;position: fixed;top:12px;right: 27px;text-align: center;">
+ {{cart_quantity}}
+  </div>
+  <mat-icon style="font-size: 32px;color: white;">shopping_cart</mat-icon>
+
+</div>
+<div class="abs-br">
+  <div class="flex-column">
+    <button id="ViewButton" class="win-command accent-self" (click)="zoomIn()"
+      style="min-height: 40!important;height: 40px !important;width: 110px;margin-bottom: 10px;">
+      <div>
+        <div class="win-type-body white-t">Zoom +</div>
+      </div>
+    </button>
+    <button id="ViewButton" class="win-command accent-self" style="height: 30px;width: 110px;margin-bottom: 10px;" (click)="zoomOut()"> 
+      <div>
+        <div class="win-type-body white-t">Zoom -</div>
+      </div>
+    </button>
+    <button id="ViewButton" class="win-command accent-self" style="height: 30px;width: 110px;margin-bottom: 10px;" (click)="incQuantity()">
+      <div>
+        <div class="win-type-body white-t">Add to Cart</div>
+      </div>
+    </button>
+    <button id="ViewButton" class="win-command accent-self" style="height: 30px;width: 110px;margin-bottom: 10px;" (click)="openQuoteDialog(null)">
+      <div>
+        <div class="win-type-body white-t">Get Quote</div>
+      </div>
+    </button>
+  </div>
+</div>
+<div *ngIf="view" class="view-position flex-column" style="overflow-y: auto;">
+  <div
+    style="height: auto;width: auto;display: grid;grid-template-columns: repeat(2,auto);background-color: white;border-radius: 8px;box-shadow: 6px 6px 12px rgba(0,0,0,0.6);">
+    <div *ngFor="let item of backgroundImage">
+      <img src="{{item.link}}" width="192" height="128" (click)="selectBackground(item.id)"
+        style="margin: auto;filter: drop-shadow(5px 5px 5px #222) !important;margin-left: 25px;margin: 15px 25px 15px 25px;background-position: center;background-repeat: no-repeat;background-size: cover;">
+    </div>
+  </div>
+</div>
+<div *ngIf="Pattern" class="pattern-position flex-column" style="overflow-y: auto;">
+  <div
+    style="height: auto;width: auto;display: grid;grid-template-columns: repeat(2,auto);background-color: white;border-radius: 8px;box-shadow: 6px 6px 12px rgba(0,0,0,0.6);padding:20px">
+    <div *ngFor="let item of patternList" style="margin:20px">
+
+      <div class="flex-column" fxLayoutAlign="center center"style="cursor: pointer;" (click)="patternGo(item.id)">
+        <img src="{{item.link}}" width="50" height="50"
+          style="background-position: center;background-repeat: no-repeat;background-size: cover;">
+        <div class="text-center" style="font-size: 18px;margin-top: 3px;">{{item.value}}</div>
+      </div>
+    </div>
+  </div>
+</div>
+<div *ngIf="angle" class="angle-position flex-column" style="overflow-y: auto;">
+  <div
+    style="height: auto;width: auto;display: grid;grid-template-columns: repeat(2,auto);background-color: white;border-radius: 8px;box-shadow: 6px 6px 12px rgba(0,0,0,0.6);padding:20px">
+    <div *ngFor="let item of angleList" style="margin:10px">
+      <div class="flex-column" style="cursor: pointer;" (click)="angleGo(item.id)">
+        <img src="{{item.link}}" width="50" height="50"
+          style="background-position: center;background-repeat: no-repeat;background-size: cover;">
+        <div class="text-center" style="font-size: 18px;margin-top: 3px;">{{item.value}}</div>
+      </div>
+    </div>
+  </div>
+</div> 
+
+<div *ngIf="size" class="size-position flex-column" style="overflow-y: auto;">
+  <div
+    style="height: 150px;width: 150px;background-color: white;overflow-y: auto;box-sizing: border-box;border-radius: 8px;box-shadow: 6px 6px 12px rgba(0,0,0,0.6);">
+    <div *ngFor="let item of sizeList">
+      <div class="flex-row" style="cursor: pointer;" (click)="sizeGo(item.id)">
+        <!-- <img src="{{item.link}}" width="50" height="50"
+          style="margin-left: 25px;margin: 15px 25px 15px 25px;background-position: center;background-repeat: no-repeat;background-size: cover;"> -->
+        <div class="text-center" style="font-size: 18px;margin-top: 30px;margin-left: 40px !important;">{{item.value}}</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="color" class="color-position flex-column" style="overflow-y: auto;">
+  <div
+    style="height: 350px;width: 200px;background-color: white;overflow-y: auto;box-sizing: border-box;border-radius: 8px;box-shadow: 6px 6px 12px rgba(0,0,0,0.6);">
+    <div *ngFor="let item of colorList">
+      <div class="flex-row" style="cursor: pointer;" (click)="colorGo(item.id)">
+        <img src="{{item.link}}" width="50" height="50"
+          style="margin-left: 25px;margin: 15px 25px 15px 25px;background-position: center;background-repeat: no-repeat;background-size: cover;">
+        <div class="text-center" style="font-size: 18px;margin-top: 30px;">{{item.value}}</div>
+      </div>
+    </div>
+  </div>
+</div>
+<div *ngIf="jointwidth" class="width-position flex-column" style="overflow-y: auto;">
+  <div
+    style="height: 250px;width: 150px;background-color: white;overflow-y: auto;box-sizing: border-box;border-radius: 8px;box-shadow: 6px 6px 12px rgba(0,0,0,0.6);">
+    <div *ngFor="let item of widthList">
+      <div class="flex-row" style="cursor: pointer;" (click)="widthGo(item.id)">
+        <!-- <img src="{{item.link}}" width="50" height="50"
+          style="margin-left: 25px;margin: 15px 25px 15px 25px;background-position: center;background-repeat: no-repeat;background-size: cover;"> -->
+        <div class="text-center" style="font-size: 18px;margin-top: 30px;margin-left: 40px !important;">{{item.value}}</div>
+      </div>
+    </div>
+  </div>
+</div>

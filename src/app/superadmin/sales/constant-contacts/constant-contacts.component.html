@@ -1,0 +1,117 @@
+<div class="row wrap flex-p mt-4">
+    <div class="col-2 mx-auto">
+        <div class="col-12 text-center mb-4">
+            <h3 class="fontClass">Qualified (25)</h3>
+        </div>
+        <table id="example2" class="table table-bordered table-hover">
+            <thead class="tbl-head">
+                <tr>
+                    <th >Lead Name</th>
+                    <th class="text-center tab-width" >Follow Up </th>
+                    <!-- <th>BD</th> -->
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of conversations">
+                    <td>{{item.lead_name}}</td>
+                    <td *ngIf="item.days" [ngClass] = "item.color ? 'redClassColor text-center':'greenClassColor text-center'" >{{item.days}}</td>
+                    <td *ngIf="!item.days" class="text-center">-</td>
+                    <!-- <td>{{item.bdm}}</td> -->
+                </tr>
+            </tbody>
+        </table>
+        <div style="text-align: center;color: blue;cursor: pointer;" ><a (click)="getRecords('opprotunity',50)">Load more</a></div>
+    </div>
+    <div class="col-2 mx-auto">
+        <div class="col-12 text-center mb-4">
+            <h3 class="fontClass">Quick Calls (13)</h3>
+        </div>
+        <table id="example2" class="table table-bordered table-hover">
+            <thead class="tbl-head">
+                <tr>
+                    <th >Lead Name</th>
+                    <th class="text-center tab-width" >Follow Up</th>
+                    <!-- <th>BD</th> -->
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of projectBreif">
+                    <td>{{item.lead_name}}</td>
+                    <td *ngIf="item.days" [ngClass] = "item.color ? 'redClassColor text-center':'greenClassColor text-center'">{{item.days}}</td>
+                    <td *ngIf="!item.days" class="text-center">-</td>
+                    <!-- <td>{{item.bdm}}</td> -->
+                </tr>
+            </tbody>
+        </table>
+        <div style="text-align: center;color: blue;cursor: pointer;" ><a (click)="getRecords('lead',50)">Load more</a></div>
+    </div>
+    <div class="col-2 mx-auto">
+        <div class="col-12 text-center mb-4">
+            <h3 class="fontClass">Conversations (10)
+            </h3>
+        </div>
+        <table id="example2" class="table table-bordered table-hover">
+            <thead class="tbl-head">
+                <tr>
+                    <th >Lead Name</th>
+                    <th class="text-center tab-width" >Follow Up</th>
+                    <!-- <th>BD</th> -->
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of samples">
+                    <td>{{item.lead_name}}</td>
+                    <td *ngIf="item.days" [ngClass] = "item.color ? 'redClassColor text-center':'greenClassColor text-center'">{{item.days}}</td>
+                    <td *ngIf="!item.days" class="text-center">-</td>
+                    <!-- <td>{{item.bdm}}</td> -->
+                </tr>
+            </tbody>
+        </table>
+        <div style="text-align: center;color: blue;cursor: pointer;" ><a (click)="getRecords('le',50)">Load more</a></div>
+    </div>
+    <div class="col-2 mx-auto">
+        <div class="col-12 text-center mb-4">
+            <h3 class="fontClass">Possibilities (9)</h3>
+        </div>
+        <table id="example2" class="table table-bordered table-hover">
+            <thead class="tbl-head">
+                <tr>
+                    <th >Prospect</th>
+                    <th class="text-center tab-width" >Follow Up</th>
+                    <!-- <th>BD</th> -->
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of feedback">
+                    <td>{{item.lead_name}}</td>
+                    <td *ngIf="item.days" [ngClass] = "item.color ? 'redClassColor text-center':'greenClassColor text-center'">{{item.days}}</td>
+                    <td *ngIf="!item.days" class="text-center">-</td>
+                    <!-- <td>{{item.bdm}}</td> -->
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="col-2 mx-auto">
+        <div class="col-12 text-center mb-4">
+            <h3 class="fontClass">Visits (5)</h3>
+        </div>
+        <table id="example2" class="table table-bordered table-hover">
+            <thead class="tbl-head">
+                <tr>
+                    <th >Prospect</th>
+                    <th class="text-center tab-width" >Follow Up</th>
+                    <th>Visits</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of tracking">
+                    <td>{{item.lead_name}}</td>
+                    <td *ngIf="item.days" [ngClass] = "item.color ? 'redClassColor text-center':'greenClassColor text-center'">{{item.days}}</td>
+                    <td *ngIf="!item.days" class="text-center">-</td>
+                    <td (click)="addVisit('null')" class="inner-screen text-center">{{item.visit}}</td>
+                    <!-- <td>{{item.bdm}}</td> -->
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

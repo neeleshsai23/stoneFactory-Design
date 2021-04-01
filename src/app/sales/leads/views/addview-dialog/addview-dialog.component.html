@@ -1,0 +1,100 @@
+
+<h1 class="custom-header"mat-dialog-title> Add View</h1>
+<div mat-dialog-content>
+<form novalidate >
+
+
+<div class="form-group row">
+<label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label" for="pwd">Enter View Name :&nbsp;</label>
+<div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+<input type="text"class="form-control" maxlength="30" placeholder="Enter View Name  " required>
+
+</div>
+</div>
+
+<div class="form-group row">
+  <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label" for="pwd" style="margin-top: 10px;">Upload Image :&nbsp;</label>
+<div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+  <input type="file" style="display: none" #fileInput accept="image/*"  />
+  <button mat-raised-button  class="file-select-button" >
+    
+    choose file
+  </button>
+
+  <p class="file-name" ></p>
+  <ng-template #fileName>
+    <p class="file-name"></p>
+  </ng-template>
+  </div>
+</div>
+
+<div class="form-group row">
+  <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label" for="pwd" >Choose View Type : &nbsp;</label>
+<div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+  <label class="radio-inline">
+    <input type="radio" name="optradio" checked>Elevation
+  </label>
+  <label class="radio-inline">
+    <input type="radio" name="optradio">Plan
+  </label>
+  <label class="radio-inline"  (click)="filterToggle = !filterToggle">
+    <input type="radio" name="optradio">Perspective
+  </label>
+  </div>
+</div>
+<div  *ngIf="filterToggle">
+<div class="form-group row">
+  <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label" for="pwd">Enter Horizontal Skew :&nbsp;</label>
+  <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+  <input type="text"class="form-control" maxlength="30" placeholder="Enter Horizontal Skew" required>
+  
+  </div>
+  </div>
+
+  <div class="form-group row">
+    <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label" for="pwd">Enter Vertical Skew :&nbsp;</label>
+    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+    <input type="text"class="form-control" maxlength="30" placeholder="Enter Vertical Skew " required>
+    
+    </div>
+    </div>
+
+    <div class="form-group row">
+      <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label" for="pwd">Enter Horizontal Scale :&nbsp;</label>
+      <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+      <input type="text"class="form-control" maxlength="30" placeholder="Enter Horizontal Scale" required>
+      
+      </div>
+      </div>
+
+      <div class="form-group row">
+        <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label" for="pwd">Enter Vertical Scale :&nbsp;</label>
+        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+        <input type="text"class="form-control" maxlength="30" placeholder="Enter Vertical Scale " required>
+        
+        </div>
+      </div>
+
+        <div class="form-group row">
+          <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label" for="pwd">Enter Horizontal Thing :&nbsp;</label>
+          <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+          <input type="text"class="form-control" maxlength="30" placeholder="Enter Horizontal Thing " required>
+          
+          </div>
+          </div>
+          <div class="form-group row">
+            <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label" for="pwd">Enter Vertical Thing :&nbsp;</label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+            <input type="text"class="form-control" maxlength="30" placeholder="Enter Vertical Thing" required>
+            
+            </div>
+            </div>
+          </div>
+
+
+</form>
+</div>
+<mat-dialog-actions  class="width" style="float: right !important;">
+<button mat-raised-button >Save</button>
+<button mat-raised-button (click)="Cancel()" class="add-dark-hover btn-default" >Close</button>
+</mat-dialog-actions>

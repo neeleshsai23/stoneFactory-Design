@@ -1,0 +1,108 @@
+
+<h1 class="custom-header"mat-dialog-title> Add Raw Image</h1>
+<div class="form-group row">
+  <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label" for="pwd">Enter Raw Image Name :&nbsp;</label>
+  <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+  <input type="text"class="form-control" maxlength="30" placeholder="Enter Raw Image Name" required>
+  
+  </div>
+  </div>
+
+
+<!--<div class="form-group row">
+  <label class="control-label col-sm-4 add-member-label" for="pwd">Select Category:&nbsp; </label>
+  <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+    
+    <select class="select-option form-control"   placeholder="Select Category" required>
+      <option value="" disabled selected hidden>Select Category</option>
+      <option >EXternal Solutions</option>
+      <option >Internal Solutions </option>
+      <option >Paving</option>
+      <option >Walling</option>
+    </select>
+   
+  
+  </div>
+</div>
+
+<div class="form-group row">
+  <label class="control-label col-sm-4 add-member-label" for="pwd">Select Subcategory :&nbsp; </label>
+  <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+    
+    <select class="select-option form-control"   placeholder="Select Subcategory" required>
+      <option value="" disabled selected hidden>Select Subcategory</option>
+      <option >Blocks</option>
+      <option >Cobbles</option>
+      <option >Bricks</option>
+      <option >Flags</option>
+    </select>
+   
+  
+  </div>
+</div>
+
+<div class="form-group row">
+  <label class="control-label col-sm-4 add-member-label" for="pwd">Select Product Type :&nbsp; </label>
+  <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+    
+    <select class="select-option form-control"   placeholder="Select Product Type" required>
+      <option value="" disabled selected hidden>Select Product Type</option>
+      <option >Castlestone</option>
+      <option >Granite</option>
+      <option >Sable</option>
+      <option >Sandstone</option>
+    </select>
+   
+  
+  </div>
+</div>-->
+
+<!-- <div class="form-group row">
+  <label class="control-label col-sm-4 add-member-label" for="pwd">Select Color :&nbsp; </label>
+  <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+    
+    <mat-select class="form-control" placeholder="Select Color">
+      <mat-option [value]="0">Dark Grey/Black</mat-option>
+      <mat-option [value]="1">Light Gery/Blue</mat-option>
+      <mat-option [value]="2">Red/Orange</mat-option>
+      <mat-option [value]="3">Brown/Green</mat-option>
+    </mat-select>
+   
+  
+  </div>
+</div>
+
+<div class="form-group row">
+  <label class="control-label col-sm-4 add-member-label" for="pwd">Select Finish :&nbsp; </label>
+  <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+    
+    <mat-select class="form-control" placeholder="Select Finish">
+      <mat-option [value]="0">Textured</mat-option>
+      <mat-option [value]="1">Tumbled</mat-option>
+      <mat-option [value]="2">Smooth</mat-option>
+      <mat-option [value]="3">Textured Surface</mat-option>
+    </mat-select>
+   
+  
+  </div>
+</div> -->
+
+<div class="form-group row">
+  <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label" for="pwd" style="margin-top: 10px;">Upload Image :&nbsp;</label>
+<div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+  <input type="file" style="display: none" #fileInput accept="image/*" (change)="onChangeFileInput()" />
+  <button mat-raised-button  class="file-select-button" (click)="onClickFileInputButton()">
+    
+    choose file
+  </button>
+
+  <p class="file-name" *ngIf="!file; else fileName"></p>
+  <ng-template #fileName>
+    <p class="file-name">{{ file?.name }}</p>
+  </ng-template>
+  </div>
+</div>
+<mat-dialog-actions  class="width" style="float: right !important;margin-top: -10px;">
+  <button mat-raised-button >Save</button>
+  <button mat-raised-button (click)="Cancel()" class="add-dark-hover btn-default" >Close</button>
+  </mat-dialog-actions>

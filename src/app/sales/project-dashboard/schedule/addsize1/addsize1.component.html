@@ -1,0 +1,17 @@
+<div class="form-group row">
+  <label class="control-label col-sm-4 add-member-label" for="pwd">Select size:&nbsp; </label>
+  <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+ 
+    <mat-checkbox  class="col-sm-4" [checked]="true" >102x65</mat-checkbox>
+    <mat-checkbox  class="col-sm-4" [checked]="true">100x100</mat-checkbox>
+    <mat-checkbox  class="col-sm-4" [checked]="true">215x65</mat-checkbox>
+    <mat-checkbox  class="col-sm-4">440x215</mat-checkbox>
+    <!-- <mat-checkbox class="col-sm-4" formControlName="BD">BD</mat-checkbox> -->
+    <mat-checkbox  class="col-sm-4" [checked]="true" >600x200</mat-checkbox>
+    
+  </div>
+  <mat-dialog-actions align="end" style="margin-left: 65%;">
+    <button mat-raised-button class="btn-primary" >Save</button>
+    <button mat-raised-button class="CancelClass" (click)="close()">Cancel</button>
+  </mat-dialog-actions>
+  </div>

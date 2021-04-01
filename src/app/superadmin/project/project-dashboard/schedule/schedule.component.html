@@ -1,0 +1,226 @@
+
+<div class="w-100" fxLayout="row" style="margin-bottom:7px;">
+    <div class="col-xs-6 ">
+    </div>
+    <div class="col-xs-6 ">
+        <div class="flex-p">
+            <button mat-raised-button class="add-hover pull-right" style="background:#229494;color: white;" (click)=" openIncidentDialog()" ><mat-icon>add</mat-icon>&nbsp;Add
+                Product</button>
+                <!-- <button mat-raised-button color="primary" class="pull-right filters-hover margin-right-10 btn-primary">   
+                Upload Bulk Images        
+            </button> -->
+            <button mat-raised-button color="primary" class="pull-right filters-hover margin-right-10"
+            (click)="filterToggle = !filterToggle">
+            <mat-icon>filter_list</mat-icon> Filter
+        </button>
+        <!-- <button mat-raised-button color="primary" class="pull-right filters-hover margin-right-10 btn-primary">   
+            Upload CSV        
+        </button> -->
+        <!-- <button mat-raised-button color="primary" class="pull-right filters-hover margin-right-10 btn-primary" (click)="openAutoCropDialog()">   
+            Auto Crop Setup      
+        </button> -->
+        
+    </div>
+    
+</div>
+</div>
+
+<div fxLayout="row wrap" *ngIf="filterToggle">
+    <div fxFlex="100" fxFlex.gt-sm fxFlex.sm class="flex-p w-100 margins">
+        <mat-card class="filter">
+            <mat-card-content>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="col-sm-4 newMarginClass">
+                            Product Name: 
+                        </div>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" placeholder="Search by Product Name"/>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="col-sm-4 newMarginClass">
+                            Category: 
+                        </div>
+                        <div class="col-sm-8">
+                            <mat-select class="form-control" placeholder="Search by Category">
+                                <mat-option [value]="0">External Solutions</mat-option>
+                                <mat-option [value]="1">Internal Solutions</mat-option>
+                                <mat-option [value]="2">Paving</mat-option>
+                                <mat-option [value]="3">Walling</mat-option>
+                                <mat-option [value]="4">Root</mat-option>
+                            </mat-select>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="col-sm-4 newMarginClass">
+                            Sub-Category: 
+                        </div>
+                        <div class="col-sm-8">
+                            <mat-select class="form-control" placeholder="Search by Sub-Category">
+                                <mat-option [value]="0">Bricks</mat-option>
+                                <mat-option [value]="1">Roman Bricks</mat-option>
+                                <mat-option [value]="2">Blocks</mat-option>
+                                <mat-option [value]="3">Cobbles</mat-option>
+                            </mat-select>                        
+                        </div>
+                    </div>
+                </div>
+                <div class="row" style="margin-top: 10px;">
+                    <div class="col-sm-4">
+                        <div class="col-sm-4 newMarginClass">
+                            Color:
+                        </div>
+                        <div class="col-sm-8">
+                            <mat-select class="form-control" placeholder="Search by Color">
+                                <mat-option [value]="0">Cream Orange</mat-option>
+                                <mat-option [value]="1">Brown</mat-option>
+                                <mat-option [value]="2">Gray Black</mat-option>
+                            </mat-select>  
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="col-sm-4 newMarginClass">
+                            Finish: 
+                        </div>
+                        <div class="col-sm-8">
+                            <mat-select class="form-control" placeholder="Search by Finish">
+                                <mat-option [value]="0">Tumbled</mat-option>
+                                <mat-option [value]="1">Rough</mat-option>
+                            </mat-select>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="col-sm-4 newMarginClass">
+                            Edge: 
+                        </div>
+                        <div class="col-sm-8">
+                            <mat-select class="form-control" placeholder="Search by Edge">
+                                <mat-option [value]="0">Hand Cut</mat-option>
+                                <mat-option [value]="1">Machine Cut</mat-option>
+                            </mat-select>                        
+                        </div>
+                    </div>
+                   
+                </div>
+                
+                
+                <div class="row" style="padding-top:10px !important">
+                    <div style="position: relative;left: 75%;">
+                    
+                    <div class="col-lg-1" style="margin-left:195px!important;">
+                        <button mat-raised-button  class="pull-right btn-primary"><mat-icon>youtube_searched_for</mat-icon> Search</button>
+                    </div>
+                    <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1" style="margin-left: -18px;">
+                        <button mat-raised-button style="background-color:#37474f; color:#fff !important" ><mat-icon>settings_backup_restore</mat-icon> Clear</button>
+                    </div>
+                    <a (click)="filterToggle = !filterToggle" class="pull-right" style="font-size: 25px; cursor: pointer; margin-left: 5px;">
+                        <i class="fa fa-angle-double-up" aria-hidden="true"></i>
+                    </a>
+                    </div>
+                    
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </div>
+  </div>
+
+<div fxLayout="row wrap" >
+
+    
+
+     
+   
+   
+  <div class="table-responsive topmargin" style="width:100% !important;margin:20px 15px">
+      <table>
+          <thead >
+              <tr style="background-color: rgb(38,71,106);color: white;">
+                  <th class="text-center">Product ID</th>
+                  <th class="text-center">Thumbnail</th>
+                  <!-- <th>Category</th>
+                  <th>Sub-Category</th> -->
+                  <th >Product Name</th>
+                  <th class="text-center" style="min-width: 100px !important;">Spec 1</th>
+                  <th class="text-center" style="min-width: 100px !important;">Spec 2</th>
+                  <th class="text-center" style="min-width: 100px !important;">Spec 3</th>
+                  <th class="text-center" style="min-width: 100px !important;">Spec 4</th>
+                  <th class="text-center">Edge</th>
+
+                  <th class="text-center">Raw Images</th>
+                  <th class="text-center">Size</th>
+                  <!-- <th class="text-center">Pattern</th>
+                  <th class="text-center">Angles</th>
+                
+                 
+                  <th class="text-center">Joint Color</th>
+                  <th class="text-center">Joint Width</th> -->
+                  <th class="text-center">Status</th>
+
+                 
+                  <th  class="text-center" style="min-width: 110px !important;">Actions</th>
+              </tr>
+          </thead>
+          <tbody>
+           
+              <tr *ngFor="let item of items" >
+                  <!-- <td class="text-center"> {{item.SKU}}</td> -->
+                  <td class="text-center"> {{item.product}}</td>
+                  <td class="text-center">
+                      <img [src]="item.src" alt="Product Thumbnail" style="width: 45px;height:45px;">
+                  </td>
+                  <td  style="max-width: 300px !important; word-wrap: break-word !important;">{{item.Product_Type}}</td>
+                  <td class="text-center">{{item.spec1}}</td>
+                  <td class="text-center">{{item.spec2}}</td>
+                  <td class="text-center">{{item.spec3}}</td>
+                  <td class="text-center">{{item.spec4}}</td>
+                  <!-- <td>{{item.category}}</td>
+                  <td>{{item.subcategory}}</td>
+                  <td class="text-center"><a>{{item.Color}}</a></td>
+                  <td class="text-center"><a>{{item.Finish}}</a></td> -->
+                  <td class="text-center"><a>{{item.Edge}}</a></td>
+
+                  <td class="text-center" style="min-width: 70px !important;"><a target="_blank" style="color: blue;cursor: pointer;" 
+                    [routerLink]="['/superadmin/members/images']" routerLinkActive="router-link-active" >
+                  
+                    {{item.RawImages}}
+                </a>
+            </td>
+
+
+                  <td class="text-center" style="min-width: 70px !important;"><a target="_blank" style="color: blue;cursor: pointer;" 
+                    [routerLink]="['/superadmin/members/size']">
+                    
+                    {{item.Size}}
+                </a>
+            </td>
+            <!-- (click)=" openPatternDialog()" -->
+                  <!-- <td class="text-center"><a style="color: blue;cursor: pointer;" (click)="openPatternDialog()" >{{item.Pattern}}</a></td>
+                  <td class="text-center"><a style="color: blue;cursor: pointer;" (click)="openAngleDialog() ">{{item.Angles}}</a></td>
+                 
+                 
+                  <td class="text-center" style="min-width: 70px !important;"><a target="_blank" style="color: blue;cursor: pointer;" 
+                    [routerLink]="['/superadmin/members/jointcolor']">
+                    
+                    {{item.Joint_Color}}
+                </a>
+            </td>
+            <td class="text-center"><a style="color: blue;cursor: pointer;" (click)=" openWidthDialog() ">{{item.Joint_Width}}</a></td> -->
+                  <!--<td class="text-center"><a style="color: blue;cursor: pointer;" (click)=" openColorDialog() ">{{item.Joint_Color}}</a></td>-->
+                  <td class="text-center"><a style="color: blue;cursor: pointer;">Active</a></td>
+                 
+                 
+                  <td  class="text-center">
+                      <a  title="Edit" style="cursor: pointer; margin-right: 10px !important">
+                          <i class="fa fa-edit" style="color: cornflowerblue"></i>
+                      </a>
+                      <a >
+                          <i style="cursor: pointer;" title="Delete" class="fa fa-trash red"></i>
+                      </a>
+                  </td>
+              </tr>
+          </tbody>
+      </table>
+      <mat-paginator  [pageSizeOptions]="[5, 10, 25, 50, 100]"  showFirstLastButtons></mat-paginator>
+  </div>
+</div>

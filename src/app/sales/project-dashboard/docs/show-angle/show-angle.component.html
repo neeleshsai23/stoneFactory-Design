@@ -1,0 +1,32 @@
+<div class="newHeader">
+  <h2 class="custom-header" mat-dialog-title>Angles</h2>
+</div>
+<div fxLayout="row wrap" fxLayoutAlign="center center">
+  <mat-card id="size1" style="height: 150px;width: 150px;margin: 15px ;" fxLayout="column" fxLayoutAlign="center center" (click)="addSize($event)">
+    <img src="../../../../../../assets/0.PNG"/>
+    <p style="text-align: center;">0</p>
+  </mat-card>
+  <mat-card id="size2" style="height: 150px;width: 150px;margin: 15px ;" fxLayout="column" fxLayoutAlign="center center" (click)="addSize($event)">
+    <img src="../../../../../../assets/45.PNG"/>
+    <p style="text-align: center;">45</p>
+  </mat-card>
+  <mat-card id="size3" style="height: 150px;width: 150px;margin: 15px ;" fxLayout="column" fxLayoutAlign="center center" (click)="addSize($event)">
+    <img src="../../../../../../assets/-45.PNG"/>
+    <p style="text-align: center;">-45</p>
+  </mat-card>
+  <mat-card id="size4" style="height: 150px;width: 150px;margin: 15px ;" fxLayout="column" fxLayoutAlign="center center" (click)="addSize($event)">
+    <img src="../../../../../../assets/90.PNG"/>
+    <p style="text-align: center;">90</p>
+  </mat-card>
+
+</div>
+
+<mat-dialog-actions class="col-sm-12" align="end">
+  <!-- <button mat-raised-button class="btn-primary" (click)="close()">
+    Save
+  </button> -->
+  <button mat-raised-button class="CancelClass" (click)="close()">
+    <!-- <mat-icon>cancel</mat-icon>&nbsp; -->
+    Close
+  </button>
+</mat-dialog-actions>

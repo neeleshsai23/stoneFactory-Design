@@ -1,0 +1,136 @@
+<!-- <div fxLayout="row wrap" >
+
+    <div class="w-100">
+        <div class="flex-p">
+            <div class="row wrap">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <div class="w-100 flex-p">
+                    </div>
+                </div>
+                <div class="col-xs-6"  style="margin-right:0px !important">
+                    <div class="w-100 flex-p">
+                        <button mat-raised-button class="pull-right btn-primary" (click)="opencontactDialog(null)">
+                            <mat-icon>person_add</mat-icon> Add
+                            Customer
+                        </button>
+                        <button mat-raised-button color="primary" class="pull-right filter-hover margin-right-10">
+                            <mat-icon>filter_list</mat-icon> Filter
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row ">
+            <div class="col-xs-6">
+            </div> 
+        </div>
+        <div fxLayout="row wrap" *ngIf="filterToggle">
+            <div fxFlex="100" fxFlex.gt-sm fxFlex.sm class="flex-p">
+                <mat-card class="filter">
+                   
+                    <mat-card-content>
+                        <div class="row col-sm-12">
+                            <div class="col-sm-5">
+                                <div class="col-sm-5 newMarginClass">
+                                    Search by Contact Person:
+                                </div>
+                                <div class="col-sm-7">
+                                    <input type="text" onCopy="return false"
+                                    onPaste="return false" class="form-control"
+                                    placeholder="Search by Contact Person">
+                                </div>
+                            </div>
+                            <div class="col-sm-5">
+                                <div class="col-sm-4 newMarginClass">
+                                    Search by Lead Name:
+                                </div>
+                                <div class="col-sm-7">
+                                    <input type="text" onCopy="return false"
+                                    onPaste="return false" class="form-control"
+                                    placeholder="Search by Lead Name">
+                                </div>
+                            </div>
+                            <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
+                                <button class="add-hover btn btn-success">Search</button>
+                            </div>
+                            <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1" style="margin-left: -18px;">
+                                <button class="btn filter-hover" style="background-color:#37474f; color:#fff !important">Clear</button>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"></div>
+                        </div>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+        </div>
+        <div fxLayout="row wrap" style="margin-top:-5px;">
+            <div class="table-responsive w-100 flex-p">
+                <table id="example2" class="table table-bordered table-hover">
+                    <thead class="tbl-head">
+                        <tr class="tr-grid-header">
+                           
+                            <th>Customer Name</th>
+                            <th>Project</th>
+                             <th>Unit</th>
+                             <th>Date of Purchase</th>
+                            <th>Phone</th>
+                            <th>Email</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>                                
+                        <tr *ngFor="let contact of contacts">
+                           
+                            <td>
+                                <a target="_blank" routerLink="/superadmin/customers/customer-dashboard/">{{contact.name}}
+                                </a>
+                            </td>
+                            <td>{{contact.company}}</td>
+                             <td>{{contact.unit}}</td>
+                             <td>09/08/2020</td>
+                            <td>{{contact.phone}}</td>
+                            <td>{{contact.email}}</td>
+                           
+                            <td>
+                                <a 
+                                [ngClass]="contact.is_active ? 'status' : 'status Red'"
+                                mwlConfirmationPopover
+                                [popoverTitle]="popoverStatusTitle"
+                                [popoverMessage]="popoverStatusMessage"
+                                placement="left"
+                                (confirm)="updateContactStatus(contact.contact_id, !contact.is_active, 'status')"
+                                (cancel)="cancelClicked = true">
+                                {{contact.is_active?'Active':'Inactive'}}
+                            </a>
+                        </td>
+                        <td>
+                            <a title="Edit contact" style="margin-right: 10px; cursor: pointer;" (click)="opencontactDialog(contact)">
+                                <i class="fa fa-edit"></i>
+                            </a>
+                            <a mwlConfirmationPopover
+                            [popoverTitle]="popoverTitle"
+                            [popoverMessage]="popoverMessage"
+                            placement="left"
+                            (confirm)="updateContactStatus(contact.contact_id, !contact.is_delete, 'delete')"
+                            (cancel)="cancelClicked = true">
+                            <i style="cursor: pointer;" title="Delete Contact" class="fa fa-trash red"></i>
+                        </a>
+                        
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</div>
+</div>
+
+
+<div *ngIf="!contacts" fxLayout="column" fxLayoutAlign="center center" class="contact-spinner">
+    <mat-spinner color="primary"></mat-spinner>
+</div>  -->
+<div class="row d-flex">
+        <div class="col-6 mx-auto middle">
+          <img style="margin-top: 15%; display: flex; margin-left: auto; margin-right: auto;" src="/assets/img/under-construction.png" height="400px" alt="under-construction">
+        </div>
+      </div>

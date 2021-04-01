@@ -1,0 +1,247 @@
+<div class="col-sm-12">
+    <div class="col-sm-6 no-padding" style="margin-bottom: 10px;">
+      <button [ngClass]="{'tabActive': isInception === true}" mat-raised-button (click)="fnInception()"
+        class="mat-raised-button tab"> Inspection
+      </button>
+      <button [ngClass]="{'tabActive': isControl === true}" mat-raised-button (click)="fnControl()"
+        class="mat-raised-button tab"> Quality Control
+      </button>
+      <button [ngClass]="{'tabActive': isTests === true}" mat-raised-button (click)="fnTest()"
+        class="mat-raised-button tab"> Tests
+      </button>
+    </div>
+    <div class="col-sm-6 pull-right no-padding">
+      <button *ngIf="isControl" mat-raised-button class="pull-right  btn-primary" (click)="openQualityDialog(null)">
+        <mat-icon>add</mat-icon> Add Observation
+      </button>
+      <button *ngIf="isTests" mat-raised-button class="pull-right  btn-primary" (click)="openTestDialog(null)">
+        <mat-icon>add</mat-icon> Add Test Record
+      </button>
+    </div>
+  </div>
+  
+  <div *ngIf="isInception" class="col-sm-12" style="margin-top: 10px;">
+    <div class="col-sm-8 no-padding" style="margin-bottom: 10px;">
+      <button [ngClass]="{'tabActive': isExcavation === true}" mat-raised-button (click)="fnExcavation()"
+        class="mat-raised-button tab"> Excavation
+      </button>
+      <button [ngClass]="{'tabActive': isPCC === true}" mat-raised-button (click)="fnPCC()" class="mat-raised-button tab">
+        PCC
+      </button>
+      <button [ngClass]="{'tabActive': isPilling === true}" mat-raised-button (click)="fnPilling()"
+        class="mat-raised-button tab"> Pilling
+      </button>
+      <button [ngClass]="{'tabActive': isFolding === true}" mat-raised-button (click)="fnFolding()"
+        class="mat-raised-button tab"> Scaffolding
+      </button>
+      <button [ngClass]="{'tabActive': isConcrete === true}" mat-raised-button (click)="fnConcrete()"
+        class="mat-raised-button tab"> Concrete
+      </button>
+      <button [ngClass]="{'tabActive': isRein === true}" mat-raised-button (click)="fnRein()"
+        class="mat-raised-button tab"> Reinforcement
+      </button>
+      <button [ngClass]="{'tabActive': isPost === true}" mat-raised-button (click)="fnPost()"
+        class="mat-raised-button tab"> Post Concrete
+      </button>
+      <button [ngClass]="{'tabActive': isReports === true}" mat-raised-button (click)="fnReports()"
+        class="mat-raised-button tab"> Reports
+      </button>
+    </div>
+    <div class="col-sm-4 pull-right no-padding">
+      <button *ngIf="!isReports" mat-raised-button class="pull-right  btn-primary">
+        <mat-icon>add</mat-icon> Add Item
+      </button>
+      <button *ngIf="isReports" mat-raised-button class="pull-right  btn-primary">
+        <mat-icon>cloud_download</mat-icon> Download Reports
+      </button>
+    </div>
+  </div>
+  
+  <div *ngIf="(isExcavation || isPCC || isPilling || isFolding || isConcrete ||  isRein || isPost) && isInception" class="table-responsive w-100 col-sm-12" style="margin-top: 10px;">
+          <table id="example2" class="table table-bordered table-hover">
+              <thead class="tbl-head">
+                  <tr class="tr-grid-header">
+                      <th style="text-align: center !important">Site Name</th>
+                      <th style="text-align: center !important">Drawing No</th>
+                      <!-- <th style="text-align: center !important">Observers</th> -->
+                      <th style="text-align: center !important">Site Report No</th>
+                      <th style="text-align: center !important">Date</th>
+                      <th style="text-align: center !important" >Checklist</th>
+                      <th style="text-align: center !important" >Report</th>
+                      <th style="text-align: center !important" >Inspection by</th>
+                      <th style="text-align: center !important">Inspection</th>
+                      <th style="text-align: center !important">Actions</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr *ngFor="let item of excavations">
+                    <td class="text-center">
+                      {{item.site}}
+                    </td>
+                    <td class="text-center">
+                      {{item.dn}}
+                    </td>      
+                    <!-- <td class="text-center inner-screen">
+                      {{item.obs}}
+                    </td> -->
+                    <td class="text-center">
+                      {{item.sitereportno}}
+                    </td> 
+                    <td class="text-center">
+                      {{item.date}}
+                    </td> 
+                    <td class="text-center">
+                      {{item.check}}
+                    </td> 
+                    <td *ngIf="item.report == false" class="text-center">
+                      -
+                    </td>
+                    <td *ngIf="item.report == true" style="text-align:center !important;"><a><i class="fa fa-file-pdf-o" style="cursor: pointer;;font-size:16px!important;color: cornflowerblue;"></i></a></td>
+                    <td class="text-center">
+                      {{item.insecby}}
+                    </td> 
+                    <td class="text-center inner-screen">
+                      {{item.inse}}
+                    </td> 
+                    <td  class="text-center">
+                      <a style="cursor: pointer;margin-right:10px; " matTooltip="Update item" (click)="openAssignDialog(item)">
+                          <i class="fa fa-edit" style="color: cornflowerblue"></i>
+                      </a>
+                      <a ><i class="fa fa-trash red" matTooltip="Delete item"  style="cursor: pointer;"(click)="openDeleteDialog(item)"></i></a>
+                  </td>
+                  </tr>
+              </tbody>
+          </table>
+          <!-- <mat-paginator class="col-sm-12" [length]="totalSize" [pageIndex]="currentPage" [pageSize]="pageSize" [pageSizeOptions]="[5, 10, 25, 50, 100]" (page)="handlePage($event)" showFirstLastButtons></mat-paginator> -->
+      </div>
+      <div *ngIf="isReports && isInception" class="table-responsive w-100 col-sm-12" style="margin-top: 10px;">
+        <table id="example2" class="table table-bordered table-hover">
+            <thead class="tbl-head">
+                <tr class="tr-grid-header">
+                    <th style="text-align: center !important">Select</th>
+                    <th style="text-align: center !important">Section</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of reports">
+                  <td class="text-center">
+                    <mat-checkbox [checked]="item.is_selected"></mat-checkbox>
+                  </td>
+                  <td class="text-center">
+                    {{item.Section}}
+                  </td>     
+                </tr>
+            </tbody>
+        </table>
+        <!-- <mat-paginator class="col-sm-12" [length]="totalSize" [pageIndex]="currentPage" [pageSize]="pageSize" [pageSizeOptions]="[5, 10, 25, 50, 100]" (page)="handlePage($event)" showFirstLastButtons></mat-paginator> -->
+    </div>
+    <div *ngIf="isControl " class="table-responsive w-100 col-sm-12" style="margin-top: 10px;">
+      <table id="example2" class="table table-bordered table-hover">
+          <thead class="tbl-head">
+              <tr class="tr-grid-header">
+                  <th style="text-align: center !important">Site Name</th>
+                  <th style="text-align: center !important">Category Name</th>
+                  <th style="text-align: center !important">Observations</th>
+                  <th style="text-align: center !important" >Inspected by</th>
+                  <th style="text-align: center !important">Date</th>
+                  <th style="text-align: center !important" >Report</th>
+                  <th style="text-align: center !important">Actions</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr *ngFor="let item of excavations">
+                <td class="text-center">
+                  {{item.site}}
+                </td>
+                <td class="text-center">
+                  {{item.cat_name}}
+                </td>      
+                <td class="text-center inner-screen">
+                  View
+                </td>
+                <td class="text-center">
+                  {{item.insecby}}
+                </td> 
+                <td class="text-center">
+                  {{item.date}}
+                </td> 
+               
+                <td *ngIf="item.report == false" class="text-center">
+                  -
+                </td>
+                <td *ngIf="item.report == true" style="text-align:center !important;"><a><i class="fa fa-file-pdf-o" style="cursor: pointer;;font-size:16px!important;color: cornflowerblue;"></i></a></td>
+                <td  class="text-center">
+                  <a style="cursor: pointer;margin-right:10px; " matTooltip="Update observation" (click)="openQualityDialog(item)">
+                      <i class="fa fa-edit" style="color: cornflowerblue"></i>
+                  </a>
+                  <a ><i class="fa fa-trash red" matTooltip="Delete observation"  style="cursor: pointer;"(click)="openDeleteDialog(item)"></i></a>
+              </td>
+              </tr>
+          </tbody>
+      </table>
+      <!-- <mat-paginator class="col-sm-12" [length]="totalSize" [pageIndex]="currentPage" [pageSize]="pageSize" [pageSizeOptions]="[5, 10, 25, 50, 100]" (page)="handlePage($event)" showFirstLastButtons></mat-paginator> -->
+  </div>
+  <div *ngIf="isTests " class="table-responsive w-100 col-sm-12" style="margin-top: 10px;">
+    <table id="example2" class="table table-bordered table-hover">
+        <thead class="tbl-head">
+            <tr class="tr-grid-header">
+                <th style="text-align: center !important">Site Name</th>
+                <th style="text-align: center !important">Category Name</th>
+                <th style="text-align: center !important">Test Performed</th>
+                <th style="text-align: center !important" >Inspected by</th>
+                <th style="text-align: center !important">Date</th>
+                <th style="text-align: center !important" >Result</th>
+                <th style="text-align: center !important" >IS Code</th>
+                <th style="text-align: center !important" >Deviation</th>
+                <th style="text-align: center !important" >Report</th>
+                <th style="text-align: center !important">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of excavations">
+              <td class="text-center">
+                {{item.site}}
+              </td>
+              <td class="text-center">
+                {{item.cat_name}}
+              </td>      
+              <td class="text-center">
+                {{item.Performed}}
+              </td>
+              <td class="text-center">
+                {{item.insecby}}
+              </td> 
+              <td class="text-center">
+                {{item.date}}
+              </td> 
+              <td class="text-center">
+                {{item.result}}
+              </td>
+              <td class="text-center">
+                {{item.isCode}}
+              </td>
+              <td class="text-center">
+                {{item.deviation}}
+              </td>
+              <td *ngIf="item.report == false" class="text-center">
+                -
+              </td>
+              <td *ngIf="item.report == true" style="text-align:center !important;"><a><i class="fa fa-file-pdf-o" style="cursor: pointer;;font-size:16px!important;color: cornflowerblue;"></i></a></td>
+              
+              <td  class="text-center">
+                <a style="cursor: pointer;margin-right:10px; " matTooltip="Update Record" (click)="openTestDialog(item)">
+                    <i class="fa fa-edit" style="color: cornflowerblue"></i>
+                </a>
+                <a ><i class="fa fa-trash red" matTooltip="Delete Record"  style="cursor: pointer;"(click)="openDeleteDialog(item)"></i></a>
+            </td>
+            </tr>
+        </tbody>
+    </table>
+    <!-- <mat-paginator class="col-sm-12" [length]="totalSize" [pageIndex]="currentPage" [pageSize]="pageSize" [pageSizeOptions]="[5, 10, 25, 50, 100]" (page)="handlePage($event)" showFirstLastButtons></mat-paginator> -->
+  </div>
+  
+  <!-- <div *ngIf="isPCC || isPilling || isFolding || isConcrete ||  isRein || isPost" class="row d-flex">
+    <div class="col-6 mx-auto middle">
+      <img style="margin-top: 15%; display: flex; margin-left: auto; margin-right: auto;" src="/assets/img/under-construction.png" height="400px" alt="under-construction">
+    </div>
+  </div> -->

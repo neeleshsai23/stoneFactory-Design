@@ -1,0 +1,105 @@
+<div class="flex-p" style="margin-top: -10px; margin-bottom: 10px;">
+  <div class="row wrap">
+     <div class="col-sm-12">
+      </div>
+  </div>
+</div>
+
+<div fxLayout="row wrap">
+  <div class="col-sm-12 w-100">
+      <mat-drawer-container class="custom-sidenav" hasBackdrop="false" class="margin-top-10">
+          <mat-drawer #drawer mode="side" opened="true">
+              <div class="col-sm-12" style="padding-left:0px;">
+                  <mat-card class="col-sm-12" style="background: #3b7bb882 !important">
+                      <p-tree [value]="files" class="ptreecustom" selectionMode="single" [(selection)]="selectedFile"></p-tree>
+                  </mat-card>
+              </div>
+          </mat-drawer>
+          <mat-drawer-content>
+              <div class="col-sm-12 no-padding">
+                  <mat-card class="col-sm-12" style="background: #dbe8f3 !important;">
+                      <div class="col-sm-3">
+                          <label>Site :</label>
+                          <span>&nbsp;&nbsp;P-09876</span>
+                      </div>
+                      <div class="col-sm-3">
+                          <label>Level Name :</label>
+                          <span>&nbsp;&nbsp;Refrence Plan</span>
+                      </div>
+                      <div class="col-sm-3">
+                          <label>Budget Hours :</label>
+                          <span>&nbsp;&nbsp;10 hrs</span>
+                      </div>
+                      <div class="col-sm-3 no-padding">
+                          <label class="col-sm-6">Quoted:</label>
+                          <input type="text" style="margin-top: -5px;" class="form-control col-sm-6" placeholder="Quoted Total">
+                      </div>
+                  </mat-card>
+                  <mat-card class="col-sm-12 margin-top-10">
+                      <div class="w-100">
+                          <div class="">
+                            <!-- <button  mat-raised-button class="pull-right  btn-primary" (click)="openPaymentDialog(null)">
+                                <mat-icon>add</mat-icon> Add Payment
+                            </button> -->
+                              <div class="col-sm-12" style="padding: 0px !important; margin-top: 10px;">
+                                <div fxLayout="row wrap" style="margin-top:-5px;">
+                                    <div class="table-responsive w-100 flex-p">
+                                        <table id="example2" class="table table-bordered table-hover">
+                                            <thead class="tbl-head">
+                                                <tr class="tr-grid-header">
+                                                    <!-- <th><input type="checkbox" name="select_all" [(ngModel)]="selectedAll" (change)="selectAll();"/></th> -->
+                                                    <th>Due Date</th>
+                                                    <th>Payment Status</th>
+                                                     <th>Actual Pay Date</th>
+                                                     <th>Amount Paid</th>
+                                                    <th>Transaction Reference</th>
+                                                    <th>Remarks</th>
+                                                    <th>Actions</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>                                
+                                                <tr *ngFor="let contact of contacts">
+                                                    <!-- <td><input type="checkbox" name="select_single" [(ngModel)]="contact.selected" (change)="checkIfAllSelected();"></td> -->
+                                                    <td>{{contact.paydate}}</td>
+                                                    <td>
+                                                        <mat-select class="form-control" placeholder="Payment Status">
+                                                            <mat-option *ngFor="let item of jobcode" [value]="item">{{item}}</mat-option>
+                                                        </mat-select>
+                                                    </td>
+                                                    <td>{{contact.paydate}}</td>
+                                                    <td>{{contact.Amount}}</td>
+                                                    <td>{{contact.Transaction}}</td>
+                                                    <td>{{contact.Remarks}}</td>
+                                                
+                                                <td>
+                                                    <!-- <a title="Edit contact" style="margin-right: 10px; cursor: pointer;" (click)="opencontactDialog(contact)">
+                                                        <i class="fa fa-edit"></i>
+                                                    </a> -->
+                                                    <a mwlConfirmationPopover
+                                                    [popoverTitle]="popoverTitle"
+                                                    [popoverMessage]="popoverMessage"
+                                                    placement="left"
+                                                    (confirm)="updateContactStatus(contact.contact_id, !contact.is_delete, 'delete')"
+                                                    (cancel)="cancelClicked = true">
+                                                    <i style="cursor: pointer;" title="Delete Contact" class="fa fa-trash red"></i>
+                                                </a>
+                                                
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                              </div>
+                          </div>
+                          <div class="flex-p">
+                          </div>
+                      </div>
+                  </mat-card>
+              </div>
+          </mat-drawer-content>
+      </mat-drawer-container>
+
+  </div>
+</div>
+

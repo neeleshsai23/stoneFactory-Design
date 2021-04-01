@@ -1,0 +1,163 @@
+<div class="NewHeader">
+  <h1 mat-dialog-title>
+    <span *ngIf="!project" class="title-left">Add</span>
+    <span *ngIf="project" class="title-left">Update</span> Member
+  </h1>
+</div>
+<mat-horizontal-stepper #stepper>
+    <mat-step>
+        <div mat-dialog-content>
+            <form class="form-horizontal" novalidate [formGroup]="projectForm">
+                <ng-template matStepLabel>Member Details</ng-template>
+              <div class="form-group">
+                <label class="control-label col-sm-4 add-member-label">First Name:&nbsp;</label>
+                <div class="col-sm-8">
+                  <input type="text" maxlength="50" class="form-control" placeholder="Enter First Name"
+                    formControlName="contactName" required>
+                  <div *ngIf="!contactName.valid && (contactName.dirty || contactName.touched)" class="error-text">
+                    <div *ngIf="contactName.errors.required">
+                   
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                  <label class="control-label col-sm-4 add-member-label">Last Name:&nbsp;</label>
+                  <div class="col-sm-8">
+                    <input type="text" maxlength="200" class="form-control" placeholder="Enter Last Name"
+                      formControlName="streetAddress" required>
+                    <div *ngIf="!streetAddress.valid && (streetAddress.dirty || streetAddress.touched)" class="error-text">
+                      <div *ngIf="streetAddress.errors.required">
+                     
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              <div class="form-group">
+                <label class="control-label col-sm-4 add-member-label">Mobile Number:&nbsp;</label>
+                <div class="col-sm-8">
+                  <input type="text" maxlength="50" class="form-control" placeholder="Enter Mobile Number" formControlName="jobTitle"
+                    required>
+                  <div *ngIf="!jobTitle.valid && (jobTitle.dirty || jobTitle.touched)" class="error-text">
+                    <div *ngIf="jobTitle.errors.required">
+                    
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                  <label class="control-label col-sm-4 add-member-label">Email:&nbsp;</label>
+                  <div class="col-sm-8">
+                    <input type="text" maxlength="50" class="form-control" placeholder="Enter Email" formControlName="jobTitle"
+                    required>
+                    <div *ngIf="!Country.valid && (Country.dirty || Country.touched)" class="error-text">
+                      <div *ngIf="Country.errors.required">
+                    
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-4 add-member-label">Location:&nbsp;</label>
+                    <div class="col-sm-8">
+                      <input type="text" maxlength="50" class="form-control" placeholder="Enter Location" formControlName="jobTitle"
+                      required>
+                      <div *ngIf="!State.valid && (State.dirty || State.touched)" class="error-text">
+                        <div *ngIf="State.errors.required">
+                         
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+            </form>
+          </div>
+          <mat-dialog-actions class="col-sm-12" align="end">
+              <button mat-raised-button [disabled]="!projectForm.valid"  [ngClass]="!projectForm.valid ? '' : 'btn-primary'" ><mat-icon>arrow_forward</mat-icon>&nbsp;Proceed</button>
+              <button mat-raised-button class="CancelClass" (click)="close()"><mat-icon>cancel</mat-icon>&nbsp;Close</button>
+            </mat-dialog-actions>
+    </mat-step>
+    <mat-step>
+        <div mat-dialog-content>
+            <form class="form-horizontal" novalidate [formGroup]="projectForm">
+                <ng-template matStepLabel>Property Details </ng-template>
+                <div class="form-group">
+                    <label class="control-label col-sm-4 add-member-label">Property Name:&nbsp;</label>
+                    <div class="col-sm-8">
+                       
+                            <div class="input-icon right">
+                              <input class="form-control" formControlName="contactNumber"  placeholder="Enter Property Name"
+                                class="form-control" id="db" name="dt1">
+                              
+                            </div>
+                          
+                      <div *ngIf="!contactNumber.valid && (contactNumber.dirty || contactNumber.touched)" class="error-text">
+                        <div *ngIf="contactNumber.errors.required">
+                          
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+            
+                  <div class="form-group">
+                    <label class="control-label col-sm-4 add-member-label">Select Representative:&nbsp;</label>
+                    <div class="col-sm-8">
+                        
+                            <div class="input-icon right">
+                              <mat-select class="form-control" placeholder="Select Respresentative">
+                                <mat-option [value]="1"></mat-option>
+                                <mat-option [value]="2"></mat-option>
+                                <mat-option [value]="3"></mat-option>
+                                <mat-option [value]="4"></mat-option>  
+                              </mat-select>
+                            </div>
+                          
+                      <div *ngIf="!contactEmail.valid && (contactEmail.dirty || contactEmail.touched)" class="error-text">
+                        <div *ngIf="contactEmail.errors.required">
+                            
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+            
+                  <div class="form-group">
+                      <label class="control-label col-sm-4 add-member-label">Select Package:&nbsp;</label>
+                      <div class="col-sm-8">
+                          
+                              <div class="input-icon right">
+                                <mat-select class="form-control" placeholder="Select Package">
+                                  <mat-option [value]="1">Platinum</mat-option>
+                                  <mat-option [value]="2">Premium</mat-option>
+                                  <mat-option [value]="3">Gold</mat-option>
+                                  <mat-option [value]="4">Silver</mat-option>  
+                                </mat-select>
+                              </div>
+                            
+                        <div *ngIf="!City.valid && (City.dirty || City.touched)" class="error-text">
+                          <div *ngIf="City.errors.required">
+                              Setup Due Date is required
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+              
+  
+              </form>
+            </div>
+            <mat-dialog-actions class="col-sm-12" align="end">
+                <button *ngIf="!project"mat-raised-button [disabled]="!projectForm.valid" 
+                  [ngClass]="!projectForm.valid ? '' : 'btn-primary'">
+                  <mat-icon>send</mat-icon>&nbsp;Save
+                </button>
+                <button *ngIf="project" mat-raised-button [disabled]="!projectForm.valid" 
+                  [ngClass]="!projectForm.valid ? '' : 'btn-primary'">
+                  <mat-icon>update</mat-icon>&nbsp;Update
+                </button>
+                <button mat-raised-button class="CancelClass" (click)="close()">
+                  <mat-icon>cancel</mat-icon>&nbsp;Close
+                </button>
+              </mat-dialog-actions>
+      </mat-step>
+ </mat-horizontal-stepper>
+
+
+

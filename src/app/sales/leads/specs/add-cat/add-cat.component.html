@@ -1,0 +1,142 @@
+
+<h1  class="custom-header"mat-dialog-title> Add Product</h1>
+<div mat-dialog-content>
+    <form novalidate >
+
+      
+      <div class="form-group row">
+        <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label" for="pwd">SKU #:&nbsp;</label>
+        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+            <input type="text"class="form-control"  maxlength="30"  placeholder="Enter SKU " required>
+          
+        </div>
+    </div>
+
+
+      <div class="form-group row">
+        <label class="control-label col-sm-4 add-member-label" for="pwd">Select Category:&nbsp; </label>
+        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+          
+          <select class="select-option form-control"   placeholder="-- Select Category --" style="height:30px" required>
+            <option value="" disabled selected hidden>Select Category</option>
+            <option >EXTERNAL SOLUTIONS</option>
+            <option >INTERNAL SOLUTIONS</option>
+            <option >PAVING</option>
+            <option >WALLING</option>
+            <option >ROUTE</option>
+
+          </select>
+         
+        
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label class="control-label col-sm-4 add-member-label" for="pwd">Select Sub Category:&nbsp; </label>
+        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+          
+          <select class="select-option form-control"   placeholder="-- Select sub Category --"  style="height:30px" required>
+            <option value="" disabled selected hidden>Select Sub Category</option>
+            <option >Bricks</option>
+            <option>Flags</option>
+            <option >Blocks</option>
+            <option >Cobbles</option>
+            <option >Permeable</option>
+          </select>
+         
+        
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="control-label col-sm-4 add-member-label" for="pwd">Product Name:&nbsp; </label>
+        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+          
+        <input type="text" class="form-control" placeholder="Enter Product Name">         
+        
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label class="control-label col-sm-4 add-member-label" for="pwd">Upload Image:&nbsp; </label>
+        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+          
+          <button mat-raised-button  class="file-select-button">
+    
+            choose file
+          </button>
+         
+        
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <div style="padding:20px;box-shadow:0 0 2px 0 rgba(100,100,100,1);margin-top:20px;border-radius: 5px;width: 100%;">
+          <h4>Variants</h4>
+    
+          <div fxLayout="row" fxLayoutAlign="start center">
+            <input #options type="checkbox" (click)="clickedBox()"/>
+            <p style="margin-left: 15px;margin-top: 10px;">This product has multiple options, like different sizes or colors</p>
+          </div>
+          
+          <hr>
+    
+          <div *ngIf="clicked">
+            <p>OPTIONS</p>
+            <div fxLayout="row" fxLayoutAlign="space-between flex-end">
+              <div style="width: 30%;">
+                <label>Option 1</label>
+                <mat-select class='form-control' [(value)]="selected">
+                
+                  <mat-option [value]=2 >COLOR</mat-option>
+                  <mat-option [value]=3 >FINISH</mat-option>
+                  <mat-option [value]=4 >EDGE</mat-option>
+                 
+                </mat-select>
+              </div>
+              <div style="width: 65%;">
+                <input type="text" class="form-control" placeholder=""/>
+              </div>
+            </div>
+            <div fxLayout="row" fxLayoutAlign="space-between flex-end" style="margin-top: 10px;">
+              <div style="width: 30%;">
+                <label>Option 2</label>
+                <mat-select class='form-control' [(value)]="selected">
+                  <mat-option [value]=2 >COLOR</mat-option>
+                  <mat-option [value]=3 >FINISH</mat-option>
+                  <mat-option [value]=4 >EDGE</mat-option>
+                </mat-select>
+              </div>
+              <div style="width: 65%;">
+                <input type="text" class="form-control" placeholder=""/>
+              </div>
+            </div>
+            <div fxLayout="row" fxLayoutAlign="space-between flex-end" style="margin-top: 10px;">
+              <div style="width: 30%;">
+                <label>Option 3</label>
+                <mat-select class='form-control' [(value)]="selected">
+                  <mat-option [value]=2 >COLOR</mat-option>
+                  <mat-option [value]=3 >FINISH</mat-option>
+                  <mat-option [value]=4 >EDGE</mat-option>
+                </mat-select>
+              </div>
+              <div style="width: 65%;">
+                <input type="text" class="form-control" placeholder=""/>
+              </div>
+            </div>
+          </div>
+    
+          
+          
+        </div>
+      </div>
+
+     
+
+    
+           
+    </form>
+</div>
+<mat-dialog-actions align="end" class="width" style="padding-right: 15px !important;">
+    <button mat-raised-button>Save</button>
+    <button mat-raised-button class="add-dark-hover btn-default" (click)="close()">Close</button>
+</mat-dialog-actions>

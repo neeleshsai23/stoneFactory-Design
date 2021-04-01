@@ -1,0 +1,256 @@
+#Canvas {
+  //   position: fixed;
+  //   top: 0;
+  //   left: 0;
+  transform-origin: 0 0;
+}
+
+.selected {
+  background-color: #b3b3b3 !important;
+}
+.abs-tl {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+.abs-br {
+  position: absolute;
+  right: 30px;
+  bottom: 20px;
+  z-index: 4;
+}
+.view-position {
+  position: absolute;
+  left: 110px;
+  top: 105px;
+}
+.pattern-position {
+  position: absolute;
+  left: 110px;
+  top: 195px;
+}
+
+.angle-position {
+  position: absolute;
+  left: 110px;
+  top: 295px;
+}
+
+.color-position {
+  position: absolute;
+  left: 110px;
+  top: 295px;
+}
+.width-position {
+  position: absolute;
+  left: 110px;
+  top: 400px;
+}
+.size-position {
+  position: absolute;
+  left: 110px;
+  top: 395px;
+}
+
+.flex-column {
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  z-index: 4;
+}
+.win-type-body,
+.win-h6 {
+  font-size: 15px !important;
+  font-weight: 400 !important;
+  line-height: 1.333 !important;
+}
+.flex-row {
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+.abs-tl button.win-command.accent-self {
+  margin: 12px 0 0 12px;
+}
+
+.abs-tl a.win-command.accent-self {
+  margin: 12px 0 0 12px;
+}
+
+button.win-command.accent-self,
+button.win-command.accent-self:enabled:hover,
+button.win-command.accent-self:active:hover,
+html.win-hoverable button.win-command.accent-self:active,
+html.win-hoverable button.win-command.accent-self:enabled:hover {
+  background-color: rgba(88, 88, 90, 1);
+}
+
+a.win-command.accent-self,
+a.win-command.accent-self:enabled:hover,
+a.win-command.accent-self:active:hover {
+  background-color: rgba(88, 88, 90, 1);
+}
+
+button.win-command.accent-self {
+  min-width: 80px;
+  height: 80px;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.6);
+}
+button.win-command {
+  outline: none;
+}
+button.win-command {
+  touch-action: manipulation;
+  background: none;
+  background-clip: border-box;
+  height: auto;
+  padding: 0;
+  margin: 0;
+  border: 1px dotted;
+  min-width: 40px;
+  min-height: 40px;
+  text-align: center;
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: normal;
+  overflow: visible;
+  writing-mode: lr-tb;
+  position: relative;
+  z-index: 0;
+}
+button {
+  color: rgba(0, 0, 0, 1);
+}
+button.win-command.accent-self .win-commandimage {
+  color: white !important;
+  font-size: 28px !important;
+  min-width: 28px !important;
+  height: 28px !important;
+  line-height: 28px !important;
+}
+button.win-command * {
+  pointer-events: none;
+}
+
+a.win-command.accent-self {
+  min-width: 80px;
+  height: 80px;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.6);
+}
+a.win-command {
+  outline: none;
+}
+a.win-command {
+  touch-action: manipulation;
+  background: none;
+  background-clip: border-box;
+  height: auto;
+  padding: 0;
+  margin: 0;
+  border: 1px dotted;
+  min-width: 40px;
+  min-height: 40px;
+  text-align: center;
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: normal;
+  overflow: visible;
+  writing-mode: lr-tb;
+  position: relative;
+  z-index: 0;
+}
+a {
+  color: rgba(0, 0, 0, 1);
+}
+a.win-command.accent-self .win-commandimage {
+  color: white !important;
+  font-size: 28px !important;
+  min-width: 28px !important;
+  height: 28px !important;
+  line-height: 28px !important;
+}
+a.win-command * {
+  pointer-events: none;
+}
+
+.win-commandimage {
+  font-family: 'Segoe UI Command', 'Symbols';
+  letter-spacing: 0;
+  vertical-align: middle;
+  font-size: 20px;
+  margin: 0;
+  line-height: 24px;
+  background-position: 0 0;
+  background-origin: border-box;
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  background-size: 96px 48px;
+  outline: none;
+}
+#ProductInfoContainer {
+  margin: 12px 0 0 12px;
+  padding: 6px 12px 10px 12px;
+  background-color: rgba(0, 0, 0, 0.4);
+  color: white;
+  border-radius: 8px;
+}
+.win-type-header,
+.win-type-subheader,
+.win-type-title,
+.win-type-subtitle,
+.win-type-base,
+.win-type-body,
+.win-type-caption,
+.win-h1,
+.win-h2,
+.win-h3,
+.win-h4,
+.win-h5,
+.win-h6,
+.win-button,
+.win-dropdown,
+.win-textbox,
+.win-link,
+.win-textarea {
+  font-family: 'Segoe UI', sans-serif, 'Segoe MDL2 Assets', 'Symbols' !important;
+}
+.win-type-title,
+.win-h3 {
+  font-size: 24px;
+  font-weight: 300;
+  line-height: 1.167;
+}
+.win-type-subtitle,
+.win-h4 {
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.2;
+}
+.win-type-body,
+.win-h6 {
+  font-size: 15px !important;
+  font-weight: 400 !important;
+  line-height: 1.333 !important;
+}
+.white-t {
+  color: white !important;
+  font-size: 18px !important;
+}
+
+// button:hover {
+//     opacity: 0.6;
+// }
+.hide {
+  display: none;
+}

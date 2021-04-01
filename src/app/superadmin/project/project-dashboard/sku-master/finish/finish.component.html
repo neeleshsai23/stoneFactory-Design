@@ -1,0 +1,140 @@
+<div fxLayout="row" style="margin-bottom:7px;">
+  <div class="col-xs-6 ">
+      <div class="flex-p">
+          <app-sku-master></app-sku-master>
+      </div>
+  </div>
+  <div class="col-xs-6 ">
+      <div class="flex-p">
+          <button mat-raised-button class="pull-right  btn-primary" (click)=" addFinishDialog()" >
+              <mat-icon>add</mat-icon> Add Finish
+          </button>
+          <button mat-raised-button  class="pull-right  btn-primary margin-right-10" (click)=" openUploadCSVDialog()">
+               Upload CSV
+          </button>
+          <button mat-raised-button color="primary" class="pull-right filters-hover margin-right-10"
+          (click)="filterToggle = !filterToggle">
+          <mat-icon>filter_list</mat-icon> Filter
+      </button>
+      <button mat-raised-button color="primary" class="pull-right btn-primary margin-right-10"
+          (click)="openConfigureDialog()">
+          Configure
+      </button>
+      
+  </div>
+      
+  </div>
+</div>
+
+
+
+
+<div fxLayout="row wrap" *ngIf="filterToggle">
+  <div fxFlex="100" fxFlex.gt-sm fxFlex.sm class="flex-p w-100 margins">
+      <mat-card class="filter">
+          <mat-card-content>
+              <div class="row">
+                  <div class="col-sm-4">
+                      <div class="col-sm-4 newMarginClass">
+                          Category: 
+                      </div>
+                      <div class="col-sm-8">
+                          <mat-select class="form-control" placeholder="Search by Category">
+                              <mat-option [value]="0">External Solutions</mat-option>
+                              <mat-option [value]="1">Internal Solutions</mat-option>
+                              <mat-option [value]="2">Paving</mat-option>
+                              <mat-option [value]="3">Walling</mat-option>
+                              <mat-option [value]="4">Root</mat-option>
+                          </mat-select>
+                      </div>
+                  </div>
+                  <div class="col-sm-4">
+                      <div class="col-sm-4 newMarginClass">
+                          Sub Category: 
+                      </div>
+                      <div class="col-sm-8">
+                          <mat-select class="form-control" placeholder="Search by Sub-Category">
+                              <mat-option [value]="0">Bricks</mat-option>
+                              <mat-option [value]="1">Roman Bricks</mat-option>
+                              <mat-option [value]="2">Blocks</mat-option>
+                              <mat-option [value]="3">Cobbles</mat-option>
+                          </mat-select>                        
+                      </div>
+                  </div>
+                  <div class="col-sm-4">
+                      <div class="col-sm-4 newMarginClass">
+                      </div>
+                      <div class="col-sm-8">
+                      </div>
+                  </div>
+              </div>
+              
+              
+              <div class="row" style="padding-top:10px !important">
+                  <div style="position: relative;left: 75%;">
+                  
+                  <div class="col-lg-1" style="margin-left:195px!important;">
+                      <button mat-raised-button  class="pull-right btn-primary"><mat-icon>youtube_searched_for</mat-icon> Search</button>
+                  </div>
+                  <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1" style="margin-left: -18px;">
+                      <button mat-raised-button style="background-color:#37474f; color:#fff !important" ><mat-icon>settings_backup_restore</mat-icon> Clear</button>
+                  </div>
+                  <a (click)="filterToggle = !filterToggle" class="pull-right" style="font-size: 25px; cursor: pointer; margin-left: 5px;">
+                      <i class="fa fa-angle-double-up" aria-hidden="true"></i>
+                  </a>
+                  </div>
+                  
+              </div>
+          </mat-card-content>
+      </mat-card>
+  </div>
+</div>
+
+<div fxLayout="row wrap" >
+
+  
+
+   
+ 
+ 
+<div class="table-responsive topmargin" style="width:100% !important;margin-top: 20px;">
+    <table id="example2" class="table table-bordered table-hover">
+        <thead class="tbl-head">
+            <tr class="tr-grid-header">
+              <th >Finish Name</th>
+                <!-- <th>Category</th>
+                <th>Sub-Category</th> -->
+                
+               <th class="text-center">SKU</th>
+                <th class="text-center">Status</th>
+
+               
+                <th  class="text-center" style="min-width: 100px !important;">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+         
+            <tr *ngFor="let item of items" >
+              <td  style="max-width: 300px !important; word-wrap: break-word !important;">{{item.finish}}</td>
+
+                <!-- <td>{{item.category}}</td>
+                <td>{{item.subcategory}}</td> -->
+                <td class="text-center" style="color: blue;"> {{item.SKU}}</td>
+                <td class="text-center"><a style="color: blue;cursor: pointer;">Active</a></td>
+               
+               
+                <td  class="text-center">
+                    <a  title="Edit" style="cursor: pointer; margin-right: 10px !important">
+                        <i class="fa fa-edit" style="color: cornflowerblue"></i>
+                    </a>
+                    <a >
+                        <i style="cursor: pointer;" title="Delete" class="fa fa-trash red"></i>
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <mat-paginator  [pageSizeOptions]="[5, 10, 25, 50, 100]"  showFirstLastButtons></mat-paginator>
+</div>
+</div>
+

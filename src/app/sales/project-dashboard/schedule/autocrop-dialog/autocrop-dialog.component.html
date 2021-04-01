@@ -1,0 +1,56 @@
+
+<div class="NewHeader">
+  <h1 mat-dialog-title>
+    Auto Crop Setup
+  </h1>
+</div>
+<div mat-dialog-content>
+    <form class="form-horizontal">
+      <div class="row" style="margin-top:20px">
+        <div class="col-xs-12">
+            <div id="grid-table-container" class="table-responsive">
+                <table matSort id="example2" class="table table-bordered table-hover">
+                    <thead class="tbl-head">
+                        <tr>
+                            <th>Top</th>
+                            <th>Left</th>
+    
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                          <td class="text-center"><input type="number" class="form-control"/></td>
+                          <td class="text-center"><input type="number" class="form-control"/></td>
+                        </tr>
+                        <tr>
+                          <td class="text-center"><input type="number" class="form-control"/></td>
+                          <td class="text-center"><input type="number" class="form-control"/></td>
+                        </tr>
+                        <tr>
+                          <td class="text-center"><input type="number" class="form-control"/></td>
+                          <td class="text-center"><input type="number" class="form-control"/></td>
+                        </tr>
+                        <tr>
+                          <td class="text-center"><input type="number" class="form-control"/></td>
+                          <td class="text-center"><input type="number" class="form-control"/></td>
+                        </tr>
+                        <tr>
+                          <td class="text-center"><input type="number" class="form-control"/></td>
+                          <td class="text-center"><input type="number" class="form-control"/></td>
+          	            </tr>
+        
+                    </tbody>
+                </table>
+    
+             </div>
+         </div>
+      </div>
+       <button mat-raised-button class="btn-default"> <span
+             >Add</span></button>
+    </form>
+</div>
+<mat-dialog-actions align="end">
+    <button mat-raised-button class="btn-primary"> <span
+             >Save</span></button>
+    <button mat-raised-button class="add-dark-hover btn-default" (click)="close()">Close</button>
+</mat-dialog-actions> 

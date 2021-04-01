@@ -1,0 +1,37 @@
+<div class="NewHeader">
+    <h1 mat-dialog-title>Grid View Configuration </h1>
+  </div> 
+  <p>Please select the required columns in the grid, to view grid with specific columns</p>
+  <div mat-dialog-content style="overflow:hidden!important;">
+    <form class="form-horizontal" novalidate [formGroup]="gridColumnForm" style="margin-top:10px">
+      <mat-checkbox  class="col-sm-4" formControlName="campaignName">Lead Name</mat-checkbox>
+      <mat-checkbox  class="col-sm-4" formControlName="Industry">Lead URL</mat-checkbox>
+      <mat-checkbox  class="col-sm-4" formControlName="Segment">Contact Name</mat-checkbox>
+      <mat-checkbox  class="col-sm-4" formControlName="Country">Campaign Name</mat-checkbox>
+      <!-- <mat-checkbox class="col-sm-4" formControlName="BD">BD</mat-checkbox> -->
+      <mat-checkbox  class="col-sm-4" formControlName="CampaignType">Visit Reports</mat-checkbox>
+      <mat-checkbox  class="col-sm-4" formControlName="Solution">Now</mat-checkbox>
+      <mat-checkbox class="col-sm-4" formControlName="Checklist">Next</mat-checkbox>
+      <mat-checkbox  class="col-sm-4" formControlName="LeadSample">Activity Notes</mat-checkbox>
+      <mat-checkbox class="col-sm-4" formControlName="EstimatedLeads">Lead Sample</mat-checkbox>
+      <mat-checkbox class="col-sm-4" formControlName="ActualLeads">Segment</mat-checkbox>
+      <mat-checkbox class="col-sm-4" formControlName="ResearchLeads">Country</mat-checkbox>
+      <mat-checkbox class="col-sm-4" formControlName="WarmLeads">City</mat-checkbox>
+      <mat-checkbox class="col-sm-4" formControlName="HotLeads">Solution</mat-checkbox>
+      <mat-checkbox class="col-sm-4" formControlName="Meetings">Industry</mat-checkbox>
+      <mat-checkbox class="col-sm-4" formControlName="Prospects">BD Name</mat-checkbox>
+      <mat-checkbox class="col-sm-4" formControlName="LastUpdated">Followup date</mat-checkbox>
+      <mat-checkbox class="col-sm-4" formControlName="StartDate">Head Count</mat-checkbox>
+      <mat-checkbox class="col-sm-4" formControlName="FinishDate">CON</mat-checkbox>
+      <mat-checkbox class="col-sm-4" formControlName="Meetings">Log Date</mat-checkbox>
+      <mat-checkbox class="col-sm-4" formControlName="Prospects">Brief Date</mat-checkbox>
+      <mat-checkbox class="col-sm-4" formControlName="LastUpdated">Sample date</mat-checkbox>
+      <mat-checkbox class="col-sm-4" formControlName="StartDate">Feedback Date</mat-checkbox>
+      <mat-checkbox class="col-sm-4" formControlName="FinishDate">Tracking Date</mat-checkbox>
+    </form>
+  </div>
+  
+  <mat-dialog-actions align="end">
+    <button mat-raised-button class="add-hover btn-primary" (click)="saveGridColumns()">Configure</button>
+    <button mat-raised-button class="add-dark-hover btn-default" (click)="close()">Cancel</button>
+  </mat-dialog-actions>

@@ -1,0 +1,186 @@
+<div class="newHeader">
+  <h2 class="custom-header" mat-dialog-title>Patterns</h2>
+</div>
+<div *ngIf="!showSizes" fxLayout="row wrap" fxLayoutAlign="center center">
+  <div fxLayout="column" style="height: 150px;width: 150px;margin: 15px ;box-shadow: 0 0 2px 0 rgba(100,100,100,1);">
+    <mat-card id="pattern1" style="height: 120px;width: 150px;" fxLayout="column" fxLayoutAlign="center center" (click)="selectPattern($event)">
+      <img src="../../../../../../assets/brokenbond.PNG"/>
+      <p style="text-align: center;">Broken Bond</p>
+    </mat-card>
+    <div style="height: 30px;background: rgba(200,200,200,1);" fxLayout="row" fxLayoutAlign="center center" class="setup" (click)="showSizes = !showSizes">
+      <h5>Setup</h5>
+      <h5 style="margin-left: 10px;">0/2</h5>
+    </div>
+  </div>
+
+  <div fxLayout="column" style="height: 150px;width: 150px;margin: 15px ;box-shadow: 0 0 2px 0 rgba(100,100,100,1);">
+    <mat-card id="pattern2" style="height: 120px;width: 150px;" fxLayout="column" fxLayoutAlign="center center" (click)="selectPattern($event)">
+      <img src="../../../../../../assets/english.PNG"/>
+      <p style="text-align: center;">English</p>
+    </mat-card>
+    <div style="height: 30px;background: rgba(200,200,200,1);" fxLayout="row" fxLayoutAlign="center center" class="setup" (click)="showSizes = !showSizes" >
+      <h5>Setup</h5>
+      <h5 style="margin-left: 10px;">0/2</h5>
+    </div>
+  </div>
+
+  <div fxLayout="column" style="height: 150px;width: 150px;margin: 15px ;box-shadow: 0 0 2px 0 rgba(100,100,100,1);">
+    <mat-card id="pattern3" style="height: 120px;width: 150px;" fxLayout="column" fxLayoutAlign="center center" (click)="selectPattern($event)">
+      <img src="../../../../../../assets/flemish.PNG"/>
+    <p style="text-align: center;">Flemish</p>
+    </mat-card>
+    <div style="height: 30px;background: rgba(200,200,200,1);" fxLayout="row" fxLayoutAlign="center center" class="setup" (click)="showSizes = !showSizes" >
+      <h5>Setup</h5>
+      <h5 style="margin-left: 10px;">0/2</h5>
+    </div>
+  </div>
+
+  <div fxLayout="column" style="height: 150px;width: 150px;margin: 15px ;box-shadow: 0 0 2px 0 rgba(100,100,100,1);">
+    <mat-card id="pattern4" style="height: 120px;width: 150px;" fxLayout="column" fxLayoutAlign="center center" (click)="selectPattern($event)">
+      <img src="../../../../../../assets/stack.PNG"/>
+    <p style="text-align: center;">Stack</p>
+    </mat-card>
+    <div style="height: 30px;background: rgba(200,200,200,1);" fxLayout="row" fxLayoutAlign="center center" class="setup" (click)="showSizes = !showSizes" >
+      <h5>Setup</h5>
+      <h5 style="margin-left: 10px;">0/2</h5>
+    </div>
+  </div>
+
+  <div fxLayout="column" style="height: 150px;width: 150px;margin: 15px ;box-shadow: 0 0 2px 0 rgba(100,100,100,1);">
+    <mat-card id="pattern5" style="height: 120px;width: 150px;" fxLayout="column" fxLayoutAlign="center center" (click)="selectPattern($event)">
+      <img src="../../../../../../assets/herringbone_logo.PNG"/>
+      <p style="text-align: center;">HerringBone</p>
+    </mat-card>
+    <div style="height: 30px;background: rgba(200,200,200,1);" fxLayout="row" fxLayoutAlign="center center" class="setup" (click)="showSizes = !showSizes" >
+      <h5>Setup</h5>
+      <h5 style="margin-left: 10px;">0/2</h5>
+    </div>
+  </div>
+
+  <div fxLayout="column" style="height: 150px;width: 150px;margin: 15px ;box-shadow: 0 0 2px 0 rgba(100,100,100,1);">
+    <mat-card id="pattern6" style="height: 120px;width: 150px;" fxLayout="column" fxLayoutAlign="center center" (click)="selectPattern($event)">
+      <img src="../../../../../../assets/random_logo.PNG"/>
+      <p style="text-align: center;">3 Size Random</p>
+    </mat-card>
+    <div style="height: 30px;background: rgba(200,200,200,1);" fxLayout="row" fxLayoutAlign="center center" class="setup" (click)="showSizes = !showSizes" >
+      <h5>Setup</h5>
+      <h5 style="margin-left: 10px;">0/2</h5>
+    </div>
+  </div>
+
+  <div fxLayout="column" style="height: 150px;width: 150px;margin: 15px ;box-shadow: 0 0 2px 0 rgba(100,100,100,1);">
+    <mat-card id="pattern7" style="height: 120px;width: 150px;" fxLayout="column" fxLayoutAlign="center center" (click)="selectPattern($event)">
+      <img src="../../../../../../assets/random_logo.PNG"/>
+    <p style="text-align: center;">4 Size Random</p>
+    </mat-card>
+    <div style="height: 30px;background: rgba(200,200,200,1);" fxLayout="row" fxLayoutAlign="center center" class="setup" (click)="showSizes = !showSizes" >
+      <h5>Setup</h5>
+      <h5 style="margin-left: 10px;">0/2</h5>
+    </div>
+  </div>
+
+  <div fxLayout="column" style="height: 150px;width: 150px;margin: 15px ;box-shadow: 0 0 2px 0 rgba(100,100,100,1);">
+    <mat-card id="pattern8" style="height: 120px;width: 150px;" fxLayout="column" fxLayoutAlign="center center" (click)="selectPattern($event)">
+      <img src="../../../../../../assets/coursed_logo.PNG"/>
+    <p style="text-align: center;">Coursed</p>
+    </mat-card>
+    <div style="height: 30px;background: rgba(200,200,200,1);" fxLayout="row" fxLayoutAlign="center center" class="setup" (click)="showSizes = !showSizes" >
+      <h5>Setup</h5>
+      <h5 style="margin-left: 10px;">0/2</h5>
+    </div>
+  </div>
+
+  <div fxLayout="column" style="height: 150px;width: 150px;margin: 15px ;box-shadow: 0 0 2px 0 rgba(100,100,100,1);">
+    <mat-card id="pattern9" style="height: 120px;width: 150px;" fxLayout="column" fxLayoutAlign="center center" (click)="selectPattern($event)">
+      <img src="../../../../../../assets/randomCoursed_logo.png"/>
+      <p style="text-align: center;">Random Coursed</p>
+    </mat-card>
+    <div style="height: 30px;background: rgba(200,200,200,1);" fxLayout="row" fxLayoutAlign="center center" class="setup" (click)="showSizes = !showSizes" >
+      <h5>Setup</h5>
+      <h5 style="margin-left: 10px;">0/2</h5>
+    </div>
+  </div>
+
+  <div fxLayout="column" style="height: 150px;width: 150px;margin: 15px ;box-shadow: 0 0 2px 0 rgba(100,100,100,1);">
+    <mat-card id="pattern10" style="height: 120px;width: 150px;" fxLayout="column" fxLayoutAlign="center center" (click)="selectPattern($event)">
+      <img src="../../../../../../assets/3sizestretch.PNG"/>
+      <p style="text-align: center;">3 Size Stretcher</p>
+    </mat-card>
+    <div style="height: 30px;background: rgba(200,200,200,1);" fxLayout="row" fxLayoutAlign="center center" class="setup" (click)="showSizes = !showSizes" >
+      <h5>Setup</h5>
+      <h5 style="margin-left: 10px;">0/2</h5>
+    </div>
+  </div>
+
+  <div fxLayout="column" style="height: 150px;width: 150px;margin: 15px ;box-shadow: 0 0 2px 0 rgba(100,100,100,1);">
+    <mat-card id="pattern11" style="height: 120px;width: 150px;" fxLayout="column" fxLayoutAlign="center center" (click)="selectPattern($event)">
+      <img src="../../../../../../assets/4sizestretch.PNG"/>
+    <p style="text-align: center;">4 Size Stretcher</p>
+    </mat-card>
+    <div style="height: 30px;background: rgba(200,200,200,1);" fxLayout="row" fxLayoutAlign="center center" class="setup" (click)="showSizes = !showSizes" >
+      <h5>Setup</h5>
+      <h5 style="margin-left: 10px;">0/2</h5>
+    </div>
+  </div>
+
+  <div fxLayout="column" style="height: 150px;width: 150px;margin: 15px ;box-shadow: 0 0 2px 0 rgba(100,100,100,1);">
+    <mat-card id="pattern12" style="height: 120px;width: 150px;" fxLayout="column" fxLayoutAlign="center center" (click)="selectPattern($event)">
+      <img src="../../../../../../assets/opus.PNG" style="width: 60px;height: 60px;"/>
+    <p style="text-align: center;">Opus</p>
+    </mat-card>
+    <div style="height: 30px;background: rgba(200,200,200,1);" fxLayout="row" fxLayoutAlign="center center" class="setup" (click)="showSizes = !showSizes" >
+      <h5>Setup</h5>
+      <h5 style="margin-left: 10px;">0/2</h5>
+    </div>
+  </div>
+  
+  
+
+</div>
+
+<mat-dialog-actions class="col-sm-12" align="end" *ngIf="!showSizes">
+  <!-- <button mat-raised-button class="btn-primary" (click)="close()">
+    Save
+  </button> -->
+  <button mat-raised-button class="CancelClass" (click)="close()">
+    <!-- <mat-icon>cancel</mat-icon>&nbsp; -->
+    Close
+  </button>
+</mat-dialog-actions>
+
+<div *ngIf="showSizes" style="padding:15px">
+  <h4>Select any 2 Sizes from the list below:</h4>
+  <div fxLayout="column">
+    <div fxLayout="row">
+      <mat-checkbox> 215 X 85</mat-checkbox>
+    </div>
+    <div fxLayout="row">
+      <mat-checkbox> 180 X 60</mat-checkbox>
+    </div>
+    <div fxLayout="row">
+      <mat-checkbox> 150 X 60</mat-checkbox>
+    </div>
+    <div fxLayout="row">
+      <mat-checkbox> 120 X 60</mat-checkbox>
+    </div>
+    <div fxLayout="row">
+      <mat-checkbox> 90 X 60</mat-checkbox>
+    </div>
+    <div fxLayout="row">
+      <mat-checkbox> 60 X 60</mat-checkbox>
+    </div>
+    
+  </div>
+  <mat-dialog-actions class="col-sm-12" align="end" >
+    <button mat-raised-button class="btn-primary" (click)="showSizes = !showSizes">
+      Save
+    </button>
+    <button mat-raised-button class="btn-default" (click)="showSizes = !showSizes">
+      Back
+    </button>
+    <button mat-raised-button class="CancelClass" (click)="close()">
+      <!-- <mat-icon>cancel</mat-icon>&nbsp; -->
+      Close
+    </button>
+  </mat-dialog-actions>
+</div>

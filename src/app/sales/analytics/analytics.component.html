@@ -1,0 +1,471 @@
+
+
+
+<div class="row" style="position: relative;left: 93%;">
+  <button mat-raised-button color="primary" class="pull-right filters-hover margin-right-10" style="margin-top: 20px;"
+ (click)="filterToggle = !filterToggle">
+ <mat-icon>filter_list</mat-icon> Search
+</button>
+</div>
+ 
+<div fxLayout="row wrap" *ngIf="filterToggle">
+  <div fxFlex="100" fxFlex.gt-sm fxFlex.sm class="flex-p w-100 margins">
+      <mat-card class="filter">
+          <mat-card-content>
+              <div class="row">
+                  <div class="col-sm-4">
+                      <div class="col-sm-4 newMarginClass">
+                          Select Category: 
+                      </div>
+                      <div class="col-sm-8">
+                        <mat-select placeholder="--Search by Category--" class="form-control">
+                          <mat-option >EXTERNAL SOLUTIONS</mat-option>
+                          <mat-option >INTERNAL SOLUTIONS</mat-option>
+                      </mat-select>
+                      </div>
+                  </div>
+                  <div class="col-sm-4">
+                      <div class="col-sm-4 newMarginClass">
+                          Select Product: 
+                      </div>
+                      <div class="col-sm-8">
+                        <mat-select placeholder="--Search by Product--" class="form-control">
+                         
+                          <mat-option > BRICKS  </mat-option>
+                          <mat-option > ROMAN BRICKS </mat-option>
+                          <mat-option > CLADDING  </mat-option>
+                          <mat-option > PAVING </mat-option>
+                          <mat-option > FLOOR  </mat-option>
+                          <mat-option > WALL </mat-option>
+                          <mat-option > FLOOR AND WALL </mat-option>
+                      </mat-select>
+                      </div>
+                  </div>
+                  
+            
+            
+                  
+                  <div class="col-lg-1" style="margin-left:195px!important;">
+                      <button mat-raised-button  class="pull-right btn-primary"><mat-icon>youtube_searched_for</mat-icon>GO</button>
+                  </div>
+                  <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1" style="margin-left: -18px;">
+                      <button mat-raised-button style="background-color:#37474f; color:#fff !important" ><mat-icon>settings_backup_restore</mat-icon> Clear</button>
+                  </div>
+                  <a (click)="filterToggle = !filterToggle" class="pull-right" style="font-size: 25px; cursor: pointer; margin-left: 5px;">
+                      <i class="fa fa-angle-double-up" aria-hidden="true"></i>
+                  </a>
+                </div>
+              
+          </mat-card-content>
+      </mat-card>
+  </div>
+</div>
+
+<div class="row" style="margin-top: 10px;">
+  <mat-form-field style="position: relative;left: 70%;" >
+    <mat-select placeholder = "Select Month" class="placeholder "
+       name = "Client" >
+       <mat-option *ngFor="let item of items1" >{{item.month}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field style="position: relative;left: 73%;" >
+      <mat-select placeholder = "Select year" class="placeholder "
+      name = "Client" >
+      <mat-option *ngFor="let item of items1" >{{item.year}}</mat-option>
+     </mat-select>
+    </mat-form-field>
+</div>
+
+
+ 
+  
+
+  <div class="row" style="padding-left:7px !important;padding-right:7px !important;">
+    <div fxFlex="100" fxFlex.gt-sm="100" class="flex-p">
+      <mat-card>
+        <mat-card-header fxLayoutAlign="center center">                
+            <mat-card-subtitle><h2>Monthly Trends of Daily Views</h2></mat-card-subtitle>
+        </mat-card-header>
+        <div class="w-100 h-300p">
+            <ngx-charts-line-chart
+                [scheme]="colorScheme"
+                [results]="analytics"
+                [gradient]="gradient"
+                [xAxis]="showXAxis"
+                [yAxis]="showYAxis"
+                [legend]="showLegends"
+                [showXAxisLabel]="showXAxisLabel"
+                [showYAxisLabel]="showYAxisLabel"
+                [xAxisLabel]="xAxisLabel"
+                [yAxisLabel]="yAxisLabel"
+                [autoScale]="autoScale"
+                (select)="onSelect($event)">
+            </ngx-charts-line-chart>                  
+        </div>
+    </mat-card>
+  </div>
+</div>
+<h4 style="margin-left: 20px;margin-top: 20px;">Distribution by views</h4>
+<div class="row" style="position: relative;left: 94%;">
+ 
+  <button mat-raised-button color="primary" class="pull-right filters-hover margin-right-10" style="margin-top: 20px;"
+ (click)="filterToggle1 = !filterToggle1">
+ <mat-icon>filter_list</mat-icon> Filter
+</button>
+</div>
+
+<div fxLayout="row wrap" *ngIf="filterToggle1">
+  <div fxFlex="100" fxFlex.gt-sm fxFlex.sm class="flex-p w-100 margins">
+      <mat-card class="filter">
+          <mat-card-content>
+              <div class="row">
+                  <div class="col-sm-4">
+                    <div class="col-sm-4 newMarginClass">
+                     Search By Category: 
+                 </div>
+                      <div class="col-sm-8">
+                        <mat-select placeholder="--Search by Category--" class="form-control">
+                          <mat-option >EXTERNAL SOLUTIONS</mat-option>
+                          <mat-option >INTERNAL SOLUTIONS</mat-option>
+                      </mat-select>
+                      </div>
+                  </div>
+                  <div class="col-sm-4">
+                      <div class="col-sm-4 newMarginClass">
+                        Search By Product: 
+                      </div>
+                      <div class="col-sm-8">
+                        <mat-select placeholder="--Search by Product--" class="form-control">
+                         
+                          <mat-option > BRICKS  </mat-option>
+                          <mat-option > ROMAN BRICKS </mat-option>
+                          <mat-option > CLADDING  </mat-option>
+                          <mat-option > PAVING </mat-option>
+                          <mat-option > FLOOR  </mat-option>
+                          <mat-option > WALL </mat-option>
+                          <mat-option > FLOOR AND WALL </mat-option>
+                      </mat-select>
+                      </div>
+                  </div>
+
+                </div>
+                  <div class="row" style="margin-top: 20px;">
+                    <div class="col-sm-4">
+                        <div class="col-sm-4 newMarginClass">
+                          Search By Filters: 
+                        </div>
+                        <div class="col-sm-8">
+                          <mat-select placeholder="--Search by Category--" class="form-control">
+                            <mat-option >Product</mat-option>
+                            <mat-option >Color</mat-option>
+                            <mat-option >Finish</mat-option>
+                            <mat-option >Size</mat-option>
+                        </mat-select>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="col-sm-4 newMarginClass">
+                          Search By Specs: 
+                        </div>
+                        <div class="col-sm-8">
+                          <mat-select placeholder="--Search by Product--" class="form-control">
+                           
+                            <mat-option > Engels  </mat-option>
+                            <mat-option > Forterra </mat-option>
+                            <mat-option > Northcot  </mat-option>
+                            <mat-option > Drak grey/Black </mat-option>
+                            <mat-option > Golden/Creme  </mat-option>
+                            <mat-option > Handmade </mat-option>
+                            <mat-option > stock </mat-option>
+                            <mat-option > Thrown </mat-option>
+                            <mat-option > 2 size mix </mat-option>
+                            <mat-option > 215x65 </mat-option>
+                        </mat-select>
+                        </div>
+                    </div>
+                    
+                
+            
+            
+                  
+                  <div class="col-lg-1" style="margin-left:195px!important;">
+                      <button mat-raised-button  class="pull-right btn-primary"><mat-icon>youtube_searched_for</mat-icon>GO</button>
+                  </div>
+                  <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1" style="margin-left: -18px;">
+                      <button mat-raised-button style="background-color:#37474f; color:#fff !important" ><mat-icon>settings_backup_restore</mat-icon> Clear</button>
+                  </div>
+                  <a (click)="filterToggle1 = !filterToggle1" class="pull-right" style="font-size: 25px; cursor: pointer; margin-left: 5px;">
+                      <i class="fa fa-angle-double-up" aria-hidden="true"></i>
+                  </a>
+                </div>
+              
+          </mat-card-content>
+      </mat-card>
+  </div>
+</div>
+
+<div class="row ">
+  <div fxFlex="100" fxFlex.gt-sm="33" class="flex-p">
+    <div class="flex-p"> 
+      <mat-card>
+        <mat-card-header fxLayoutAlign="center center">                
+          <mat-card-subtitle><h2> Distribution by Pattern</h2></mat-card-subtitle>
+        </mat-card-header>
+        <div class="w-100 h-300p">
+          <ngx-charts-pie-chart
+          [scheme]="colorScheme"
+          [results]="single"
+          [legend]="showLegend"
+          [explodeSlices]="explodeSlices"
+          [labels]="showLabels"
+          [doughnut]="doughnut"
+          [gradient]="gradient"
+          (select)="onSelect($event)">
+        </ngx-charts-pie-chart>                  
+      </div>
+    </mat-card>
+  </div>
+</div>
+<div fxFlex="100" fxFlex.gt-sm="33" class="flex-p">
+  <div class="flex-p"> 
+    <mat-card>
+      <mat-card-header fxLayoutAlign="center center">                
+        <mat-card-subtitle><h2> Distribution by Angle</h2></mat-card-subtitle>
+      </mat-card-header>
+      <div class="w-100 h-300p">
+        <ngx-charts-pie-chart
+        [scheme]="colorScheme"
+        [results]="singles"
+        [legend]="showLegend"
+        [explodeSlices]="explodeSlices"
+        [labels]="showLabels"
+        [doughnut]="doughnut"
+        [gradient]="gradient"
+        (select)="onSelect($event)">
+      </ngx-charts-pie-chart>                  
+    </div>
+  </mat-card>
+</div>
+</div>
+<div fxFlex="100" fxFlex.gt-sm="33" class="flex-p">
+  <div class="flex-p"> 
+    <mat-card>
+      <mat-card-header fxLayoutAlign="center center">                
+        <mat-card-subtitle><h2> Distribution by Size</h2></mat-card-subtitle>
+      </mat-card-header>
+      <div class="w-100 h-300p">
+        <ngx-charts-pie-chart
+        [scheme]="colorScheme"
+        [results]="sizes"
+        [legend]="showLegend"
+        [explodeSlices]="explodeSlices"
+        [labels]="showLabels"
+        [doughnut]="doughnut"
+        [gradient]="gradient"
+        (select)="onSelect($event)">
+      </ngx-charts-pie-chart>                  
+    </div>
+  </mat-card>
+</div>
+</div>
+</div>
+
+
+
+<div class="row ">
+  <div fxFlex="100" fxFlex.gt-sm="33" class="flex-p">
+    <div class="flex-p"> 
+      <mat-card>
+        <mat-card-header fxLayoutAlign="center center">                
+          <mat-card-subtitle><h2> Distribution by Colors</h2></mat-card-subtitle>
+        </mat-card-header>
+        <div class="w-100 h-300p">
+          <ngx-charts-pie-chart
+          [scheme]="colorScheme"
+          [results]="colors"
+          [legend]="showLegend"
+          [explodeSlices]="explodeSlices"
+          [labels]="showLabels"
+          [doughnut]="doughnut"
+          [gradient]="gradient"
+          (select)="onSelect($event)">
+        </ngx-charts-pie-chart>                  
+      </div>
+    </mat-card>
+  </div>
+</div>
+<div fxFlex="100" fxFlex.gt-sm="33" class="flex-p">
+  <div class="flex-p"> 
+    <mat-card>
+      <mat-card-header fxLayoutAlign="center center">                
+        <mat-card-subtitle><h2> Distribution by Width</h2></mat-card-subtitle>
+      </mat-card-header>
+      <div class="w-100 h-300p">
+        <ngx-charts-pie-chart
+        [scheme]="colorScheme"
+        [results]="width"
+        [legend]="showLegend"
+        [explodeSlices]="explodeSlices"
+        [labels]="showLabels"
+        [doughnut]="doughnut"
+        [gradient]="gradient"
+        (select)="onSelect($event)">
+      </ngx-charts-pie-chart>                  
+    </div>
+  </mat-card>
+</div>
+</div>
+<div fxFlex="100" fxFlex.gt-sm="33" class="flex-p">
+  <div class="flex-p"> 
+    <mat-card>
+      <mat-card-header fxLayoutAlign="center center">                
+        <mat-card-subtitle><h2> Distribution by Country</h2></mat-card-subtitle>
+      </mat-card-header>
+      <div class="w-100 h-300p">
+        <ngx-charts-pie-chart
+        [scheme]="colorScheme"
+        [results]="countries"
+        [legend]="showLegend"
+        [explodeSlices]="explodeSlices"
+        [labels]="showLabels"
+        [doughnut]="doughnut"
+        [gradient]="gradient"
+        (select)="onSelect($event)">
+      </ngx-charts-pie-chart>                  
+    </div>
+  </mat-card>
+</div>
+</div>
+</div>
+
+<!--<h3 style="text-align: center;">Sales Log</h3>
+<div class="row"> 
+  
+  <div class="col-sm-4 mx-auto">
+    <div class="col-12 text-center mb-4">
+        <h5 class="fontClass">Top 5 Customers</h5>
+    </div>
+    <table id="example2" class="table table-bordered table-hover">
+        <thead class="tbl-head">
+            <tr>
+                <th >Customer Name</th>
+                <th class="text-center tab-width">Revenue </th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of conversations">
+                <td>{{item.lead_name}}</td>
+                <td *ngIf="item.days" [ngClass] = "item.color ? 'redClassColor text-center':'greenClassColor text-center'" >{{item.days}}</td>
+                <td *ngIf="!item.days" class="text-center">-</td>
+                
+            </tr>
+        </tbody>
+    </table>
+
+</div> 
+<div class="col-sm-4 mx-auto">
+    <div class="col-12 text-center mb-4">
+        <h5 class="fontClass">Incentives Dashboard</h5>
+    </div>
+    <table id="example2" class="table table-bordered table-hover">
+        <thead class="tbl-head">
+            <tr>
+                <th >Customer Name</th>
+                <th class="text-center tab-width" >Incentives </th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of conversations">
+                <td>{{item.lead_name}}</td>
+                <td *ngIf="item.days" [ngClass] = "item.color ? 'redClassColor text-center':'greenClassColor text-center'" >{{item.days}}</td>
+                <td *ngIf="!item.days" class="text-center">-</td>
+                
+            </tr>
+        </tbody>
+    </table>
+
+</div> 
+<div class="col-sm-4 mx-auto">
+    <div class="col-12 text-center mb-4">
+        <h5 class="fontClass">Commissions Earned</h5>
+    </div>
+    <table id="example2" class="table table-bordered table-hover">
+        <thead class="tbl-head">
+            <tr>
+                <th >Customer Name</th>
+                <th class="text-center tab-width">Commission </th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of conversations">
+                <td>{{item.lead_name}}</td>
+                <td *ngIf="item.days" [ngClass] = "item.color ? 'redClassColor text-center':'greenClassColor text-center'" >{{item.days}}</td>
+                <td *ngIf="!item.days" class="text-center">-</td>
+               
+            </tr>
+        </tbody>
+    </table>
+
+</div> 
+</div>
+
+<div class="row"> 
+    <div class="col-sm-4 mx-auto">
+      <div class="col-12 text-center mb-4">
+          <h5 class="fontClass">Commissions Paid</h5>
+      </div>
+      <table id="example2" class="table table-bordered table-hover">
+          <thead class="tbl-head">
+              <tr>
+                  <th >Customer Name</th>
+                  <th class="text-center tab-width">Paid </th>
+                 
+              </tr>
+          </thead>
+          <tbody>
+              <tr *ngFor="let item of conversations">
+                  <td>{{item.lead_name}}</td>
+                  <td *ngIf="item.days" [ngClass] = "item.color ? 'redClassColor text-center':'greenClassColor text-center'" >{{item.days}}</td>
+                  <td *ngIf="!item.days" class="text-center">-</td>
+                  
+              </tr>
+          </tbody>
+      </table>
+  
+  </div> 
+  <div class="col-sm-4 mx-auto">
+      <div class="col-12 text-center mb-4">
+          <h5 class="fontClass">Commissions Payable</h5>
+      </div>
+      <table id="example2" class="table table-bordered table-hover">
+          <thead class="tbl-head">
+              <tr>
+                  <th >Customer Name</th>
+                  <th class="text-center tab-width" >Payable </th>
+                  
+              </tr>
+          </thead>
+          <tbody>
+              <tr *ngFor="let item of conversations">
+                  <td>{{item.lead_name}}</td>
+                  <td *ngIf="item.days" [ngClass] = "item.color ? 'redClassColor text-center':'greenClassColor text-center'" >{{item.days}}</td>
+                  <td *ngIf="!item.days" class="text-center">-</td>
+                  
+              </tr>
+          </tbody>
+      </table>
+  
+  </div> 
+ 
+  </div>
+</div> 
+
+<div class="row d-flex">
+  <div class="col-6 mx-auto middle">
+    <img style="margin-top: 15%; display: flex; margin-left: auto; margin-right: auto;" src="/assets/img/under-construction.png" height="400px" alt="under-construction">
+  </div>
+</div>-->

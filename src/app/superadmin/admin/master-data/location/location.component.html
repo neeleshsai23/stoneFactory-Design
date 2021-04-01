@@ -1,0 +1,74 @@
+<div fxLayout="row wrap" #resizedDiv>
+  <div class="flex-p w-100">
+    <div class="row wrap" style="margin-bottom:7px;">
+      <div class="col-sm-10">
+        <div class="pills w-100 flex-p">
+          <ul class="nav nav-pills">
+            <li routerLinkActive="active"><a mat-raised-button [routerLink]="['/superadmin/admin/masterdata/industry']"><mat-icon>highlight</mat-icon> Industries</a></li>
+              <li routerLinkActive="active"><a mat-raised-button [routerLink]="['/superadmin/admin/masterdata/countries']"><mat-icon>outlined_flag</mat-icon> Countries</a></li>
+
+            
+
+              <li routerLinkActive="active"><a mat-raised-button [routerLink]="['/superadmin/admin/masterdata/color']"><mat-icon>color_lens</mat-icon> Color-Codes</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-sm-2">
+        <div class="w-100 flex-p">
+          <button mat-raised-button class="pull-right btn-primary" ><mat-icon>add</mat-icon>&nbsp;Add
+            Country</button>
+          </div>
+        </div>
+      </div>
+      
+      
+      
+      
+      <div fxLayout="row wrap">
+        <div class="table-responsive">
+          <table id="example2" class="table table-bordered table-hover">
+            <thead class="tbl-head">
+              <tr class="tr-grid-header">
+                <th>Location</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let applicant of tableList">
+                <td>{{applicant.docType}}</td>
+                <td>
+                  <a 
+                  class="status"
+                  mwlConfirmationPopover
+                  [popoverTitle]="popoverStatusTitle"
+                  [popoverMessage]="popoverStatusMessage"
+                  placement="left"
+                  (confirm)="saveStatus();applicant.status=!applicant.status"
+                  (cancel)="cancelClicked = true">
+                  {{applicant.status?'Active':'Inactive'}}
+                </a>
+              </td>
+              <td>
+                <a title="Edit Document Type" style="margin-right: 10px; cursor: pointer;" (click)="openUserDialog('Edit')">
+                  <i class="fa fa-edit"></i>
+                </a>
+                <a mwlConfirmationPopover
+                [popoverTitle]="popoverTitle"
+                [popoverMessage]="popoverMessage"
+                placement="left"
+                (confirm)="deleteUser()"
+                (cancel)="cancelClicked = true">
+                <i style="cursor: pointer;" title="Delete Document Type" class="fa fa-trash red"></i>
+              </a>
+              
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  
+  
+</div>
+</div>

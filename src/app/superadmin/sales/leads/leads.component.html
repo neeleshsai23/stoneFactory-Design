@@ -1,0 +1,232 @@
+
+    <div class="flex-p">
+        <div class="row wrap">
+          <div class="col-sm-12">
+            <div class="col-sm-6 no-padding" style="margin-bottom: 10px;">
+              <button [ngClass]="{'tabActive': isInception === true}" mat-raised-button (click)="fnInception()"
+              class="mat-raised-button tab">   <mat-icon>group</mat-icon> Qualified 
+            </button>
+            <button [ngClass]="{'tabActive': isControl === true}" mat-raised-button (click)="fnControl()"
+            class="mat-raised-button tab">  <mat-icon>check_circle</mat-icon> Quick Call
+          </button>
+          <button [ngClass]="{'tabActive': isTests === true}" mat-raised-button (click)="fnTest()"
+          class="mat-raised-button tab"> <mat-icon>grid_on</mat-icon> Conversations 
+        </button>
+        <button [ngClass]="{'tabActive': isInception1 === true}" mat-raised-button (click)="fnInception1()"
+        class="mat-raised-button tab">   <mat-icon>outlined_flag</mat-icon> Possiblities 
+      </button>
+      <!-- <button [ngClass]="{'tabActive': isControl1 === true}" mat-raised-button (click)="fnControl1()"
+      class="mat-raised-button tab">  <mat-icon>highlight</mat-icon> Tracking 
+    </button> -->
+      </div>
+      
+      <div class="col-sm-6 pull-right no-padding">
+        
+        <button  mat-raised-button class="pull-right btn-primary" (click)="openleadDialog(null)">
+          <mat-icon>add</mat-icon> Add Lead
+        </button>
+        <button  style="margin-bottom:10px;margin-right: 10px;" mat-raised-button class="pull-right btn-primary" (click)="openGridColumnsDialog(null)">
+          <mat-icon>grid_on</mat-icon>Grid Columns
+        </button>
+        <button mat-raised-button color="primary" class="pull-right filter-hover margin-right-10">
+          <mat-icon>filter_list</mat-icon> Filter
+        </button>
+      </div>
+      </div>
+      </div>
+      </div>
+        
+        <div fxLayout="row wrap" *ngIf="filterToggle">
+            <div fxFlex="100" fxFlex.gt-sm fxFlex.sm class="flex-p">
+                <mat-card class="filter">
+                    <!-- <mat-card-header>
+                        <mat-card-subtitle></mat-card-subtitle>
+                    </mat-card-header> -->
+                    <mat-card-content>
+                        <div class="row col-sm-12">
+                            <div class="col-sm-5">
+                                <div class="col-sm-5 newMarginClass">
+                                    Search by Lead Name:
+                                </div>
+                                <div class="col-sm-7">
+                                    <input type="text" onCopy="return false"
+                                    onPaste="return false" class="form-control"
+                                    placeholder="Search by Lead Name">
+                                </div>
+                            </div>
+                            <div class="col-sm-5">
+                                <div class="col-sm-5 newMarginClass">
+                                    Select Campaign:
+                                </div>
+                                <div class="col-sm-7">
+                                    <select class="form-control">
+                                        <option disabled selected value> -- Select Campaign -- </option>
+                                        <option value="1">Construction</option>
+                                        <option value="2">Manufacturing</option>
+                                        <option value="3">Hospitality</option>
+                                        <option value="4">Immigration Consultants</option>
+                                        <option value="5">Logistics</option>
+                                        <!-- <option value="0">Manufacturing</option> -->
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
+                                <button class="add-hover btn btn-success">Search</button>
+                            </div>
+                            <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1" style="margin-left: -18px;">
+                                <button class="btn filter-hover" style="background-color:#37474f; color:#fff !important">Clear</button>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"></div>
+                        </div>
+                        <!-- <div class="row">
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                                <input type="text" class="form-control" placeholder="Search by Name">
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                                <select class="form-control">
+                                    <option disabled selected value> -- Select Status -- </option>
+                                    <option>Active</option>
+                                    <option>Inactive</option>
+                                </select>
+                            </div>
+                            <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
+                                <button class="add-hover btn btn-success">Search</button>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4"></div>
+                            
+                        </div> -->
+                    </mat-card-content>
+                </mat-card>
+            </div>
+        </div>
+        
+        <div fxLayout="row wrap" style="margin-top:-3px;">
+            <div class="table-responsive w-100 flex-p" id="grid-table-container">
+                <table id="example2" class="table table-bordered table-hover">
+                    <thead class="tbl-head">
+                        <tr class="tr-grid-header">
+                            <!-- <th>Tag</th> -->
+                            <th style="min-width:85px">Tag Name</th>
+                            <th>Lead Name</th>
+                            <th>Lead URL</th>
+                            <th style="min-width:130px">Contact Name(s)</th>
+                            <th style="min-width:127px">Campaign Name</th>
+                            <th style="min-width:127px">Campaign type</th>
+                            <th style="min-width:100px">Log Date</th>
+                            <th style="min-width:100px" *ngIf="(searchText == 'projectbrief') || (searchText == 'samples') || (searchText == 'feedback') || (searchText == 'tracking')">Brief Date</th>
+                            <th style="min-width:103px" *ngIf="(searchText == 'samples') || (searchText == 'feedback') || (searchText == 'tracking')">Sample Date</th>
+                            <th style="min-width:116px" *ngIf="(searchText == 'feedback') || (searchText == 'tracking')">Feedback Date</th>
+                            <th style="min-width:109px" *ngIf="(searchText == 'tracking')">Tracking Date</th>
+                            <!-- <th *ngIf="searchText == 'Feedback' || 'Tracking'">Conversion Date</th>
+                            <th *ngIf="searchText == 'Tracking'">Awarded Date</th> -->
+                            <th style="min-width:104px">Visit Reports</th>
+                            <th style="min-width:104px" class="text-center">Team</th>
+                            <th style="min-width:104px" class="text-center">Team Lead</th>
+                            <th>Now</th>
+                            <th>Next</th>
+                            <th *ngIf="searchText == 'conversations'">Activity</th>
+                            <th *ngIf="searchText == 'samples'">Feedback</th>
+                            <th>Notes</th>   
+                            <th style="min-width:105px">Lead Sample</th>
+                            <th>Segment</th>
+                            <th>Country</th>
+                            <th>City</th>
+                            <th>Solution</th>
+                            <th>Industry</th>
+                            <th style="min-width:80px">BD Name</th>
+                            <th style="min-width:115px">Followup Date</th>
+                            <th style="min-width:109px" *ngIf="searchText == 'projectbrief'">Updated Date</th>
+                            <th style="min-width:135px" *ngIf="searchText == 'projectbrief'">Last Activity Date</th>
+                            <th *ngIf="searchText == 'projectbrief'">Log</th>
+                            <th style="min-width:100px">Head Count</th>
+                            <th>Email</th>
+                            <th>Whatsapp</th>
+                            <th>Call</th>
+                            <th>LIN</th>
+                            <th>CON</th>
+                            <th>Status</th>
+                            <th style="text-align: center;min-width:105px">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let lead of leads">
+                            <!-- <td>{{lead.tag}}</td> -->
+                            <td>{{lead.tag_name}}</td>
+                            <td>{{lead.lead_name}}</td>
+                            <td><a target="_blank" href="https://www.google.com">View</a></td>
+                            <td>{{lead.contact_name}}</td>
+                            <td>{{lead.campaign_name}}</td>
+                            <td>{{lead.campaign_type}}</td>
+                            <td>{{lead.convDate}}</td>
+                            <td *ngIf="(searchText == 'projectbrief') || (searchText == 'samples') || (searchText == 'feedback') || (searchText == 'tracking')">{{lead.briefDate}}</td>
+                            <td *ngIf="(searchText == 'samples') || (searchText == 'feedback') || (searchText == 'tracking')">{{lead.sampleDate}}</td>
+                            <td *ngIf="(searchText == 'feedback') || (searchText == 'tracking')">{{lead.feedDate}}</td>
+                            <td *ngIf="(searchText == 'tracking')">{{lead.trackDate}}</td>
+                            <td (click)="addVisit('null')" class="inner-screen text-center">{{lead.reports}}</td>
+                            <td class="inner-screen text-center">Srinu Team</td>
+                            <td class="inner-screen text-center">Siva</td>
+                            <td>{{lead.now}}</td>
+                            <td>{{lead.next}}</td>
+                            <td *ngIf="searchText == 'conversations'" class="inner-screen text-center" (click)="addActive('null')">2/2</td>
+                            <td *ngIf="searchText == 'samples'" class="text-center"><a target="_blank" routerLink="/salesglobal/biz-dev/samplefeedback">{{lead.fb}}</a></td>
+                            <td class="inner-screen text-center" (click)="addNotes('null')" >{{lead.notes}}</td> 
+                            <td>{{lead.lead_sample}}</td>
+                            <td>{{lead.segment}}</td>
+                            <td>{{lead.country}}</td>
+                            <td>{{lead.city}}</td>
+                            <td>{{lead.solution}}</td>
+                            <td>{{lead.industry}}</td>
+                            <td>{{lead.bdName}}</td>
+                            <td>{{lead.followupDate}}</td>
+                            <td *ngIf="searchText == 'projectbrief'">{{lead.followupDate}}</td>
+                            <td *ngIf="searchText == 'projectbrief'">{{lead.followupDate}}</td>
+                            <td *ngIf="searchText == 'projectbrief'" class="inner-screen text-center">2/5</td>
+                            <td>{{lead.headCount}}</td>
+                            <td><mat-checkbox [checked]="lead.email"></mat-checkbox></td>
+                            <td><mat-checkbox [checked]="lead.whatsapp"></mat-checkbox></td>
+                            <td><mat-checkbox [checked]="lead.call"></mat-checkbox></td>
+                            <td><mat-checkbox [checked]="lead.lin"></mat-checkbox></td>
+                            <td>{{lead.con}}</td>
+                            <td>
+                                <a 
+                                class="status"
+                                mwlConfirmationPopover
+                                [popoverTitle]="popoverStatusTitle"
+                                [popoverMessage]="popoverStatusMessage"
+                                placement="left"
+                                (confirm)="lead.status=!lead.status"
+                                (cancel)="cancelClicked = true">
+                                {{lead.status?'Active':'Inactive'}}
+                            </a>
+                        </td>
+                        <td>
+                            <a title="Convert lead to prospect" style="margin-right: 10px; cursor: pointer;" (click)="openConfirmDialog('convert', lead, 'lead')">
+                                <i class="fa fa-refresh"></i>
+                            </a>
+                            <a title="Edit Lead" style="margin-right: 10px; cursor: pointer;" (click)="openleadDialog(lead)">
+                                <i class="fa fa-edit"></i>
+                            </a>
+                            <a mwlConfirmationPopover
+                            [popoverTitle]="popoverTitle"
+                            [popoverMessage]="popoverMessage"
+                            placement="left"
+                            (confirm)="deletelead(lead)"
+                            (cancel)="cancelClicked = true">
+                            <i style="cursor: pointer;" title="Delete Lead" class="fa fa-trash red"></i>
+                        </a>
+                        
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <button class="mine" mat-fab (click)="scrollGrid('right');">
+            <mat-icon style="color:#37474f">fast_forward</mat-icon>
+        </button>
+        <button class="mine" mat-fab style="margin-right: 78px !important;" (click)="scrollGrid('left');">
+            <mat-icon style="color:#37474f">fast_rewind</mat-icon>
+        </button>
+    </div>
+          </div>
+<div *ngIf="!leads" fxLayout="column" fxLayoutAlign="center center" class="lead-spinner">
+    <mat-spinner color="primary"></mat-spinner>
+</div>

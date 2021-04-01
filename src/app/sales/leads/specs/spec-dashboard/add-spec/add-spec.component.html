@@ -1,0 +1,32 @@
+
+<div class="form-group row"style="margin-top: 20px;">
+  <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label" for="pwd">Enter New Pattern:&nbsp;</label>
+  <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
+      <input type="text"class="form-control"  maxlength="30"  placeholder="Enter New Pattern " required>
+    
+  </div>
+  <mat-dialog-actions  style="margin-left: 80%;">
+    <button mat-raised-button class="btn-primary" >Add</button>
+  </mat-dialog-actions>
+  </div>
+
+
+<div class="form-group row" style="margin-top: 40px;">
+  <label class="control-label col-sm-4 add-member-label" for="pwd">Select Pattern:&nbsp; </label>
+  <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+  
+ 
+  <mat-checkbox  class="col-sm-4" [checked]="true" >Flemish</mat-checkbox>
+  <mat-checkbox  class="col-sm-4" [checked]="true" >Stack</mat-checkbox>
+  <mat-checkbox  class="col-sm-4" >Random</mat-checkbox>
+  <mat-checkbox  class="col-sm-4">Coursed</mat-checkbox>
+  <!-- <mat-checkbox class="col-sm-4" formControlName="BD">BD</mat-checkbox> -->
+  <mat-checkbox  class="col-sm-4" [checked]="true" >Stretcher</mat-checkbox>
+  <mat-checkbox  class="col-sm-4" >English</mat-checkbox>
+  
+  </div>
+  <mat-dialog-actions align="end" style="margin-left: 68%;">
+    <button mat-raised-button class="btn-primary" >Save</button>
+    <button mat-raised-button class="CancelClass" (click)="close()">Cancel</button>
+  </mat-dialog-actions>
+  </div>

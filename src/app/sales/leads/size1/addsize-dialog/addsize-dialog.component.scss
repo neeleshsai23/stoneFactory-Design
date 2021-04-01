@@ -1,0 +1,36 @@
+button {
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+}
+
+.row1 button:hover {
+  background: rgb(3, 50, 100);
+}
+
+.row1 button {
+  background: rgb(0, 123, 255);
+  color: white;
+}
+
+.row2-green button {
+  background: rgb(7, 197, 7);
+  color: white;
+  padding: 8px 10px;
+}
+
+.row2-green button:hover {
+  background: rgb(5, 151, 5);
+}
+
+.row2 button {
+  background: rgb(124, 119, 119);
+  color: white;
+  padding: 8px 10px;
+}
+
+.row2 button:hover {
+  background: rgb(90, 86, 86);
+}

@@ -1,0 +1,45 @@
+<div class="newHeader">
+  <h2 class="custom-header" mat-dialog-title>Views</h2>
+</div>
+<div fxLayout="row wrap" fxLayoutAlign="center center">
+  <mat-card id="view1div"  style="height: 150px;width: 150px;margin: 15px ;" fxLayout="column" fxLayoutAlign="center center" >
+    <img id="view1" src="../../../../../../assets/img 11.png" (click)="addSize($event)"/>
+    <p style="text-align: center;">Front View</p>
+  </mat-card>
+  <mat-card id="view2div" style="height: 150px;width: 150px;margin: 15px ;" fxLayout="column" fxLayoutAlign="center center">
+    <img id="view2" src="../../../../../../assets/img 22.png" (click)="addSize($event)"/>
+    <p style="text-align: center;">Garden View</p>
+  </mat-card>
+  <mat-card id="view3div" style="height: 150px;width: 150px;margin: 15px ;" fxLayout="column" fxLayoutAlign="center center">
+    <img id="view3" src="../../../../../../assets/img 111.png" (click)="addSize($event)"/>
+    <p style="text-align: center;">Dining View</p>
+  </mat-card>
+  <mat-card id="view4div" style="height: 150px;width: 150px;margin: 15px ;" fxLayout="column" fxLayoutAlign="center center">
+    <img id="view4" src="../../../../../../assets/img 33.png" (click)="addSize($event)"/>
+    <p style="text-align: center;">Living View</p>
+  </mat-card>
+  <mat-card id="view5div" style="height: 150px;width: 150px;margin: 15px ;" fxLayout="column" fxLayoutAlign="center center">
+    <img id="view5" src="../../../../../../assets/view4.png" (click)="addSize($event)"/>
+    <p style="text-align: center;">Path View</p>
+  </mat-card>
+  <mat-card id="view6div" style="height: 150px;width: 150px;margin: 15px ;" fxLayout="column" fxLayoutAlign="center center">
+    <img id="view6" src="../../../../../../assets/view5.png" (click)="addSize($event)"/>
+    <p style="text-align: center;">Pool View</p>
+  </mat-card>
+  <mat-card id="view7div" style="height: 150px;width: 150px;margin: 15px ;" fxLayout="column" fxLayoutAlign="center center">
+    <img id="view7" src="../../../../../../assets/planview.png" (click)="addSize($event)"/>
+    <p style="text-align: center;">Plan View</p>
+  </mat-card>
+  
+
+</div>
+
+<mat-dialog-actions class="col-sm-12" align="end">
+  <!-- <button mat-raised-button class="btn-primary" (click)="close()">
+    Save
+  </button> -->
+  <button mat-raised-button class="CancelClass" (click)="close()">
+    <!-- <mat-icon>cancel</mat-icon>&nbsp; -->
+    Close
+  </button>
+</mat-dialog-actions>

@@ -1,0 +1,817 @@
+<div class="page-content-wrapper">
+  <div class="page-content clearfix ">
+    <div class="row nopadding">
+      <div class="col-sm-1"></div>
+      <div class="col-sm-10">
+        <div class="col-sm-12 nopadding">
+         
+          <div class="pills" style="margin-top: 20px;position: relative;left: 3%;">
+            <ul class="nav nav-pills">
+            <li routerLinkActive="active">
+            <a data-toggle="tab" href="#subDetails" mat-raised-button class="navtabWidth" >
+            Subscription Details 
+            </a>
+            </li>
+            <li routerLinkActive="active">
+            <a data-toggle="tab" href="#packageTable" mat-raised-button class="navtabWidth" >
+              Renewals&nbsp;&amp;&nbsp;Upgrades
+            </a>
+            </li>
+            <li routerLinkActive="active">
+            <a data-toggle="tab" href="#paymentLogTable" mat-raised-button class="navtabWidth" >
+              Subscription Log
+            </a>
+            </li>
+            </ul>
+            </div>
+        </div>
+
+        <div class="col-sm-12 nopadding" >
+         <!-- <div >
+          <ul class="nav nav-tabs" style="margin:0;">
+            <li #navband1  >
+              <a data-toggle="tab" href="#subDetails">Subscription Details</a>
+            </li>
+            <li #navband2 >
+              <a data-toggle="tab" href="#packageTable">Renewals&nbsp;&amp;&nbsp;Upgrades</a>
+            </li>
+            <li #navband3 >
+              <a data-toggle="tab" href="#paymentLogTable">Subscription Log</a>
+            </li>
+          </ul>
+        </div>-->
+        
+          <div class="tab-content">
+            <div id="packageTable" class="tab-pane fade in">
+              <div class="col-sm-12 nopadding" style="border: 1px solid #eee;box-shadow:0px 1px 2px 1px #d6d3d3 !important;padding:10px;background-color: #fff;margin-top: 10px;">
+                <div class="col-sm-12 nopadding" style="padding:10px;">
+                  <div class="col-sm-2 nopadding"></div>
+                  <div class="col-sm-8 nopadding">
+                    <form [formGroup]="ManageSubForm" novalidate>
+                      <div class="form-group">
+                        <div class="col-sm-12 nopadding margin-top-10">
+                          <div class="col-sm-4">
+                            <label class="control-label add-member-label">Select Package&nbsp;:</label>
+                          </div>
+                          <div class="col-sm-5">
+                            <div class="col-sm-12 input-group">
+                              <select class="form-control" formControlName='managesubpackid' 
+                                [ngClass]="{errmsg: (!ManageSubForm.controls['managesubpackid'].valid && !ManageSubForm.controls['managesubpackid'].pristine)}">
+                                <option value="">Select</option>
+                                <option *ngFor="let opt of data" [value]="opt.package_id">{{opt.package_name}}</option>
+                              </select>
+                            </div>
+                          </div>
+                          <div class="col-sm-3" style="margin-top:5px">
+                            <a >Compare packages</a>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <div class="col-sm-12 nopadding margin-top-10">
+                          <div class="col-sm-4">
+                            <label class="control-label add-member-label">Max No.of Venues&nbsp;:</label>
+                          </div>
+                          <div class="col-sm-8">
+                            <div class="input-group">
+                              <input type="text" class="form-control" formControlName='managesubnumven' name="maxven"
+                                disabled />
+                              <span class="input-group-addon">
+                                <i class="fa fa-building" style="height: 10px;"></i>
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="form-group" *ngIf="show_paytm_toggle">
+                        <div class="col-sm-12 nopadding margin-top-10">
+                          <div class="col-sm-4">
+                            <label class="control-label add-member-label">Auto Renewal&nbsp;:</label>
+                          </div>
+                          <div class="col-sm-8">
+                            <div class="input-group col-sm-12">
+                              <div class="col-sm-6 padding-0">
+                                <input type="checkbox" formControlName='managesubenableautorenew' style="vertical-align: middle" />&nbsp;
+                                <label style="vertical-align: sub">Enable</label>
+                              </div>
+
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <div class="col-sm-12 nopadding margin-top-10">
+                          <div class="col-sm-4">
+                            <label class="control-label add-member-label">Starting Date&nbsp;:</label>
+                          </div>
+                          <div class="col-sm-8">
+                            <div class="input-group">
+                              <input class="form-control" formControlName='managesubstartdate' [owlDateTimeTrigger]="managesubstartdate"
+                                [owlDateTime]="managesubstartdate" placeholder="MM/DD/YYYY" [min]="cur_date" />
+                              <owl-date-time #managesubstartdate  [pickerType]="'calendar'"></owl-date-time>
+                              <span class="input-group-addon">
+                                <i class="fa fa-calendar" style="height: 10px;"></i>
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <div class="col-sm-12 nopadding margin-top-10">
+                          <div class="col-sm-4">
+                            <label class="control-label add-member-label">Ending Date&nbsp;:</label>
+                          </div>
+                          <div class="col-sm-8">
+                            <div class="input-group">
+                              <input class="form-control" formControlName='managesubenddate' [owlDateTimeTrigger]="managesubenddate"
+                                [owlDateTime]="managesubenddate" placeholder="MM/DD/YYYY" [readonly]="true" />
+                              <owl-date-time #managesubenddate [pickerType]="'calendar'" [disabled]="true"></owl-date-time>
+                              <span class="input-group-addon">
+                                <i class="fa fa-calendar" style="height: 10px;"></i>
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <div class="col-sm-12 nopadding margin-top-10">
+                          <div class="col-sm-4">
+                            <label class="control-label add-member-label">Total Price&nbsp;:</label>
+                          </div>
+                          <div class="col-sm-8">
+                            <div class="input-group">
+                              <input type="text" formControlName='managesubprice' class="form-control" disabled />
+                              <span class="input-group-addon">
+                                <i class="fa fa-money"></i>
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </form>
+                    <div class="col-md-12" style="margin-top:10px;text-align:center">
+                      <div class="form-group">
+                        <div class="col-sm-12 nopadding margin-top-20">
+                          <button *ngIf="!show_paytm_toggle" type="button" [disabled]="!ManageSubForm.valid" 
+                            class="btn btn-success pull-right">Subscribe</button>
+                          <button *ngIf="show_paytm_toggle" type="button" [disabled]="!ManageSubForm.valid" (click)="openPaytmConfirm()"
+                            class="btn btn-success pull-right">Pay
+                            using Paytm</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="modal fade" 
+                    tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-md" style="background-color:#eee">
+                      <div class="modal-content" style="box-shadow:none">
+                        <div class="modal-header">
+
+                          <h4 class="modal-title" id="myModalLabel">
+                            <b>Confirmation Of Payment</b>
+                          </h4>
+                        </div>
+                        <div class="modal-body col-md-12" style="float: left;padding-top:10px;">
+                          <p>Upgrading to a new package will overwrite the previous subscription duration and the
+                            amount
+                            will not be refunded.</p>
+                        </div>
+
+                      </div>
+                      <div class="modal-footer mFooter" style="border-top: 1px solid#e8e8e8;margin-top: 50px;">
+                        <div class="col-sm-2 nopadding  pull-right">
+                          &nbsp;&nbsp;
+                          <button type="button" class="btn btn-Clear" (click)="closePayConfirmModal()">
+                            Close
+                          </button>
+                        </div>
+                        <div class="col-sm-2 nopadding  pull-right">
+                          &nbsp;&nbsp;
+                          <button type="button" class="btn btn-primary" >
+                            Proceed
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-2 nopadding"></div>
+                </div>
+              </div>
+              <div class="modal fade"  tabindex="-1"
+                role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close"  style="color: #fff!important; opacity: 1;"
+                        aria-hidden="true">
+                        &times;
+                      </button>
+                      <h4 class="modal-title" id="myModalLabel">
+                        <b>Available Packages</b>
+                      </h4>
+                    </div>
+                    <div class="modal-body col-md-12" style="float: left;">
+                      <h3 class="pull-left">Packages</h3>
+                      <div class="table-responsive kv-grid-container" style="overflow: auto;float:left !important">
+                        <table class="table table-hover table-bordered"
+                          >
+                          <thead>
+                            <tr class="table-headers">
+                              <th style="width: 20%">
+                                Package Name
+                              </th>
+                              <th style="width: 10%" class="text-center">
+                               Max No.Of Venues
+                              </th>
+                              <th style="width: 15%" class="text-center">
+                                Total Price
+                              </th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr >
+                              <td></td>
+                              <td class="text-center"></td>
+                              <td class="text-center"></td>
+
+                            </tr>
+                          </tbody>
+                          <tfoot>
+                            <tr>
+                              <td colspan="3">
+                                
+                              </td>
+                            </tr>
+                          </tfoot>
+                        </table>
+                      </div>
+                    </div>
+                    <div class="modal-footer mFooter" style="border-top: none;margin-top: 50px;">
+                      <div class="col-sm-6 nopadding  pull-right">
+                        &nbsp;&nbsp;
+                        <button type="button" class="btn btn-Clear" >
+                          Close
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="modal fade" 
+              tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-md">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close"  style="color: #fff!important; opacity: 1;"
+                      aria-hidden="true">
+                      &times;
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">
+                      <b>Cancel Subscription</b>
+                    </h4>
+                  </div>
+                  <div class="modal-body col-md-12" style="float: left;">
+                    <p style="line-height:20px;text-align: justify;">
+                      <b>Are you sure you want to cancel subscription. Please note amount paid shall not be refunded,
+                        your subscription will end and you may no longer be allowed to use the sytem.</b>
+                    </p>
+                  </div>
+                  <div class="modal-footer mFooter" style="border-top: none;margin-top: 50px;">
+                    <div class="col-sm-8 nopadding  pull-right">
+                      &nbsp;&nbsp;
+                      <button type="button" class="btn btn-Clear" >
+                        Keep Subscription
+                      </button>
+                      <button type="button" class="btn btn-success" >
+                        Cancel Subscription
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="paymentLogTable" class="tab-pane fade">
+              <div class="col-sm-12 nopadding  margin-top-10" style="background:#fff;padding:10px;">
+                <div class="col-sm-2 nopadding">
+                  <div class="col-sm-12 nopadding">
+                    <input type="text" class="col-sm-5 form-control" placeholder="Search Keyword" />
+                  </div>
+
+                </div>
+                <div class="col-sm-3">
+
+                </div>
+                <div class="col-sm-6 nopadding">
+
+                  <label class="col-sm-2 control-label" style="padding: 4px;text-align: right;">
+                    <b>From&nbsp;:</b>
+                  </label>
+                  <div class=" col-sm-4 nopadding">
+                    <div class="input-group">
+                      <input class="form-control" [owlDateTimeTrigger]="fromdt" [owlDateTime]="fromdt" placeholder="MM/DD/YYYY">
+                      <owl-date-time #fromdt [pickerType]="'calendar'"></owl-date-time>
+                      <span class="input-group-addon">
+                        <i class="fa fa-calendar" style="height: 10px;"></i>
+                      </span>
+                    </div>
+                  </div>
+                  <label class="col-sm-2 control-label" style="padding: 4px;text-align: right;">
+                    <b>To&nbsp;:</b>
+                  </label>
+                  <div class=" col-sm-4 nopadding">
+                    <div class="input-group">
+                      <input class="form-control" [owlDateTimeTrigger]="todt" [owlDateTime]="todt" placeholder="MM/DD/YYYY">
+                      <owl-date-time #todt [pickerType]="'calendar'"></owl-date-time>
+                      <span class="input-group-addon">
+                        <i class="fa fa-calendar" style="height: 10px;"></i>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-1 nopadding">
+                  <a class="btn btn-primary pull-right" title="Click to filterr">
+                    Filter</a>
+                </div>
+              </div>
+              <div class="col-sm-12 nopadding  margin-top-10">
+                <div class="table-responsive col-sm-12 nopadding kv-grid-container" style="overflow: auto;float:left !important">
+                  <table class="table table-hover table-bordered" >
+                    <thead>
+                      <tr class="table-headers">
+                        <th style="width: 20%">
+                          Transaction Ref.
+                          
+                        </th>
+                        <th style="width: 20%">
+
+                          Payment Date
+
+                        </th>
+                        <th style="width: 20%">
+                          Package Name
+                        </th>
+
+                        <th class="text-center" style="width: 20%">
+
+                          Amount
+                        </th>
+                        <th class="text-center" style="width: 20%">
+                          Mode of Payment
+                        </th>
+                        <th class="text-center" style="width: 20%">
+                          Status
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                     
+                      <tr *ngFor="let item of items" >
+                        <td>{{item.Transaction_Ref}}</td>
+                        <td>{{item.Payment_Date}}</td>
+                        <td>{{item.Package_Name}}</td>
+                        <td class="text-center">{{item.Amount}}</td>
+                        <td class="text-center">{{item.Mode_Of_Payment}}</td>
+                      
+                        <td class="text-center">{{item.Status}}</td>
+                      </tr>
+                    </tbody>
+                   
+                  </table>
+                </div>
+              </div>
+            </div>
+            <div id="subDetails" class="tab-pane fade in active">
+              <div class="col-sm-12 nopadding">
+                <div id="packageTable" class="tab-pane fade in">
+                  <div class="col-sm-12 nopadding  margin-top-10">
+                    <div class="panel panel-default" style="margin-bottom:0;">
+                      <div class="panel-body cursor trstyle" style="font-size:16px;background:#fff;padding:0" id="btnpaytm">
+                        <div class="col-sm-12" style="background-color:#116a9e;height:44px">
+                          <h4 style="text-align: center;font-weight: 800;color:#fff;margin-bottom:20px;line-height: 21px ">Current
+                            Subscription Details</h4>
+                        </div>
+                        <div class="col-md-12" style="padding:15px">
+                          <p style="text-align: center;font-size:14px">Your membership will expire on
+                            {{cur_package_end_date
+                            | date:'dd-MMM-yyyy'}}. You will be informed via email and can renew only after expiry.</p>
+                        </div>
+                        <div class="col-sm-12 nopadding margin-top-10">
+                          <div class="col-sm-3 nopadding" style="border-right: 1px solid #decece;height: 180px !important;margin-bottom:15px">
+                            <div class="col-sm-12  margin-top-10">
+                              <p style="font-size:14px;">
+                                <b>Payment History</b>
+                              </p>
+                            </div>
+                            <div class="col-sm-12 nopadding margin-top-10">
+                              <label class="col-sm-6">
+                                Last Payment&nbsp;:
+                              </label>
+                              <p class="col-sm-6  pull-left nopadding" style="font-size:14px;margin-left:-15px">
+                               01/01/2020
+                              </p>
+                            </div>
+                            <!--<div class="col-sm-12" style="margin-top:-5px">
+                              <a style="text-decoration: underline; font-size:13px">Download receipt</a>
+                            </div> -->
+                          </div>
+                          <div class="col-sm-8 nopadding">
+
+                            <div class="col-sm-12 nopadding margin-top-10">
+                              <label class="col-sm-3">
+                                <b>Current Package&nbsp;:</b>
+                              </label>
+                              <p class="col-sm-3  pull-left nopadding" style="font-size:14px">
+                                Package Name
+                              </p>
+                              <a class="col-sm-6"  style="text-decoration: underline; font-size:13px">View
+                                package details</a>
+                            </div>
+                            <!-- <div class="col-sm-6 nopadding margin-top-10">
+                              <label class="col-sm-6">
+                                <b>Max No.of Venues&nbsp;:&nbsp;</b>
+                              </label>
+                              <p class="col-sm-6 pull-left nopadding" style="font-size:14px">
+                                5
+                              </p>
+                            </div> -->
+                            <!-- <div class="col-sm-6 nopadding margin-top-10">
+                              <label class="col-sm-6">
+                                <b>Total Price&nbsp;:</b>
+                              </label>
+                              <p class="col-sm-6  pull-left nopadding" style="font-size:14px">
+                                Rs. 7,000
+                              </p>
+                            </div>
+                            <div class="col-sm-6 nopadding margin-top-10">
+                              <label class="col-sm-6">
+                                <b>Auto Renewal&nbsp;:</b>
+                              </label>
+                              <p class="col-sm-6 pull-left nopadding" style="font-size:14px">
+                                Enabled
+                              </p>
+                            </div> -->
+
+                            <div class="col-sm-6 nopadding margin-top-10" style="margin-left: 10px;">
+                              <label class="col-sm-6" >
+                                <b>Start Date&nbsp;:</b>
+                              </label>
+                              <p class="col-sm-6 pull-left nopadding" style="font-size:14px">
+                                20/10/2018
+                              </p>
+                            </div>
+                            <div class="col-sm-6 nopadding margin-top-10" style="margin-left: 10px;">
+                              <label class="col-sm-6 ">
+                                <b>Expires On&nbsp;:</b>
+                              </label>
+                              <p class="col-sm-6 pull-left nopadding" style="font-size:14px">
+                               20/12/2020
+                              </p>
+                            </div>
+                            <div class="col-sm-6 nopadding margin-top-10" style="margin-left: 10px;">
+                              <label class="col-sm-6">
+                                <b>Subscription Status&nbsp;:</b>
+                              </label>
+                              <p class="col-sm-6 pull-left nopadding" style="font-size:14px">
+                                <span *ngIf="cur_sub_satus!=1">Inactive</span>
+                                <span *ngIf="cur_sub_satus==1">Active</span>
+                              </p>
+                            </div>
+                            <div class="col-sm-6 nopadding margin-top-10" style="margin-bottom:20px;margin-left: 10px;">
+                              <label class="col-sm-6 ">
+                                <b>Next Payment Date&nbsp;:</b>
+                              </label>
+                              <p class="col-sm-6 pull-left nopadding" style="font-size:14px">
+                               20/11/2020
+                              </p>
+                            </div>
+                          </div>
+                          <div *ngIf="show_auto_renew" class="col-sm-1 nopadding margin-top-10">
+                            <label class="col-sm-12 nopadding" style="font-size:12px;">
+                              <b>Auto Renewal</b>
+                            </label>
+                            <a class="col-sm-8" style="text-align:center;color:#000;cursor: none">
+                              <p-inputSwitch  [(ngModel)]="checked"></p-inputSwitch>
+                              <!-- <label class="switch" style="border-radius: 30px !important;margin-top:5px;;margin-left:10px;">
+                                <input checked="" disabled="" type="checkbox">
+                                <span class="slider round"></span>
+                              </label>
+
+                              <p *ngIf="cur_pack_auto_renew!=1">No</p>
+                              <p *ngIf="cur_pack_auto_renew==1">Yes</p> -->
+                            </a>
+
+
+                          </div>
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-12 nopadding" style="margin-top:30px">
+                    <div class="col-sm-4 nopadding pull-right">
+                      <a title="Click to cancel subscription"  class="btn btn-default pull-right">
+                        Cancel Subscription
+                      </a>
+                      <a title="Click to renew or upgrade" *ngIf="show_renew_button" 
+                        style="margin-right:10px" class="btn btn-success pull-right">
+                        Renew Subscription
+                      </a>
+                    </div>
+                  </div>
+                  <div class="modal fade" bsModal
+                    tabindex="-1" role="dialog" aria-labelledby="myModalLabel2" aria-hidden="true">
+                    <div class="modal-dialog modal-xs" style="background-color: #eee">
+                      <div class="modal-header">
+                        <h4 class="modal-title" id="myModalLabel">
+                          <b>Transaction Status</b>
+                        </h4>
+                      </div>
+                      <div class="modal-content" style="height:300px;box-shadow: none;">
+
+                        <div class="modal-body col-md-12" style="float: left;">
+                          <div class="col-sm-12" style="text-align: center;top:50px">
+                            <span class="fa fa-check-circle-o" style="font-size: 100px;color: #1d901d;"></span>
+                          </div>
+                          <div class="col-sm-12" style="text-align: center;top:50px">
+                            <h3 style="font-weight: 600">{{pay_title}}</h3>
+                          </div>
+                          <div class="col-sm-12" style='top:50px'>
+                            <p style="font-size:16px;text-align:justify">{{pay_content}}</p>
+                          </div>
+                          <div class="col-sm-12 nopadding" style='top:50px'>
+                            <div class="col-sm-6 nopadding">
+                              <label class="col-sm-12">Transaction Id :</label>
+                              <span class="col-sm-12"><b>{{pay_tx_id}}</b></span>
+                            </div>
+                            <div class="col-sm-6 nopadding">
+                              <label class="col-sm-12">Order Id :</label>
+                              <span class="col-sm-12"><b>{{pay_order_id}}</b></span>
+                            </div>
+                            <div class="col-sm-6 nopadding">
+                              <label class="col-sm-12">Amount :</label>
+                              <span class="col-sm-12"><b>{{pay_amount}}</b></span>
+                            </div>
+                            <div class="col-sm-6 nopadding">
+                              <label class="col-sm-12">Transaction Status :</label>
+                              <span class="col-sm-12"><b>{{pay_status}}</b></span>
+                            </div>
+                          </div>
+                        </div>
+
+                      </div>
+                      <div class="modal-footer mFooter" style="border-top: none;background-color: #f5f5f5">
+                        <div class="col-sm-6 nopadding  pull-right">
+                          &nbsp;&nbsp;
+                          <button type="button" class="btn btn-Clear" (click)="closePayModal()">
+                            Continue
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="modal fade"  tabindex="-1"
+                    role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <button type="button" class="close" (click)="closeCurPackModal()" style="color: #fff!important; opacity: 1;"
+                            aria-hidden="true">
+                            &times;
+                          </button>
+                          <h4 class="modal-title" id="myModalLabel">
+                            <b>Current Package</b>
+                          </h4>
+                        </div>
+                        <div class="modal-body col-md-12" style="float: left;">
+                          <h3 class="pull-left">Packages</h3>
+                          <div class="table-responsive kv-grid-container" style="overflow: auto;float:left !important">
+                            <table class="table table-hover table-bordered" 
+                              >
+                              <thead>
+                                <tr class="table-headers">
+                                  <th style="width: 20%">
+                                    Package Name
+                                  </th>
+                                  <th style="width: 10%" class="text-center">
+                                   Max No.Of Venues
+                                  </th>
+                                  <th style="width: 15%" class="text-center">
+                                    Total Price
+                                  </th>
+                                  <th style="width: 15%" class="text-center">
+                                   Package Duration
+                                  </th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <td>{{pack_inf_name}}</td>
+                                  <td class="text-center">{{pack_inf_ven}}</td>
+                                  <td class="text-center">{{pack_inf_bill}}</td>
+                                  <td class="text-center">{{pack_inf_dur}}</td>
+                                </tr>
+                              </tbody>
+
+                            </table>
+                          </div>
+                        </div>
+                        <div class="modal-footer mFooter" style="border-top: none;margin-top: 50px;">
+                          <div class="col-sm-6 nopadding  pull-right">
+                            &nbsp;&nbsp;
+                            <button type="button" class="btn btn-Clear" (click)="closeCurPackModal()">
+                              Close
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" bsModal  tabindex="-1" role="dialog"
+  aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content pull-left">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" (click)="closeRenewModal();">&times;</button>
+        <h4 class="modal-title">Renew Existing Subscription</h4>
+      </div>
+      <div class="modal-body pull-left" style="padding-bottom:10px;">
+        <div class="col-sm-10 col-sm-offset-1 nopadding">
+          <form [formGroup]="ManageRenewSubForm" novalidate>
+            <div class="form-group">
+              <div class="col-sm-12 nopadding margin-top-10">
+                <div class="col-sm-4">
+                  <label class="control-label add-member-label">Select Package&nbsp;:</label>
+                </div>
+                <div class="col-sm-8">
+                  <div class="col-sm-12 input-group">
+                    <select [(ngModel)]="cur_package_id" class="form-control" formControlName='managerenewsubpackid'
+                      [ngClass]="{errmsg: (!ManageRenewSubForm.controls['managerenewsubpackid'].valid && !ManageRenewSubForm.controls['managerenewsubpackid'].pristine)}">
+                      <option selected value="{{cur_package_id}}">{{cur_package_name}}</option>
+                    </select>
+                  </div>
+                </div>
+                <!--<div class="col-sm-3" style="margin-top:5px">
+                  <a (click)="openPackagesModal(1)">Compare packages</a>
+                </div> -->
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="col-sm-12 nopadding margin-top-10">
+                <div class="col-sm-4">
+                  <label class="control-label add-member-label">Max No.of Venues&nbsp;:</label>
+                </div>
+                <div class="col-sm-8">
+                  <div class="input-group">
+                    <input type="text" class="form-control" formControlName='managerenewsubnumven' name="maxven"
+                      disabled />
+                    <span class="input-group-addon">
+                      <i class="fa fa-building" style="height: 10px;"></i>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-12 nopadding margin-top-10">
+                <div class="col-sm-4">
+                  <label class="control-label add-member-label">Auto Renewal&nbsp;:</label>
+                </div>
+                <div class="col-sm-8">
+                  <div class="input-group col-sm-12">
+                    <div class="col-sm-6 padding-0">
+                      <input type="checkbox" formControlName='managerenewsubenableautorenew' style="vertical-align: middle" />&nbsp;
+                      <label style="vertical-align: sub">Enable</label>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-12 nopadding margin-top-10">
+                <div class="col-sm-4">
+                  <label class="control-label add-member-label">Starting Date&nbsp;:</label>
+                </div>
+                <div class="col-sm-8">
+                  <div class="input-group">
+                    <input class="form-control" formControlName='managerenewsubstartdate' [owlDateTimeTrigger]="managerenewsubstartdate"
+                      [owlDateTime]="managerenewsubstartdate" placeholder="MM/DD/YYYY" [min]="cur_date" />
+                    <owl-date-time #managerenewsubstartdate  [pickerType]="'calendar'"></owl-date-time>
+                    <span class="input-group-addon">
+                      <i class="fa fa-calendar" style="height: 10px;"></i>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-12 nopadding margin-top-10">
+                <div class="col-sm-4">
+                  <label class="control-label add-member-label">Ending Date&nbsp;:</label>
+                </div>
+                <div class="col-sm-8">
+                  <div class="input-group">
+                    <input class="form-control" formControlName='managerenewsubenddate' [owlDateTimeTrigger]="managerenewsubenddate"
+                      [owlDateTime]="managerenewsubenddate" placeholder="MM/DD/YYYY" [readonly]="true" />
+                    <owl-date-time #managerenewsubenddate [pickerType]="'calendar'" [disabled]="true"></owl-date-time>
+                    <span class="input-group-addon">
+                      <i class="fa fa-calendar" style="height: 10px;"></i>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-12 nopadding margin-top-10">
+                <div class="col-sm-4">
+                  <label class="control-label add-member-label">Total Price&nbsp;:</label>
+                </div>
+                <div class="col-sm-8">
+                  <div class="input-group">
+                    <input type="text" formControlName='managerenewsubprice' class="form-control" disabled />
+                    <span class="input-group-addon">
+                      <i class="fa fa-money" style="height: 10px;"></i>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+          <div class="col-md-12" style="margin-top:10px;text-align:center">
+            <div class="form-group">
+              <div class="col-sm-12 nopadding margin-top-20">
+                <button type="button" class="btn btn-default  pull-right" style="margin-left:10px;" data-dismiss="modal"
+                  (click)="closeRenewModal();">Close</button>
+                <button *ngIf="!show_paytm_toggle" type="button" [disabled]="!ManageRenewSubForm.valid" 
+                  class="btn btn-success pull-right">Subscribe</button>
+                <button *ngIf="show_paytm_toggle" type="button" [disabled]="!ManageRenewSubForm.valid" (click)="openRenewPaytmConfirm()"
+                  class="btn btn-success pull-right">Pay using Paytm</button>
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer pull-left col-sm-12" style="text-align:center;">
+        <p>* If you want to upgrade the package, please go to <b>Renewals &amp; Upgrades section.</b></p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<div class="modal fade"  tabindex="-1" role="dialog"
+  aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-md" style="background-color:#eee">
+    <div class="modal-content" style="box-shadow:none">
+      <div class="modal-header">
+
+        <h4 class="modal-title" id="myModalLabel">
+          <b>Confirmation Of Payment</b>
+        </h4>
+      </div>
+      <div class="modal-body col-md-12" style="float: left;padding-top:10px;">
+        <p>Renewing the package will be come into action once existing package expires and the amount will not be
+          refunded.</p>
+      </div>
+
+    </div>
+    <div class="modal-footer mFooter" style="border-top: 1px solid#e8e8e8;margin-top: 50px;">
+      <div class="col-sm-2 nopadding  pull-right">
+        &nbsp;&nbsp;
+        <button type="button" class="btn btn-Clear" (click)="closePayConfirmModal()">
+          Close
+        </button>
+      </div>
+      <div class="col-sm-2 nopadding  pull-right">
+        &nbsp;&nbsp;
+        <button type="button" class="btn btn-primary" >
+          Proceed
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,88 @@
+<app-leads></app-leads>
+
+
+
+<div class="flex-p" style="margin-top: -10px; margin-bottom: 10px;">
+    <div class="row wrap">
+        <div class="col-xs-12">
+            <div class="col-sm-6 pull-left">
+              <!-- <label>The timeline of the Project updates appears here</label> -->
+            </div>
+            <div class="col-sm-6 pull-right">
+                 <div class="col-sm-3"></div>
+                <div class="col-sm-4" style="margin-right: 5px !important;margin-top: 6px;">
+                   <input class="form-control" placeholder="Enter keyword" type="text">
+                </div>
+                <div class="col-sm-2">
+                    <button mat-raised-button class="pull-right btn-success-gray">
+                        <mat-icon>settings_backup_restore</mat-icon> Reset
+                    </button>
+                </div>
+                <div class="col-sm-2">
+                    <button mat-raised-button color="primary" class="pull-right filters-hover">
+                        <mat-icon>youtube_searched_for</mat-icon> Search
+                    </button>
+                </div>
+            </div>   
+         </div>
+    </div>
+  <div fxLayout="row wrap" style="margin-top:10px;padding: 0px 5px 0px 5px;">
+    <div class="w-100 flex-p">
+        <mgl-timeline  [alternate]="alternate">
+          <mgl-timeline-entry *ngFor="let entry of entries; let i = index;" (expand)="onExpandEntry($event, i)">
+            <mgl-timeline-entry-header [class] = 'entry.headerClass' (click)="onHeaderClick($event)">
+              <div style="margin-bottom:10px;"><i class="{{entry.element}}" style="float: left">&nbsp;&nbsp;&nbsp;</i><b style="float: left">{{entry.header}}</b>&nbsp;&nbsp;&nbsp;&nbsp;<b style="float: right">{{entry.date}}</b></div>
+              <div><p class="left-alignment"><i class="{{entry.dataelement}}" style="float: left"></i>{{entry.content}}</p></div>
+            </mgl-timeline-entry-header>
+            
+            <mgl-timeline-entry-dot [class]="entry.class"
+            [size]="size"
+            (click)="onDotClick($event)"></mgl-timeline-entry-dot>
+            <mgl-timeline-entry-side>2018</mgl-timeline-entry-side> 
+          </mgl-timeline-entry>
+        </mgl-timeline>
+        </div>
+        </div>
+
+<!--<div fxLayout="row wrap" >
+  <div class="table-responsive topmargin" style="width:100% !important;margin-top: 50px;">
+      <table id="example2" class="table table-bordered table-hover">
+          <thead class="tbl-head">
+              <tr class="tr-grid-header">
+                  <th class="text-center">View Name</th>
+                  <th class="text-center">View Description</th>
+                  <th class="text-center">Category</th>
+                  <th class="text-center">Product</th>
+                 
+             
+                 
+                  <th  class="text-center" style="min-width: 100px !important;">Actions</th>
+              </tr>
+          </thead>
+          <tbody>
+          
+              <tr *ngFor="let item of items">
+                  <td class="text-center">
+                   {{item.view}}
+                  </td>
+                  <td class="text-center">{{item.view_desc}}</td>
+                  <td class="text-center" style="max-width: 300px !important; word-wrap: break-word !important;">{{item.Category_name}}</td>
+                  <td class="text-center">{{item.Product_Name}}</td>
+                 
+                 
+                
+                 
+                  <td  class="text-center">
+                      <a  title="Edit" style="cursor: pointer; margin-right: 10px !important">
+                          <i class="fa fa-edit" style="color: cornflowerblue"></i>
+                      </a>
+                      <a >
+                          <i style="cursor: pointer;" title="Delete" class="fa fa-trash red"></i>
+                      </a>
+                  </td>
+              </tr>
+          </tbody>
+      </table>
+      <mat-paginator [pageSizeOptions]="[5, 10, 25, 50, 100]"  showFirstLastButtons></mat-paginator>
+  </div>
+</div>-->

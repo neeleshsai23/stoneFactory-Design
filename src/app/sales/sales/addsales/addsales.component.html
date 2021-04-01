@@ -1,0 +1,45 @@
+<div class="NewHeader">
+  <h1 mat-dialog-title>
+    Add Sale
+  </h1>
+</div>
+<div mat-dialog-content>
+  <form class="form-horizontal">
+      <div class="form-group">
+          <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label">Agent Name: </label>
+          <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+              <input type="text" class="form-control" placeholder="Enter Agent Name" required>
+          </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label">Units Sold:</label>
+        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+            <input type="text" class="form-control" placeholder="Enter Units Sold" required>
+        </div>
+    </div>
+      <div class="form-group">
+          <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label">Project Name: </label>
+          <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+              <select name="prospect" class='form-control' required>
+                  <option value="" selected>--Select Project Name--</option>
+                  <option class='option' *ngFor='let option of prospectsOptions' [value]="option">{{option}}</option>
+              </select>
+          </div>
+      </div>
+      <div class="form-group">
+          <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label" for="pwd">Date of sale: </label>
+          <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+            <input class="form-control" placeholder="Select Date" class="form-control" id="db" [owlDateTimeTrigger]="dt1"
+            [owlDateTime]="dt1" name="dt1" required>
+          <owl-date-time [pickerType]="'calendar'" #dt1></owl-date-time>
+          </div>
+      </div>
+  </form>
+</div>
+<mat-dialog-actions align="end">
+  <button mat-raised-button class="btn-primary" (click)="saveContact()"><span *ngIf="!contact">Save</span><span
+          *ngIf="contact">Update</span></button>
+  <button mat-raised-button class="add-dark-hover btn-default" (click)="close()">Cancel</button>
+</mat-dialog-actions>
+
+

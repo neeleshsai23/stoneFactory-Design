@@ -1,0 +1,26 @@
+
+<div class="w-100" fxLayout="row" fxLayoutAlign="center center" style="height:60px;border-bottom:1px solid rgba(150,150,150,1)">
+  <h3>Import CSV File</h3>
+</div>
+<div class="w-100" style="padding:20px">
+  <p>Download a <span style="cursor: pointer;">sample CSV template</span> to see an example of the format required.</p>
+  <button mat-raised-button  class="btn-primary margin-right-10" style="margin-top: 20px;" (click)="onClickFileInputButton()" >
+    Upload CSV File
+  </button>
+  <div fxLayout="row" style="margin-top: 20px;padding:20px 0">
+    
+      <input type="checkbox" />
+    
+    
+      <label style="margin-left: 10px;">Overwrite any current items that have the same handle. Existing values will be used for any missing columns.<span> Learn more</span></label>
+    
+
+  </div>
+
+</div>
+
+<mat-dialog-actions align="end" style="margin-left: 68%;">
+  <button mat-raised-button class="btn-primary" (click)="close()">Save</button>
+  <button mat-raised-button class="CancelClass" (click)="close()">Close</button>
+</mat-dialog-actions>
+

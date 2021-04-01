@@ -1,0 +1,25 @@
+<div class="newHeader">
+  <h2 class="custom-header" mat-dialog-title>Widths</h2>
+</div>
+<div fxLayout="row" fxLayoutAlign="center center" mat-dialog-content>
+  <div class="col-sm-12">
+    <label class="col-sm-4 control-label add-member-label">Add Width : </label>
+    <div class="col-sm-8">
+      <textarea rows="3" class="form-control" placeholder=" Enter values seperated  by Comma"></textarea>
+    </div>
+  </div>
+  
+</div>
+<div>
+  <h5 style="margin-left: 15px;">2, 3, 4 are selected</h5>
+</div>
+
+<mat-dialog-actions class="col-sm-12" align="end">
+  <button mat-raised-button class="btn-primary" (click)="close()">
+    Save
+  </button>
+  <button mat-raised-button class="CancelClass" (click)="close()">
+    <!-- <mat-icon>cancel</mat-icon>&nbsp; -->
+    Close
+  </button>
+</mat-dialog-actions>

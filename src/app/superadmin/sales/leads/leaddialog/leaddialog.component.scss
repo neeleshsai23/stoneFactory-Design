@@ -1,0 +1,28 @@
+.user-form{
+    .form-field-outer{
+        width: 280px;
+    }
+    .mat-radio-button{
+        margin-right: 12px;
+    }
+}
+
+.checklist-item  td{
+  vertical-align: middle;
+}
+
+.mat-horizontal-stepper-header {
+    padding: 0 16px !important;
+    height: 64px !important;
+}
+.NewHeader {
+    text-align: center;
+    color: white;
+    background: #286ba5;
+    margin-left: -24px;
+    margin-top: -24px;
+    margin-right: -24px;
+    padding-top: 11px;
+    padding-bottom: 1px;
+    margin-bottom: 20px;
+}

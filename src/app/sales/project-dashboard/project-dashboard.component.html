@@ -1,0 +1,57 @@
+<p class="col-sm-12" style="margin-top: 20px !important;">
+    <span style="font-size: 18px;font-weight: bold; margin-right: 8px">Member Name:</span>
+    <span style="font-size: 16px; margin-right: 8px">MB Stone International</span>
+    <span class="pull-right" style="font-size: 16px; margin-right: 8px;margin-top: 2px;"> Active</span>
+    <span class="pull-right" style="font-size: 18px;font-weight: bold; margin-right: 8px">Member Status:</span>
+
+    <!-- <span style="font-size: 16px; margin-right: 8px">(Toronto Towers) </span> -->
+</p>
+<div fxLayout="row" style="padding: 5px 5px 10px 5px">
+    <a routerLinkActive="active-link" routerLink="/member/setup/activity"
+        class="col-sm font-color">Activity
+        <br /> </a>
+    <!-- <a routerLinkActive="active-link" routerLink="/member/setup/overview"
+        class="col-sm font-color">Overview
+        <br /></a> -->
+
+    <a routerLinkActive="active-link" routerLink="/member/setup/categories"
+        class="col-sm font-color">Categories
+        <br />
+    </a>
+    <a routerLinkActive="active-link" routerLink="/member/setup/view"
+        class="col-sm font-color">Views
+        <br /></a>
+
+    <a routerLinkActive="active-link" routerLink="/member/setup/sub-categories"
+        class="col-sm font-color">Sub Categories
+        <br /></a>
+        
+        
+
+    <a routerLinkActive="active-link" routerLink="/member/setup/specs"
+        class="col-sm font-color" style="color:#FDE599 !important;">Specs
+    </a>
+    <a routerLinkActive="active-link" routerLink="/member/setup/products"
+        class="col-sm font-color" style="color:#FDE599 !important;">Products
+    </a>
+    <a routerLinkActive="active-link" routerLink="/member/setup/sku-master"
+    class="col-sm font-color" style="color:#FDE599 !important;">SKU Master
+    </a>
+    <a routerLinkActive="active-link" routerLink="/member/setup/embeds"
+        class="col-sm font-color">Embed
+    </a>
+    <a routerLinkActive="active-link" routerLink="/member/setup/theme"
+        class="col-sm font-color">Theme
+    </a>
+</div>
+   
+
+<div class="w-100">
+    <div class="flex-p">
+        <div class="row wrap">
+            <div class="col-sm-12 no-padding">
+                <router-outlet></router-outlet>
+            </div>
+        </div>
+    </div>
+</div>

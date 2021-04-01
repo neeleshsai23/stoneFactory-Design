@@ -1,0 +1,250 @@
+<div class="row-wrap">
+  <div class="flex-p w-100">
+      <div class="row">
+          <div class="col-xs-12">
+              <div class="row" style="margin-bottom:7px;">
+                  <div class="col-xs-6 ">
+                      <div class="flex-p">
+                          <app-project></app-project>
+                      </div>
+                  </div>
+                  <div class="col-xs-6 ">
+                      
+                      
+                  </div>
+              </div>
+              
+              
+              <div class="row" style="margin-top:15px;">
+                  <div class="col-lg-4"> 
+                      
+                      <mat-card-header fxLayoutAlign="center center">                
+                          <mat-card-subtitle><h2>Distribution By Property</h2></mat-card-subtitle>
+                      </mat-card-header>
+                      <div class="w-100 h-300p">
+                          <ngx-charts-pie-chart
+                          [scheme]="colorScheme"
+                          [results]="single"
+                          [legend]="showLegend"
+                          [explodeSlices]="explodeSlices"
+                          [labels]="showLabels"
+                          [doughnut]="doughnut"
+                          [gradient]="gradient"
+                          (select)="onSelect($event)">
+                      </ngx-charts-pie-chart>                  
+                  </div>
+                  
+              </div>
+              
+              <div class="col-lg-4"> 
+                  
+                  <mat-card-header fxLayoutAlign="center center">                
+                      <mat-card-subtitle><h2>Distribution By Country</h2></mat-card-subtitle>
+                  </mat-card-header>
+                  <div class="w-100 h-300p">
+                      <ngx-charts-pie-chart
+                      [scheme]="colorScheme"
+                      [results]="triple"
+                      [legend]="showLegend"
+                      [explodeSlices]="explodeSlices"
+                      [labels]="showLabels"
+                      [doughnut]="doughnut"
+                      [gradient]="gradient"
+                      (select)="onSelect($event)">
+                  </ngx-charts-pie-chart>                  
+              </div>
+              
+          </div>
+          <div class="col-lg-4"> 
+              
+              <mat-card-header fxLayoutAlign="center center">                
+                  <mat-card-subtitle><h2>Distribution By Status</h2></mat-card-subtitle>
+              </mat-card-header>
+              <div class="w-100 h-300p">
+                  <ngx-charts-pie-chart
+                  [scheme]="colorScheme"
+                  [results]="multi"
+                  [legend]="showLegend"
+                  [explodeSlices]="explodeSlices"
+                  [labels]="showLabels"
+                  [doughnut]="doughnut"
+                  [gradient]="gradient"
+                  (select)="onSelect($event)">
+              </ngx-charts-pie-chart>                  
+          </div>
+          
+      </div>
+  </div>
+  
+  <div class="row" style="margin-bottom:7px;">
+      <div class="col-xs-6 ">
+      </div>
+      <div class="col-xs-6 ">
+          <div class="flex-p">
+              <button mat-raised-button class="pull-right  btn-primary" (click)="openProjectDialog()" >
+                  <mat-icon>add</mat-icon> Add Member
+              </button>
+              <button mat-raised-button  class="pull-right  btn-primary margin-right-10" (click)="opengridcoloum()" >
+                  <mat-icon>grid_on</mat-icon> Grid Columns
+              </button>
+              <button mat-raised-button color="primary" class="pull-right filters-hover margin-right-10"
+              (click)="filterToggle = !filterToggle">
+              <mat-icon>filter_list</mat-icon> Filter
+          </button>
+          
+      </div>
+      
+  </div>
+</div>
+
+<div fxLayout="row wrap" *ngIf="filterToggle">
+  <div fxFlex="100" fxFlex.gt-sm fxFlex.sm class="flex-p w-100 margins">
+      <mat-card class="filter">
+          <mat-card-content>
+              <div class="row">
+                  <div class="col-sm-4">
+                      <div class="col-sm-4 newMarginClass">
+                          Property Name: 
+                      </div>
+                      <div class="col-sm-8">
+                          <input type="text" placeholder="Search by Project #" class="form-control" [formControl]="contactName">
+                      </div>
+                  </div>
+                  <div class="col-sm-4">
+                      <div class="col-sm-4 newMarginClass">
+                          Contact Name: 
+                      </div>
+                      <div class="col-sm-8">
+                          <input type="text" placeholder="Search by Contact Name" class="form-control" [formControl]="clientName">
+                      </div>
+                  </div>
+                  <div class="col-sm-4">
+                      <div class="col-sm-4 newMarginClass">
+                          Email: 
+                      </div>
+                      <div class="col-sm-8">
+                          <input type="text" placeholder="Search by Email" class="form-control" [formControl]="jobTitle">
+                      </div>
+                  </div>
+              </div>
+              
+              <div class="row" style="padding-top:10px !important">
+                  <div class="col-sm-4">
+                      <div class="col-sm-4 newMarginClass">
+                         Phone Number: 
+                      </div>
+                      <div class="col-sm-8">
+                          <input class="form-control"  [formControl]="startendDate" class="form-control" placeholder="Enter Number" (keypress)="false" [owlDateTimeTrigger]="dt5" [owlDateTime]="dt5" name="dt5">
+                          <owl-date-time [pickerType]="'calendar'" #dt5></owl-date-time>
+                      </div>
+                  </div>
+                  <div class="col-sm-4">
+                      <div class="col-sm-4 newMarginClass">
+                          Location: 
+                      </div>
+                      <div class="col-sm-8">
+                          <input class="form-control"  [formControl]="startdueDate" class="form-control" placeholder="MM/DD/YYYY" (keypress)="false" [owlDateTimeTrigger]="dt6" [owlDateTime]="dt6" name="dt6">
+                          <owl-date-time [pickerType]="'calendar'" #dt6></owl-date-time>
+                      </div>
+                  </div>
+                 
+              </div>
+              <div class="row" style="padding-top:10px !important">
+                  <div style="position: relative;left: 75%;">
+                  
+                  <div class="col-lg-1" style="margin-left:195px!important;">
+                      <button mat-raised-button (click)="fliterSearch()" class="pull-right btn-primary"><mat-icon>youtube_searched_for</mat-icon> Search</button>
+                  </div>
+                  <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1" style="margin-left: -18px;">
+                      <button mat-raised-button style="background-color:#37474f; color:#fff !important" (click)="clearFilters()"><mat-icon>settings_backup_restore</mat-icon> Clear</button>
+                  </div>
+                  <a (click)="filterToggle = !filterToggle" class="pull-right" style="font-size: 25px; cursor: pointer; margin-left: 5px;">
+                      <i class="fa fa-angle-double-up" aria-hidden="true"></i>
+                  </a>
+                  </div>
+                  
+              </div>
+          </mat-card-content>
+      </mat-card>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xs-12">
+      <div id="grid-table-container" class="table-responsive">
+          <table matSort id="example2" class="table table-bordered table-hover">
+              <thead class="tbl-head">
+                  <tr>
+                      <th>Member Name</th>
+                      <th class="text-center">Contact Name</th>
+                      <th class="text-center">Email</th>
+                      <th class="text-center">Phone Number</th>
+                      <th class="text-center">Added By</th>
+                      <th class="text-center">Created Date</th>
+                      <th class="text-center">Package</th>
+                     
+                      <th class="text-center">EULA</th>
+                   
+                     
+                     
+                      <th class="text-center">Status</th>
+                      <th class="text-center" style="width: 112px!important;">Actions</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr *ngFor="let item of items">
+                      <td style="min-width: 70px !important;"><a target="_blank" matTooltip="View Member Dashboard"
+                          routerLink="/superadmin/members/member-dashboard/">
+                          {{item.Property_Name}}
+                      </a>
+                  </td>
+                  <!-- <td style="text-align: center!important;">{{item.projectNumber}}</td> -->
+                  <td style="text-align: center!important;">{{item.ContactName}}</td>
+                  <td style="text-align: center!important;">{{item.Email}}</td>
+                  <td style="text-align: center!important;">{{item.Phone_Number}}</td>
+                  <td style="text-align: center!important;">
+                      {{item.Added_By}}
+                  </td>
+                  <td style="text-align: center!important;">
+                      {{item.Created_Date}}
+                      
+                  </td>
+                  <td style="text-align: center!important;">
+                    {{item.package}}
+                </td>
+                 
+          <td style="text-align: center!important;">
+              {{item.Eula}}
+          </td>
+          
+          <td style="text-align: center!important;"><a style="color: #007ad9;">Active</a>
+        </td>
+          <td style="text-align: center!important;" fxLayout="row" fxLayoutAlign="center center">
+            <a matTooltip="Copy Settings" style="cursor: pointer;" (click)="openCopySettingsDialog()"><mat-icon style="transform: scale(0.6);">content_copy</mat-icon></a>
+            <a style="cursor: pointer; ">
+                <i class="fa fa-edit" style="color: cornflowerblue"></i>
+            </a>
+            <a><i class="fa fa-trash red" matTooltip="Delete Project"  style="cursor: pointer;"(click)="openDeleteDialog(item)"></i></a>
+
+        </td>
+          
+          <!-- <td style="text-align: center!important;">{{item.awardedAmount}}</td> -->
+        
+  </tr>
+ 
+</tbody>
+</table>
+<mat-paginator [length]="totalSize" [pageIndex]="currentPage" [pageSize]="pageSize"
+[pageSizeOptions]="[5, 10, 25, 50, 100]"
+showFirstLastButtons></mat-paginator>
+<!-- <mat-paginator [length]="totalSize" [pageIndex]="currentPage" [pageSize]="pageSize"
+  [pageSizeOptions]="[5, 10, 25, 50, 100]" (page)="handlePage($event)"
+  showFirstLastButtons></mat-paginator> -->
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
